@@ -38,4 +38,7 @@ export default {
 
 <style lang="scss">
 @use 'assets/scss/main' as *;
+@import 'assets/scss/partials/reset.scss';
+
+@import 'assets/scss/partials/variables.scss';
 </style>

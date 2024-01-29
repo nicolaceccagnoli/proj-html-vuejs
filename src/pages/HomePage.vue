@@ -10,7 +10,7 @@
 
 
 <template>
-    <div>
+    <div class="my-container">
         <h1>
             HOME PAGE
         </h1>
@@ -18,6 +18,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/scss/partials/variables.scss';
+
 div {
     display: flex;
     justify-content: center;

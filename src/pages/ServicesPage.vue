@@ -12,15 +12,17 @@
 <template>
     <div>
         <h1>
-            NON TROVATO
+            SERVICES
         </h1>
     </div>
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/scss/partials/variables.scss';
+
 div {
     display: flex;
     justify-content: center;
-    color: red;
+    color: purple;
 }
 </style>

@@ -4,10 +4,8 @@
 import { createRouter, createWebHistory } from "vue-router"; 
 
 import HomePage from './pages/HomePage.vue';
-import AboutPage from './pages/AboutPage.vue';
-import ContactPage from './pages/ContactPage.vue';
-import NotFoundPage from './pages/NotFoundPage.vue';
-import ProductPage from './pages/ProductPage.vue';
+import ServicesPage from './pages/ServicesPage.vue';
+import ShopPage from './pages/ShopPage.vue';
 
 
 const router = createRouter({
@@ -19,26 +17,15 @@ const router = createRouter({
             component: HomePage
         },
         {
-            path: '/chi-siamo',
-            name: 'about',
-            component: AboutPage
+            path: '/services',
+            name: 'services',
+            component: ServicesPage
         },
         {
-            path: '/contatti',
-            name: 'contact',
-            component: ContactPage
-        },
-        {
-            path: '/prodotti/:id/vedi',
-            name: 'prodotti',
-            component: ProductPage
-        },
-        {
-            path: '/:pathMatch(.*)*',
-            name: 'not-found',
-            component: NotFoundPage
-        },
-
+            path: '/shop',
+            name: 'shop',
+            component: ShopPage
+        }
     ]
 });
 
