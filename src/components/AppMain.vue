@@ -14,7 +14,7 @@
 
 <template>
     <main>
-        <div class="my-container">
+        <div>
             <!-- Compontente (importata grazie a vue-router) mi consente
             di avere,nper URL diversi, contenuti informativi diversi -->
             <router-view></router-view>
