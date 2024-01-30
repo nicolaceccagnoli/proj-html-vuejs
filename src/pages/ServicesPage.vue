@@ -3,39 +3,58 @@
         data() {
             return {
                 serviceCards: [
+                {                
+                    title:'Human Capital',
+                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    path: `<i class="fa-solid fa-users"></i>`
+                },
                 {
-                    img:'',
-                    name:'Audit e Garanzia',
+                    title:'Core Business',
+                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    path: `<i class="fa-solid fa-chart-pie">`
+                },
+                {
+                    title:'Performance',
+                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    path: `<i class="fa-solid fa-gauge"></i>`
+                }
+            
+                ],
+
+                serviceCards2: [
+                {
+                    img:'/public/svgs/svg-1.svg',
+                    name:'Audit & Assurance',
                     text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
-                    img:'',
-                    name:'Consulente finanziario',
+                    img:'/public/svgs/svg-2.svg',
+                    name:'Financial Advisory',
                     text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
-                    img:'',
-                    name:'Analisi e fusioni e acquisizioni ',
+                    img:'/public/svgs/svg-3.svg',
+                    name:'Analytics and M&Q',
                     text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
-                    img:'',
-                    name:'Marketing medio',
+                    img:'/public/svgs/svg-4.svg',
+                    name:'Middle Marketing',
                     text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
-                    img:'',
-                    name:'Consulenza legale',
+                    img:'/public/svgs/svg-5.svg',
+                    name:'Legal Consulting',
                     text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
-                    img:'',
-                    name:'Rischio normativo',
+                    img:'/public/svgs/svg-6.svg',
+                    name:'Regular Risk',
                     text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 }
@@ -62,32 +81,27 @@
 
     <div id="container-card">
         <div class="container">
-            <div class="row d-flex justify-content-center pt-5 pb-5">
-
-                <div class="col-3">
-                    <div id="card" class="container">
-                        <div class="icon"><i class="fa-solid fa-users"></i></div>
-                        <h4>capitale umano</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eius nobis </p>
+            <div v-for="(card, i) in serviceCards"
+                :key="i" class="row d-flex justify-content-center pt-5 pb-5">
+                <div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="icon">
+                                    {{ card.path }}
+                                </div>                                
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            {{ card.title }}
+                        </div>
+                        <div class="col-12">
+                            {{ card.text }}
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-3">
-                    <div id="card" class="container">
-                        <div class="icon"><i class="fa-solid fa-chart-pie"></i></div>
-                        <h4>capitale umano</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eius nobis</p>
-                    </div>
-                </div>
-
-                <div id="card" class="col-3">
-                    <div class="container">
-                        <div class="icon"><i class="fa-solid fa-gauge"></i></div>
-                        <h4>capitale umano</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eius nobis libero</p>
-                    </div>
-                </div>
-
+                                    
             </div> 
         </div>
     </div>
@@ -96,36 +110,39 @@
 
     <div id="container-card2">
         <div class="container">
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-12">
-                    <h5>le nostre aree di business</h5>
+                    <h5>OUR BUSINESS AREAS</h5>
                 </div>
                 <div class="col-12">
-                    <h1>eccellenza nei servizi</h1>
+                    <h1>Excellence in Services</h1>
                 </div>
                 <div class="col-12">
-                    <p>siamo leader nella fornitura di servizi di consulenza con un insieme di tecnlogie
-                        all'avanguardia e un team di professionisti esperti e rinomati. Questo sono alcune opzioni che puoi assumere.
+                    <p>
+                        We are leaders in providing consultancy services with a set of cutting-edge technologies and a team of experienced and renowned professionals.
+                        These are some options that you can hire.
                     </p>
                 </div>
             </div>
-            <div class="row d-flex">
+            <div class="row">
                 <div
-                v-for="(card, i) in serviceCards"
-                :key="i">
+                v-for="(card2, j) in serviceCards2"
+                :key="j">
                     <div class="col-6" style="border: 1px solid black;">
                         <div class="row">
-                            <div class="col-10">img</div>
+                            <div class="col-10">
+                                {{ card2.img}}
+                            </div>
                             <div class="col-2">
-                                {{ card.icon }}
+                                {{ card2.icon }}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <h3>{{card.name}}</h3>
+                                <h3>{{card2.name}}</h3>
                             </div>
                             <div class="col-12">
-                                <p> {{ card.text }}</p>
+                                <p> {{ card2.text }}</p>
                             </div>
                         </div>
                     </div>               
