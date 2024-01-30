@@ -60,32 +60,86 @@ import { RouterLink } from 'vue-router';
                 </div>
 
                 <div class="container-info d-flex align-items-center">
-                     <!--form-->
-                    <div class="d-flex">
-                        <select class="form-control form-control ">
-                            <option>demo</option>
-                            <option>lorem</option>                    
-                        </select>
-                        <select class="form-control form-control">
-                            <option>page</option>
-                            <option>
-                                <a href="#"><router-link :to="{ name: 'services' }">service</router-link></a>
-                                
-                            </option>
-                        </select>
-                        <select class="form-control form-control">
-                            <option>portfolio</option>
-                            <option>lorem</option>
-                        </select>
-                        <select class="form-control form-control">
-                            <option>blog</option>
-                            <option>lorem</option>
-                        </select>
+
+                    <!--DEMO-->
+                    <div id="drop-down" class="d-flex">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Demo
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </a>
+                                    <ul>
+                                        <li><a href="#">lorem</a></li>
+                                        <li><a href="#">lorem</a></li>                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
 
-                     <!--links/button-->
+                    <!--PAGE-->
+                    <div id="drop-down" class="d-flex">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Page
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </a>
+                                    <ul>
+                                        <li><a href="#">chi siamo</a></li>
+                                        <li><a href="#">
+                                            <router-link :to="{ name: 'services' }">
+                                            service
+                                            </router-link>
+                                        </a></li>                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!--PORTFOLIO-->
+                    <div id="drop-down" class="d-flex">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Portfolio
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </a>
+                                    <ul>
+                                        <li><a href="#">lorem</a></li>
+                                        <li><a href="#">lorem</a></li>                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!--BLOG-->
+                    <div id="drop-down" class="d-flex">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Blog
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </a>
+                                    <ul>
+                                        <li><a href="#">lorem</a></li>
+                                        <li><a href="#">lorem</a></li>                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!--links/button-->
                     <nav>
-                       <ul>
+                        <ul>
                             <li>
                                 <a href="#">link</a>
                                 <a href="#">link</a>
@@ -100,12 +154,12 @@ import { RouterLink } from 'vue-router';
                                     button
                                 </button>
                             </li>
-                       </ul>              
+                        </ul>              
                     </nav>
                 </div>                                                        
             </div>
         </div>           
-   </header>
+</header>
 </template>
 
 <style lang="scss" scoped>
@@ -146,5 +200,62 @@ select {
     background-color: rgba(0, 0, 0, 0);
     height: 50px;
 }
+
+.icon-arrow-down {
+    color: black;
+}
+
+#drop-down {
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: inline-block;
+        position: relative;
+    }
+
+    a {
+        text-decoration: none;
+        display: block;
+        padding: 10px 20px;
+        color: #333;
+        background-color: white;
+    }
+
+    a:hover {
+        background-color: white;
+    }
+
+    ul ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border: 1px solid #ccc;
+        z-index: 1;
+    }
+
+    ul li:hover > ul {
+        display: inherit;
+    }
+
+    ul ul li {
+        width: 200px;
+        float: none;
+        display: list-item;
+        position: relative;
+    }
+
+    ul ul ul li {
+        position: relative;
+        top: -60px;
+        left: 200px;
+    }
+}    
 
 </style>
