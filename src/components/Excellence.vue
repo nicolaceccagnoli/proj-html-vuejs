@@ -76,7 +76,7 @@ export default {
                                     <img class="single-services-img" :src="getImagePath(`/svgs/${singleCard.path}`)" :alt="singleCard.path">
                                 </div>
                                 <div class="arrow-button col-6 text-end">
-                                    <i class="fa-solid fa-arrow-right"></i>
+                                    <i class="bi bi-arrow-right"></i>
                                 </div>
                             </div>
                             <div class="row">
@@ -152,6 +152,12 @@ export default {
         .arrow-button {
             color: $color-one;
             transition: background-color 0.3s ease;
+            font-size: 32px;
+
+            i {
+                width: 50px;
+                padding: 4px;
+            }
         }
 
     }
@@ -162,7 +168,7 @@ export default {
         }
 
     .single-services-card:hover .arrow-button i {
-        animation: dissolvenzaBackground 2s ease forwards;
+        animation: dissolvenzaBackground 0.5s ease forwards;
 
         @keyframes dissolvenzaBackground {
 
@@ -171,7 +177,7 @@ export default {
                 border-radius: 50%;
             }
             50% {
-                background-color: $color-one;
+                background-color: #03a6a6c5;
                 border-radius: 50%;
             }
             100% {
