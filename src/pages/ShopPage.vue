@@ -243,7 +243,9 @@
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
-                                {{ productCards.card3[0] }}
+                                <div class="background-style">
+                                    {{ productCards.card3[0] }}
+                                </div>
                                 <p>
                                     <span class="old-price">
                                         {{ productCards.card3[2].oldPrice }}
@@ -259,7 +261,9 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
-                                {{ productCards.card4[0] }}
+                                <div class="background-style">
+                                    {{ productCards.card4[0] }}
+                                </div>
                                 <p>
                                     <span class="old-price">
                                         {{ productCards.card4[2].oldPrice }}
@@ -275,7 +279,9 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
-                                {{ productCards.card1[0] }}
+                                <div class="background-style">
+                                    {{ productCards.card1[0] }}
+                                </div>
                                 <p>
                                     <span class="old-price">
                                         {{ productCards.card1[2].oldPrice }}
@@ -291,7 +297,9 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
-                                {{ productCards.card7[0] }}
+                                <div class="background-style">
+                                    {{ productCards.card7[0] }}
+                                </div>
                                 <p>
                                     <span class="old-price">
                                         {{ productCards.card7[2].oldPrice }}
@@ -314,12 +322,44 @@
                 </h5>
                 <ul>
                     <li>
-                        ciao
+                        <span class="d-flex justify-content-between">
+                            <span>
+                                <i class="bi bi-folder-fill"></i> Clothing
+                            </span>
+                            <span class="category-style">
+                                (8)
+                            </span>
+                        </span>
                         <ul>
                             <li class="ps-4">
-                                ciaoo
+                                <span class="d-flex justify-content-between pt-2">
+                                    <span>
+                                        <i class="bi bi-folder-fill"></i> Hoodies
+                                    </span>
+                                    <span class="category-style">
+                                        (6)
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="ps-4">
+                                <span class="d-flex justify-content-between pb-2">
+                                    <span>
+                                        <i class="bi bi-folder-fill"></i> Tshirts
+                                    </span>
+                                    <span class="category-style">
+                                        (2)
+                                    </span>
+                                </span>
                             </li>
                         </ul>
+                        <span class="d-flex justify-content-between">
+                            <span>
+                                <i class="bi bi-folder-fill"></i> Decor
+                            </span>
+                            <span class="category-style">
+                                (2)
+                            </span>
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -486,6 +526,13 @@
 
         .product-categories{
             height: 300px;
+            width: 350px;
+            position: relative;
+
+            .category-style{
+                position: absolute;
+                right: 0;
+            }
         }
 
         #my-list-group{
@@ -516,13 +563,33 @@
                     }
                 }
             }
+
+            .background-style{
+                position: relative;
+
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 3px;
+                    width: 100%;
+                    height: 42%;
+                    background-color: #00A6A626;
+                }
+            }
         }
 
         ul{
             list-style: none;
+            
+            i{
+                color: $color-three;
+                padding-right: 7px;
+            }
 
             li{
-                
+                padding: 10px;
+                color: $main-text-color;
             }
         }
     }
