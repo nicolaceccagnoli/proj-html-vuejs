@@ -7,34 +7,54 @@ import TheCompany from '../components/TheCompany.vue';
         data() {
             return {
 
+                // Creo una flag per mostrare le info di ogni card
+
+                // Creo l'array di oggetti per ogni singola Card
                 projectsCards: [
                     {
                         path: '/public/images/airpods-max.jpeg',
                         title: 'Portfolio item with intro with sidebar',
                         info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
-                    },                    {
+                        showInfo: false,
+                    },       
+                    {
                         path: '/public/images/airpods-max.jpeg',
                         title: 'Portfolio item with intro with sidebar',
                         info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
-                    },                    {
+                        showInfo: false,
+                    },
+                    {
+                        path: '/public/images/airpods-max.jpeg',
+                        title: 'Portfolio item with intro with sidebar',
+                        showInfo: false,
+                    },
+                    {
                         path: '/public/images/airpods-max.jpeg',
                         title: 'Portfolio item with intro with sidebar',
                         info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
-                    },                    {
+                        showInfo: false,
+                    },      
+                    {
+                        path: '/public/images/airpods-max.jpeg',
+                        title: 'Portfolio item with intro with sidebar',
+                        showInfo: false,
+                    }, 
+                    {
                         path: '/public/images/airpods-max.jpeg',
                         title: 'Portfolio item with intro with sidebar',
                         info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
-                    },                    {
-                        path: '/public/images/airpods-max.jpeg',
-                        title: 'Portfolio item with intro with sidebar',
-                        info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
-                    },                    {
-                        path: '/public/images/airpods-max.jpeg',
-                        title: 'Portfolio item with intro with sidebar',
-                        info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
+                        showInfo: false,
                     }
                 ]
 
+            }
+        },
+        methods: {
+            showInfoFunction(index) {
+                this.projectsCards[index].showInfo = true
+            },
+            hideInfoFunction(index) {
+                this.projectsCards[index].showInfo = false
             }
         },
         components:{
@@ -87,17 +107,43 @@ import TheCompany from '../components/TheCompany.vue';
             </div>
             <div class="row g-0">
                 <div
+                @mouseover="showInfoFunction(i)"
+                @mouseout="hideInfoFunction(i)"
                 v-for="(singleProject, i) in projectsCards"
                 :key="i"
                 class="single-project col-4">
                     <img :src="singleProject.path" alt="#">
                     <div class="info-container">
-                        <h4>
-                            {{ singleProject.title }}
-                        </h4>
-                        <p>
-                            {{ singleProject.info }}
-                        </p>
+                        <div class="row h-100">
+                            <div class="col d-flex flex-column justify-content-between">
+                                <div
+                                v-show="singleProject.showInfo"
+                                class="row p-3">
+                                    <div class="col-6">
+                                        Coding
+                                    </div>
+                                    <div class="col-6">
+                                        3 Years
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>
+                                            {{ singleProject.title }}
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div
+                                    v-show="singleProject.showInfo"
+                                    class="col">
+                                        <p>
+                                            {{ singleProject.info }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
