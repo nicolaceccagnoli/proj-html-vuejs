@@ -68,6 +68,11 @@
                                 <a href="#">link</a>
                             </li>
                             <li>
+                                <router-link :to="{ name: 'shop' }">
+                                    Shop
+                                </router-link>
+                            </li>
+                            <li>
                                 <button>
                                     button
                                 </button>
