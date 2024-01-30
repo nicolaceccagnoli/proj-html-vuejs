@@ -43,15 +43,15 @@ export default {
 <template>
     <div id="excellence">
         <div class="my-container">
-            <div id="first-row">
-                <div class="row">
+            <div>
+                <div class="row g-0">
                     <div class="col-12">
                         <h3>
                             Excellence in <span> Services </span>
                         </h3>
                     </div>
                 </div>
-                <div class="row align-items-center">
+                <div class="row g-0 align-items-center">
                     <div class="col-10">
                         <p>
                             We are leaders in providing consultancy services with a set of cutting-edge technologies and a team of experienced ad renowned professionals. These are some options that you can hire.
@@ -66,12 +66,12 @@ export default {
             </div>
             <div id="services-cards-container">
                 <div id="services-card">
-                    <div class="row">
+                    <div class="row g-0">
                         <div 
                         v-for="(singleCard, i) in servicesCard"
                         :key="i"
                         class="single-services-card col-4">
-                            <div class="my-3 row">
+                            <div class="my-3 row g-0">
                                 <div class="col-6">
                                     <img class="single-services-img" :src="getImagePath(`/svgs/${singleCard.path}`)" :alt="singleCard.path">
                                 </div>
@@ -79,14 +79,14 @@ export default {
                                     <i class="bi bi-arrow-right"></i>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row g-0">
                                 <div class="col-auto">
                                     <h4>
                                         {{ singleCard.name }}
                                     </h4>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row g-0">
                                 <div class="col-8">
                                     <p>
                                         {{ singleCard.paragraph }}

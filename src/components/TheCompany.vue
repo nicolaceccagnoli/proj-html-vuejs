@@ -30,11 +30,11 @@
 <template>
     <div id="company">
         <div class="my-container">
-            <div class="row">
+            <div class="row g-0">
                 <div id="small-company" class="col-12">
-                    <div class="row">
+                    <div class="row g-0">
                         <div class="col-6">
-                            <div class="row">
+                            <div class="row g-0">
                                 <div class="col-12">
                                     <h3>
                                         The <span> Company </span> 
@@ -45,12 +45,12 @@
                                         For 12 years we have been providing audit and warranty, financial advice, risk advice, taxes and related services to select clients.
                                     </p>
                                 </div>
-                                <div class="row">
+                                <div class="row g-0">
                                     <div
                                     v-for="(card, i) in companyCards"
                                     :key="i" 
                                     class="company-cards col-6">
-                                        <div class="row align-items-center mb-3">
+                                        <div class="row g-0 align-items-center mb-3">
                                             <div class="col-auto">
                                                 <i :class="card.icon"></i>
                                             </div>
@@ -60,7 +60,7 @@
                                                 </h5>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row g-0">
                                             <div class="col-12 pe-5 ">
                                                 <p class="card-paragraph">
                                                     {{ card.paragraph }}
