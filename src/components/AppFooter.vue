@@ -77,11 +77,11 @@
             <div class="my-container">
                 <div class="row">
                     <div class="col">
-                        <div class="footer-infos d-flex flex-column text-secondary">
+                        <div class="footer-infos d-flex flex-column">
                             <div class="img-box">
                                 <img src="../../public/svgs/svg-7.svg" alt="nexgen-logo">
                             </div>
-                            <p class="text-secondary" id="footer-text">
+                            <p id="footer-text">
                                 Built to the smallest detail with
                                 a focus on feature availability.
                             </p>
@@ -181,10 +181,12 @@
 @import '../assets/scss/partials/variables.scss';
 footer{
     width: 100%;
+    background-color: transparent;
+    background-image: linear-gradient(45deg, #0D1B2A 35%, #1B4965 70%);
 
     .footer-top{
-        height: 600px;
-        background-color: #111117;
+        height: 610px;
+        color: $footer-text-color;
         display: flex;
         align-items: center;
 
@@ -197,7 +199,7 @@ footer{
         }
 
         .bg-color{
-            background-color: #17171C;
+            background-color: #ffffff06;
         }
 
         .footer-infos{
@@ -225,7 +227,7 @@ footer{
                 li{
                     padding: 7px ;
                     a{
-                        color: $main-text-color;
+                        color: $footer-text-color;
                         text-decoration: none;
                         list-style: none;
 
@@ -238,15 +240,16 @@ footer{
 
             button{
                 color: lightgray;
-                border: 1px solid $color-five;
-                border-radius: 20px;
+                border: 2px solid $color-one;
+                border-radius: 22px;
                 max-width: 170px;
                 padding: 8px 20px;
                 margin: 20px 0;
 
                 &:hover{
-                    border: 1px solid white;
-                    background-color: #0E0E14;
+                    border: 2px solid white;
+                    transition: 1s ease-in-out;
+                    background-color: rgba(0, 0, 0, 0.2);
                 }
             }
         }
@@ -273,7 +276,7 @@ footer{
                 li{
                     padding: 7px 18px;
                     a{
-                        color: $main-text-color;
+                        color: $footer-text-color;
                         text-decoration: none;
                         list-style: none;
 
@@ -289,9 +292,9 @@ footer{
     }
 
     .footer-bottom{
-        height: 70px;
-        background-color: #16161C;
-        color: $main-text-color;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.02);
+        color: $footer-text-color;
         cursor: pointer;
 
         .footer-bottom-left,
@@ -321,7 +324,7 @@ footer{
                 a{
                     text-decoration: none;
                     list-style: none;
-                    color: $main-text-color;
+                    color: $footer-text-color;
 
                     &:hover{
                     color: $color-five;
