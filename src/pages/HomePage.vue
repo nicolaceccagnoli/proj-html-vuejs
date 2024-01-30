@@ -62,7 +62,7 @@
         max-width: 500px;
         text-align: center;
         font-size: 20px;
-        color: $main-paragraph-color;
+        color: $main-text-color;
     }
 
     a {
@@ -88,7 +88,7 @@
    } 
 
    p {
-        color: $main-paragraph-color;
+        color: $main-text-color;
         margin-top: 30px;
     }
 

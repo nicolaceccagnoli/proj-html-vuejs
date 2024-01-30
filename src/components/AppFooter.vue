@@ -77,11 +77,11 @@
             <div class="my-container">
                 <div class="row">
                     <div class="col">
-                        <div class="footer-card d-flex flex-column text-secondary">
+                        <div class="footer-infos d-flex flex-column text-secondary">
                             <div class="img-box">
-                                <img src="../../public/logo.PNG" alt="nexgen-logo">
+                                <img src="../../public/svgs/svg-7.svg" alt="nexgen-logo">
                             </div>
-                            <p class="p-1 text-secondary">
+                            <p class="text-secondary" id="footer-text">
                                 Built to the smallest detail with
                                 a focus on feature availability.
                             </p>
@@ -156,13 +156,19 @@
                 <div class="footer-bottom-right">
                     <ul>
                         <li>
-                            <i class="fa-brands fa-facebook"></i>
+                            <a href="#">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
                         </li>
                         <li>
-                            <i class="fa-brands fa-twitter"></i>
+                            <a href="#">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
                         </li>
                         <li>
-                            <i class="fa-brands fa-linkedin"></i>
+                            <a href="#">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -177,26 +183,35 @@ footer{
     width: 100%;
 
     .footer-top{
-        height: 700px;
+        height: 600px;
         background-color: #111117;
         display: flex;
         align-items: center;
 
+        .my-container{
+            width: 1200px;
+        }
+
         .row{
-            gap: 8px
+            gap: 6px
         }
 
         .bg-color{
             background-color: #17171C;
         }
-        .footer-card{
+
+        .footer-infos{
             border-radius: 10px;
             padding: 15px;
             display: flex;
             justify-content: space-between;
 
+            #footer-text{
+                padding: 15px 0;
+            }
+
             .img-box{
-                width: 150px;
+                width: 130px;
                 padding-bottom: 10px;
 
                 img{
@@ -204,33 +219,13 @@ footer{
                 }
             }
 
-            button{
-                color: lightgray;
-                border: 1px solid $color-five;
-                border-radius: 20px;
-                max-width: 150px;
-                padding: 8px 20px;
-                margin: 20px 0;
-
-                &:hover{
-                    border: 1px solid white;
-                    background-color: #0E0E14;
-                }
-            }
-
-            h4{
-                color: white;
-                padding: 25px 10px;
-                font-weight: bold;
-            }
-
             ul{
                 list-style: none;
 
                 li{
-                    padding: 7px 18px;
+                    padding: 7px ;
                     a{
-                        color: gray;
+                        color: $main-text-color;
                         text-decoration: none;
                         list-style: none;
 
@@ -240,21 +235,98 @@ footer{
                     }
                 }
             }
+
+            button{
+                color: lightgray;
+                border: 1px solid $color-five;
+                border-radius: 20px;
+                max-width: 170px;
+                padding: 8px 20px;
+                margin: 20px 0;
+
+                &:hover{
+                    border: 1px solid white;
+                    background-color: #0E0E14;
+                }
+            }
+        }
+        .footer-card{
+            border-radius: 10px;
+            padding: 25px 15px;
+            display: flex;
+            justify-content: space-between;
+            transition: all 0.3s ease-out;
+
+            &:hover{
+                transform: translateY(-5px) scale(1.010) translateZ(0);
+            }
+
+            h4{
+                color: white;
+                padding: 25px 15px;
+                font-weight: bold;
+            }
+
+            ul{
+                list-style: none;
+
+                li{
+                    padding: 7px 18px;
+                    a{
+                        color: $main-text-color;
+                        text-decoration: none;
+                        list-style: none;
+
+                        &:hover{
+                            color: $color-five;
+                            transition: all 0.3s ease-out 0s;
+                            -webkit-transition: all 0.3s ease-out 0s;
+                        }
+                    }
+                }
+            }
         }
     }
 
     .footer-bottom{
-        height: 100px;
+        height: 70px;
         background-color: #16161C;
-        display: flex;
-        justify-content: space-between;
+        color: $main-text-color;
+        cursor: pointer;
+
+        .footer-bottom-left,
+        .footer-bottom-right{
+            transition: all 0.3s ease-out 0s;
+            -webkit-transition: all 0.3s ease-out 0s;
+
+            &:hover{
+            color: $color-five;
+            }
+        }
+
+        .my-container{
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         ul{
             list-style: none;
 
             li{
                 display: inline-block;
-                padding-left: 5px;
+                padding-left: 17px;
+
+                a{
+                    text-decoration: none;
+                    list-style: none;
+                    color: $main-text-color;
+
+                    &:hover{
+                    color: $color-five;
+                    }
+                }
             }
         }
     }
