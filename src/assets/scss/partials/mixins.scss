@@ -1,0 +1,36 @@
+@import '/src/assets/scss/partials/variables.scss';
+
+@mixin main-anchor-style {
+    background-color: $color-one;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+
+@mixin main-span-style {
+    color: $color-one;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(214,230,230,1) 50%);
+}
+
+@mixin secondary-span-style {
+    color: $color-one;
+    background: #E2E3E7;
+    background: linear-gradient(180deg, #E2E3E7 50%, rgba(214,230,230,1) 50%);
+}
+
+@mixin tertiary-span-style {
+    color: white;
+    background: rgb(13,26,41);
+    background: linear-gradient(180deg, rgba(13,26,41,1) 50%, rgba(16,75,85,1) 50%);}
+
+
+@mixin single-services-card {
+    width: calc((100% / 3) - 30px);
+    margin: 15px 15px;
+    padding: 20px;
+    height: 250px;
+    background-color: $color-four;
+
+}

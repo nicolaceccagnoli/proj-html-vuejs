@@ -1,97 +1,126 @@
 <script>
+import Jumbotron from '../components/Jumbotron.vue';
+import Excellence from '../components/Excellence.vue';
     export default {
         data() {
             return {
-
-            };
+                companyCards: [
+                    {
+                        path: `<i class="fa-solid fa-hourglass-start"></i>`,
+                        name: 'Tradition',
+                        paragraph: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.'
+                    },                    {
+                        icon: `<i class="fa-solid fa-lock"></i>`,
+                        name: 'Security',
+                        paragraph: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.'
+                    },                    {
+                        icon: `<i class="fa-solid fa-apple-whole"></i>`,
+                        name: 'Certificate',
+                        paragraph: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.'
+                    },                    {
+                        icon: `<i class="fa-solid fa-user-tie"></i>`,
+                        name: 'Expertise',
+                        paragraph: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.'
+                    }
+                ]
+            }
+        },
+        components:{
+            Jumbotron,
+            Excellence
         }
     }
 </script>
 
 
 <template>
-    <div id="jumbotron">
-        <h1>
-            Ready <span> Team </span>
-        </h1>
-        <p>
-            No matter what your company needs, we will be ready to assist you in the best possible way.
-        </p>
-        <a href="#">
-            GET IN TOUCH
-        </a>
-    </div>
-    <div id="excellence" class="my-container">
-        <h3>
-            Excellence in <span> Services </span>
-        </h3>
-        <p>
-            We are leaders in providing consultancy services with a set of cutting-edge technologies and a team of experienced ad renowned professionals. These are some options that you can hire.
-        </p>
-        
+    <Jumbotron />
 
+    <Excellence />
+
+    <div id="company">
+        <div class="my-container">
+            <div class="row">
+                <div id="small-company" class="col-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>
+                                The <span> Company </span> 
+                            </h3>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                For 12 years we have been providing audit and warranty, financial advice, risk advice, taxes and related services to select clients.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div
+                            v-for="(card, i) in companyCards"
+                            :key="i" 
+                            class="col-6">
+
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-hourglass-start"></i> 
+                                    </div>
+                                    <div class="col-auto">
+                                        <h5>
+                                            {{ card.name }}
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>
+                                            {{ card.paragraph }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 @import '../assets/scss/partials/variables.scss';
+@import '../assets/scss/partials/mixins.scss';
 
-#jumbotron {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url('public/images/bg-parallax.png');
-    background-size: 200%;
-    height: calc(100vh - 80px);
-    background-position: center;
+#company{
+    background:url('/public/images/about-4.jpg') no-repeat;
+    background-position: right center;
+    width: 100%;
+    height:500px;
+    padding: 15px;
 
-    h1 {
-        font-size: 70px;
-        font-weight: 700;
+   #small-company {
+    h3 {
+        color: white;
+        font-size: 50px;
 
         span {
-            color: $color-one;
-            background: rgb(255,255,255);
-            background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(214,230,230,1) 50%);
-            }
+            @include tertiary-span-style;
+        }
+
+    }
+
+    h5 {
+        font-weight: bold;
+        font-size: 24px;
+        color: white;
+    }
+
+    i {
+        color: white;
     }
 
     p {
-        margin: 36px 0;
-        max-width: 500px;
-        text-align: center;
-        font-size: 20px;
         color: $main-text-color;
     }
 
-    a {
-        background-color: $color-one;
-        color: white;
-        text-decoration: none;
-        padding: 10px 30px;
-        border-radius: 5px;
-    }
-
-}
-
-#excellence {
-   h3 {
-    font-size: 50px;
-    font-weight: 700;
-    
-    span {
-        color: $color-one;
-        background: rgb(255,255,255);
-        background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(214,230,230,1) 50%);
-    }
    } 
-
-   p {
-        color: $main-text-color;
-        margin-top: 30px;
-    }
-
 }
-
 </style>
