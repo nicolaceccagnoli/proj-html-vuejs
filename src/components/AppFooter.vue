@@ -85,10 +85,10 @@
                                 Built to the smallest detail with
                                 a focus on feature availability.
                             </p>
-                            <ul class="fa-ul ps-4">
-                                <li><span class="fa-li"><i class="fa-solid fa-phone"></i></span>+1 (305) 1234-5678</li>
-                                <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span>hello@example.com</li>
-                                <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span>Main Avenue, 987</li>
+                            <ul class="">
+                                <li><span class="pe-3"><i class="bi bi-telephone-fill"></i></span>+1 (305) 1234-5678</li>
+                                <li><span class="pe-3"><i class="bi bi-envelope-fill"></i></span>hello@example.com</li>
+                                <li><span class="pe-3"><i class="bi bi-geo-alt-fill"></i></span>Main Avenue, 987</li>
                             </ul>
                             <button class="btn ps-3">
                                 BUY NEXGEN
@@ -157,17 +157,17 @@
                     <ul>
                         <li>
                             <a href="#">
-                                <i class="fa-brands fa-facebook"></i>
+                                <i class="bi bi-facebook"></i>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa-brands fa-twitter"></i>
+                                <i class="bi bi-twitter"></i>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa-brands fa-linkedin"></i>
+                                <i class="bi bi-linkedin"></i>
                             </a>
                         </li>
                     </ul>
