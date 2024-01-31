@@ -174,18 +174,24 @@
                     </span>
                 </div>
                 <div class="form-size">
-                    <select class="form-select">
-                        <option value="">
-                            Ciao
+                    <select class="form-select focus-ring focus-ring-dark" aria-placeholder="Default sorting">
+                        <option value="" disabled>
+                            Default sorting
                         </option>
                         <option value="">
-                            a
+                            Sort by popularity
                         </option>
                         <option value="">
-                            tutti
+                            Sort by average rating
                         </option>
                         <option value="">
-                            quanti
+                            Sort by latest
+                        </option>
+                        <option value="">
+                            Sort by price: low to high
+                        </option>
+                        <option value="">
+                            Sort by price: high to low
                         </option>
                     </select>
                 </div>
@@ -226,9 +232,10 @@
                     Filter by Price
                 </h5>
 
-                <div>
-
-                </div>
+                <!-- <div class="position-relative">
+                    <input type="range" class="position-absolute" min="0" max>
+                    <input type="range" class="position-absolute">
+                </div> -->
             </div>
             <!-- <div class="recently">
                 <h5>
@@ -322,9 +329,12 @@
                 </h5>
                 <ul>
                     <li>
-                        <span class="d-flex justify-content-between">
+                        <span>
                             <span>
-                                <i class="bi bi-folder-fill"></i> Clothing
+                                <i class="bi bi-folder-fill"></i>
+                                <a href="#">
+                                    Clothing
+                                </a>
                             </span>
                             <span class="category-style">
                                 (8)
@@ -332,9 +342,12 @@
                         </span>
                         <ul>
                             <li class="ps-4">
-                                <span class="d-flex justify-content-between pt-2">
+                                <span class="pt-2">
                                     <span>
-                                        <i class="bi bi-folder-fill"></i> Hoodies
+                                        <i class="bi bi-folder-fill"></i>
+                                        <a href="#">
+                                            Hoodies
+                                        </a>
                                     </span>
                                     <span class="category-style">
                                         (6)
@@ -342,9 +355,12 @@
                                 </span>
                             </li>
                             <li class="ps-4">
-                                <span class="d-flex justify-content-between pb-2">
+                                <span class="pt-2">
                                     <span>
-                                        <i class="bi bi-folder-fill"></i> Tshirts
+                                        <i class="bi bi-folder-fill"></i>
+                                        <a href="#">
+                                            Tshirts
+                                        </a>
                                     </span>
                                     <span class="category-style">
                                         (2)
@@ -352,9 +368,12 @@
                                 </span>
                             </li>
                         </ul>
-                        <span class="d-flex justify-content-between">
+                        <span>
                             <span>
-                                <i class="bi bi-folder-fill"></i> Decor
+                                <i class="bi bi-folder-fill"></i>
+                                <a href="#">
+                                    Decor
+                                </a>
                             </span>
                             <span class="category-style">
                                 (2)
@@ -362,6 +381,57 @@
                         </span>
                     </li>
                 </ul>
+            </div>
+            <div class="product-tags">
+                <h5>
+                    Product Tags 
+                </h5>
+                <div>
+                    <a href="#">
+                        <span class="badge">Black</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">Blue</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">Brown</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">Gray</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">House</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <span class="badge mt-2">Long sleeve</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">Ninja</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">Red</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">Shirt</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <span class="badge mt-2">Skull</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">White</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">With hood</span>
+                    </a>
+                    <a href="#">
+                        <span class="badge ms-2">With print</span>
+                    </a>
+                </div>
+
             </div>
         </div>     
     </div>
@@ -429,6 +499,13 @@
         border-radius: 50%;
         background-color: #D9F2F2;
         padding: 10px;
+
+        &:hover{
+            background-color: $color-five;
+            color: white;
+            -webkit-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
     }
     .card{
         height: 350px;
@@ -525,13 +602,45 @@
         }
 
         .product-categories{
-            height: 300px;
+            margin-bottom: 50px;
             width: 350px;
             position: relative;
+
+            a{
+                text-decoration: none;
+                list-style: none;
+                color: $main-text-color;
+
+                &:hover{
+                    color: #A6E0E0;
+                    -webkit-transition: all 0.3s ease-out 0s;
+                    transition: all 0.3s ease-out 0s;
+                }
+            }
 
             .category-style{
                 position: absolute;
                 right: 0;
+            }
+        }
+
+        .product-tags{
+            width: 350px;
+
+            .badge{
+                padding: 10px;
+                border-radius: 4px;
+                font-size: 15px;
+                font-weight: lighter;
+                background-color: #EDEDED;
+                color: $main-text-color;
+
+                &:hover{
+                    background-color: $color-five;
+                    color: white;
+                    -webkit-transition: all 0.3s ease-out 0s;
+                    transition: all 0.3s ease-out 0s;
+                }
             }
         }
 
