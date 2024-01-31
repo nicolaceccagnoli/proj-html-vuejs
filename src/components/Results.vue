@@ -6,6 +6,8 @@
                 // Creo un intervallo 
                 interval: 50,
 
+                bulletsImg: 'svg-0.svg',
+
                 goals: [
                     {
                         currentValue: 0,
@@ -28,6 +30,15 @@
                         name: 'Countries Served'
                     }
                 ],
+                technologies: [
+                    '/public/images/logo-1.png',
+                    '/public/images/logo-2.png',
+                    '/public/images/logo-3.png',
+                    '/public/images/logo-4.png',
+                    '/public/images/logo-5.png',
+                    '/public/images/logo-1.png'
+                ]
+
             }
         },
         methods: {
@@ -54,6 +65,9 @@
                         }, this.interval);
                     }
                 },
+                getImagePath: function(imgPath) {
+                return new URL(imgPath, import.meta.url).href;
+                }
             },
             mounted() {
                 setInterval(() => {
@@ -94,6 +108,23 @@
             </div>
         </div>
     </div>
+    <div id="technologies">
+        <div class="my-container">
+            <div>
+                <img 
+                id="bullets-img"
+                :src="getImagePath(`/svgs/${bulletsImg}`)" alt="#">
+            </div>
+            <div class="row align-items-center">
+                <div 
+                v-for="singleTech in technologies"
+                class="tech-container col-2 d-flex justify-content-center">
+                    <img :src="singleTech" alt="#">
+                </div>
+            </div>
+        </div>
+    </div>
+
 </template>
 
 <style lang="scss" scoped>
@@ -126,4 +157,17 @@
         }
     }
 }
+
+#technologies {
+    @include technologies;
+    position: relative;
+    .tech-container img {
+        @include tech-container-img;
+    }
+
+    #bullets-img {
+        @include bullets-img;
+    }
+}
+
 </style>
