@@ -65,10 +65,10 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
       data-swiper-parallax="-50%"
     ></div>
     <swiper-slide>
-        <div class="row jumbotron-text">
+        <div class="row jumbotron-text-one">
             <div class="title col-12" data-swiper-parallax="-300">
                 <h1>
-                    We Share <span> Good Ideas </span>
+                    We Share <br> <span> Good Ideas </span>
                 </h1>
             </div>
             <div class="text col-12" data-swiper-parallax="-100">
@@ -84,13 +84,13 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
         </div>
     </swiper-slide>
     <swiper-slide>
-        <div class="row jumbotron-text">
+        <div class="row jumbotron-text-two">
             <div class="title col-12" data-swiper-parallax="-300">
                 <h1>
                     Ready <span> Team </span>
                 </h1>
             </div>
-            <div class="text col-12" data-swiper-parallax="-100">
+            <div class="text col-12 text-center" data-swiper-parallax="-100">
                 <p>
                     No matter what your company needs, we will be ready to assist you in the best possible way.
                 </p>
@@ -103,10 +103,10 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
         </div>
     </swiper-slide>
     <swiper-slide>
-        <div class="row jumbotron-text">
+        <div class="row jumbotron-text-three">
             <div class="title col-12" data-swiper-parallax="-300">
                 <h1>
-                    Talk to a <span> Consultant </span>
+                    Talk to a <br> <span> Consultant </span>
                 </h1>
             </div>
             <div class="text col-12" data-swiper-parallax="-100">
@@ -137,11 +137,11 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
   width: 100%;
   height: 100%;
   background: #fff;
+  position: relative;
 }
 
 .swiper-slide {
   font-size: 18px;
-  color: #fff;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 40px 60px;
@@ -173,8 +173,8 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
   line-height: 1.3;
 }
 
-.jumbotron-text {
-
+.jumbotron-text-one, .jumbotron-text-two, .jumbotron-text-three {
+   
     h1 {
     color: #22333E;
     font-size: 70px;
@@ -187,8 +187,6 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
 
     p {
     margin: 36px 0;
-    max-width: 500px;
-    text-align: center;
     font-size: 20px;
     color: $main-text-color;
     }
@@ -203,5 +201,26 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
     }
 
 }
+
+.jumbotron-text-one {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.jumbotron-text-two {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+.jumbotron-text-three {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
 
 </style>
