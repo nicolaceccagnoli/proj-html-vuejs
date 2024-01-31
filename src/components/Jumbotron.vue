@@ -23,7 +23,7 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
                 const currentScrollPosition = window.scrollY;
 
                 // Verifico se l'utente sta scrollando verso l'alto o verso il basso
-                this.showUpperButton = currentScrollPosition < this.lastScrollPosition || currentScrollPosition < 100;
+                this.showUpperButton = currentScrollPosition > 0 && (currentScrollPosition < this.lastScrollPosition || currentScrollPosition < 100);
 
                 // Aggiorno la posizione di scorrimento precedente
                 this.lastScrollPosition = currentScrollPosition; 
