@@ -87,31 +87,31 @@
                 buttons: [
                     {
                         id: 0,
-                        name: 'All'
+                        name: 'ALL'
                     },
                     {
                         id: 4,
-                        name: 'Environment'
+                        name: 'ENVIRONMENT'
                     },
                     {
                         id: 5,
-                        name: 'Events'
+                        name: 'EVENTS'
                     },
                     {
                         id: 1,
-                        name: 'Institutional'
+                        name: 'INSTITUTIONAL'
                     },
                     {
                         id: 6,
-                        name: 'Social'
+                        name: 'SOCIAL'
                     },
                     {
                         id: 2,
-                        name: 'Technology'
+                        name: 'TECHNOLOGY'
                     },
                     {
                         id: 3,
-                        name: 'Innovation'
+                        name: 'INNOVATION'
                     }
                 ]
 

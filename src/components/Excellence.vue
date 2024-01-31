@@ -143,8 +143,7 @@ export default {
 
         .single-services-img {
             width: 50px;
-            filter: brightness(0) saturate(100%) invert(51%) sepia(54%) saturate(3991%) hue-rotate(148deg) brightness(93%) contrast(98%);
-        }
+            filter: brightness(0) saturate(100%) invert(44%) sepia(99%) saturate(5164%) hue-rotate(162deg) brightness(87%) contrast(96%);        }
 
         h4 {
             font-weight: bold;
