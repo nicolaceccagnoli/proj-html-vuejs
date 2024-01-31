@@ -2,159 +2,257 @@
     export default {
         data() {
             return {
-                productCards: {
-                    card1: [
-                        "Black hooded sweatshirt",
-                        {
-                            image: 'https://img01.ztat.net/article/spp-media-p1/6c2a68e896114a498d3c6b82b819e797/adabf4e4e2f44afa9215493f69adf675.jpg?imwidth=300&filter=packshot',
-                        },
-                        {
-                            oldPrice: '$200.00'
-                        },
-                        {
-                             currentPrice: '$129.00'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    card2: [
-                        "Black t-shirt with lamp print",
-                        {
-                            image: 'https://img01.ztat.net/article/spp-media-p1/bc30f9d073d3426a8a144b12296bf889/dd06e26f3f924218891d325b1ae93887.jpg?imwidth=1800',
-                        },
-                        {
-                            oldPrice: ''
-                        },
-                        {
-                            currentPrice: '$45.00'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    card3: [
-                        "Blue hooded sweatshirt",
-                        {
-                            image: 'https://img01.ztat.net/article/spp-media-p1/822e147936b247af92c04f030ee6d6fe/2567a54dd937420b8ce294646651d389.jpg?imwidth=1800',
-                        },
-                        {
-                            oldPrice: '$129.50'
-                        },
-                        {
-                            currentPrice: '$89.90'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    card4: [
-                        "Brown Hooded Sweatshirt",
-                        {
-                            image: 'https://img01.ztat.net/article/spp-media-p1/5b0e6e64422047ca982b5c3119df4e7c/508019397ce240b791b6b000c78f28b8.jpg?imwidth=1800',
-                        },
-                        {
-                            oldPrice: '$75.00'
-                        },
-                        {
-                            currentPrice: '$39.50'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    card5: [
-                        "Gray hooded sweatshirt",
-                        {
-                            image: 'https://img01.ztat.net/article/spp-media-p1/9cff1e08e2524fed82d4cf9bfa9960bb/7339bb9026b04b46ae079b041c9593cd.jpg?imwidth=762',
-                        },
-                        {
-                            oldPrice: ''
-                        },
-                        {
-                            currentPrice: '$149.00'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    card6: [
-                        "Navy Blue Hooded Sweatshirt",
-                        {
-                            image: 'https://img01.ztat.net/article/spp-media-p1/2a7343c1af794dbbbb92c7dcf6a4f37b/e2ed3a8414f0488487f2dac058d0511a.jpg?imwidth=1800',
-                            
-                        },
-                        {
-                            oldPrice: ''
-                        },
-                        {
-                            currentPrice: '$79.00'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    card7: [
-                        "Ninja square poster",
-                        {
-                            image: 'https://ih1.redbubble.net/image.768696357.5316/fposter,small,wall_texture,product,750x1000.u2.jpg',
-                        },
-                        {
-                            oldPrice: '$60.00'
-                        },
-                        {
-                            currentPrice: '$35.00'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    card8: [
-                        "Red hooded sweatshirt",
-                        {
+                cards: [
+                    {
+                        name: "Black hooded sweatshirt",
+                        image: 'https://img01.ztat.net/article/spp-media-p1/6c2a68e896114a498d3c6b82b819e797/adabf4e4e2f44afa9215493f69adf675.jpg?imwidth=300&filter=packshot',
+                        oldPrice: '$200.00',
+                        currentPrice: '$129.00',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            1,
+                            6,
+                            7,
+                            12,
+                            13
+                        ],
+                        productCategories: [
+                            14,
+                            15
+                        ]
+
+                    },
+                    {
+                        name: "Black t-shirt with lamp print",
+                        image: 'https://img01.ztat.net/article/spp-media-p1/bc30f9d073d3426a8a144b12296bf889/dd06e26f3f924218891d325b1ae93887.jpg?imwidth=1800',
+                        oldPrice: '',
+                        currentPrice: '$45.00',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            1,
+                            9,
+                            10
+                        ],
+                        productCategories: [
+                            14,
+                            16
+                        ]
+                    },
+                    {
+                        name: "Blue hooded sweatshirt",
+                        image: 'https://img01.ztat.net/article/spp-media-p1/822e147936b247af92c04f030ee6d6fe/2567a54dd937420b8ce294646651d389.jpg?imwidth=1800',
+                        oldPrice: '$129.50',
+                        currentPrice: '$89.90',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            2,
+                            6,
+                            7,
+                            12,
+                            13
+                        ],
+                        productCategories: [
+                            14,
+                            15
+                        ]
+                    },
+                    {
+                        name: "Brown Hooded Sweatshirt",
+                        image: 'https://img01.ztat.net/article/spp-media-p1/5b0e6e64422047ca982b5c3119df4e7c/508019397ce240b791b6b000c78f28b8.jpg?imwidth=1800',
+                        oldPrice: '$75.00',
+                        currentPrice: '$39.50',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            3,
+                            6,
+                            7,
+                            12,
+                            13
+                        ],
+                        productCategories: [
+                            14,
+                            15
+                        ]
+
+                    },
+                    {
+                        name: "Gray hooded sweatshirt",
+                        image: 'https://img01.ztat.net/article/spp-media-p1/9cff1e08e2524fed82d4cf9bfa9960bb/7339bb9026b04b46ae079b041c9593cd.jpg?imwidth=762',
+                        oldPrice: '',
+                        currentPrice: '$149.00',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            4,
+                            6,
+                            7,
+                            12,
+                            13
+                        ],
+                        productCategories: [
+                            14,
+                            15
+                        ]
+
+                    },
+                    {
+                        name: "Navy Blue Hooded Sweatshirt",
+                        image: 'https://img01.ztat.net/article/spp-media-p1/2a7343c1af794dbbbb92c7dcf6a4f37b/e2ed3a8414f0488487f2dac058d0511a.jpg?imwidth=1800',
+                        oldPrice: '',
+                        currentPrice: '$79.00',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            2,
+                            6,
+                            7,
+                            12,
+                            13
+                        ],
+                        productCategories: [
+                            14,
+                            15
+                        ]
+
+                    },
+                    {
+                        name: "Ninja square poster",
+                        image: 'https://ih1.redbubble.net/image.768696357.5316/fposter,small,wall_texture,product,750x1000.u2.jpg',
+                        oldPrice: '$60.00',
+                        currentPrice: '$35.00',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            5,
+                            7
+                        ],
+                        productCategories: [
+                            17,
+                        ]
+
+                    },
+                    {
+                        name: "Red hooded sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/b54d2da806924ff9b57419c113ca7fef/70caa473c6094186bceaeea4b4a4d084.jpg?imwidth=1800',
-                        },
-                        {
-                            oldPrice: ''
-                        },
-                        {
-                            currentPrice: '$45.90'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    card9: [
-                        "Skull square poster",
-                        {
-                            image: 'https://images.desenio.com/zoom/7459_2.jpg',
-                        },
-                        {
-                            oldPrice: ''
-                        },
-                        {
-                            currentPrice: '$20.00'
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ],
-                    /* card10: [
-                        "White ninja print t-shirt",
-                        {
-                            image: 'https://img01.ztat.net/article/spp-media-p1/f90237dc60e94e52be37af56cacd270c/d009d37d72174406a3430634520ff84f.jpg?imwidth=762',
-                        },
-                        {
-                            currentPrice: '$90.00'
-                        },
-                        {
-                            oldPrice: ''
-                        },
-                        {
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                        }
-                    ], */
-                }
+                        oldPrice: '',
+                        currentPrice: '$45.90',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            6,
+                            7,
+                            8,
+                            12,
+                            13
+                        ],
+                        productCategories: [
+                            14,
+                            15
+                        ]
+
+                    },
+                    {
+                        name: "Skull square poster",
+                        image: 'https://images.desenio.com/zoom/7459_2.jpg',
+                        oldPrice: '',
+                        currentPrice: '$20.00',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            5,
+                            10
+                        ],
+                        productCategories: [
+                            17
+                        ]
+
+                    },
+                    {
+                        name: "White ninja print t-shirt",
+                        image: 'https://img01.ztat.net/article/spp-media-p1/f90237dc60e94e52be37af56cacd270c/d009d37d72174406a3430634520ff84f.jpg?imwidth=762',
+                        oldPrice: '',
+                        currentPrice: '$90.00',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        productTags: [
+                            7,
+                            9,
+                            11
+                        ],
+                        productCategories: [
+                            14,
+                            16
+                        ]
+
+                    }
+                ],
+                /* tags: [
+                    {
+                        id: 1,
+                        name: Black
+                    },
+                    {
+                        id: 2,
+                        name: Blue
+                    },
+                    {
+                        id: 3,
+                        name: Brown
+                    },
+                    {
+                        id: 4,
+                        name: Gray
+                    },
+                    {
+                        id: 5,
+                        name: House
+                    },
+                    {
+                        id: 6,
+                        name: Long_sleeve
+                    },
+                    {
+                        id: 7,
+                        name: Ninja
+                    },
+                    {
+                        id: 8,
+                        name: Red
+                    },
+                    {
+                        id: 9,
+                        name: Shirt
+                    },
+                    {
+                        id: 10,
+                        name: Skull
+                    },
+                    {
+                        id: 11,
+                        name: White
+                    },
+                    {
+                        id: 12,
+                        name: With_hood
+                    },
+                    {
+                        id: 13,
+                        name: With_print
+                    }
+
+                ],
+                categories : [
+                    {
+                        value: 14,
+                        productType: Clothing 
+                    },
+                    {
+                        value: 15,
+                        productType: Hoodies
+                    },
+                    {
+                        value: 16,
+                        productType: Tshirts
+                    },
+                    {
+                        value: 17,
+                        productType: Decor
+                    }
+                ] */
             };
         }
     }
@@ -198,22 +296,22 @@
             </div>
             <div class="products-bottom">
                 <div class="d-flex flex-wrap cards-container">
-                    <div class="card" v-for="(elem, index) in productCards" :key="index">
+                    <div class="card" v-for="(elem, index) in cards" :key="index">
                         <div class="img-box">
-                            <img class="card-img-top" :src="elem[1].image" alt="Card image cap">
+                            <img class="card-img-top" :src="elem.image" alt="Card image cap">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ elem[0] }}</h5>
+                            <h5 class="card-title">{{ elem.name }}</h5>
                         </div>
                         <div class="card-body d-flex">
-                            <a href="#" class="link d-flex justify-content-between" v-for="(elem, index) in elem.slice(1)" :key="index">
+                            <a href="#" class="link d-flex justify-content-between">
                                 <span class="price">
-                                    <span class="current-price">
-                                        {{ elem.currentPrice }} 
-                                    </span>
                                     <span class="old-price">
                                         {{ elem.oldPrice }}
                                     </span> 
+                                    <span class="current-price">
+                                        {{ elem.currentPrice }} 
+                                    </span>
                                 </span>
                             </a>
                             <a href="#" class="shop-cart">
@@ -251,73 +349,73 @@
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
                                 <div class="background-style">
-                                    {{ productCards.card3[0] }}
+                                    {{ cards[2].name }}
                                 </div>
                                 <p>
                                     <span class="old-price">
-                                        {{ productCards.card3[2].oldPrice }}
+                                        {{ cards[2].oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        {{ productCards.card3[3].currentPrice }}
+                                        {{ cards[2].currentPrice }}
                                     </span>
                                 </p>
                             </div>
                             <div class="img-box">
-                                <img :src="productCards.card3[1].image" alt="">
+                                <img :src="cards[2].image" alt="">
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
                                 <div class="background-style">
-                                    {{ productCards.card4[0] }}
+                                    {{ cards[3].name }}
                                 </div>
                                 <p>
                                     <span class="old-price">
-                                        {{ productCards.card4[2].oldPrice }}
+                                        {{ cards[3].oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        {{ productCards.card4[3].currentPrice }}
+                                        {{ cards[3].currentPrice }}
                                     </span>
                                 </p>
                             </div>
                             <div class="img-box">
-                                <img :src="productCards.card4[1].image" alt="">
+                                <img :src="cards[3].image" alt="">
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
                                 <div class="background-style">
-                                    {{ productCards.card1[0] }}
+                                    {{ cards[0].name }}
                                 </div>
                                 <p>
                                     <span class="old-price">
-                                        {{ productCards.card1[2].oldPrice }}
+                                        {{ cards[0].oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        {{ productCards.card1[3].currentPrice }}
+                                        {{ cards[0].currentPrice }}
                                     </span>
                                 </p>
                             </div>
                             <div class="img-box">
-                                <img :src="productCards.card1[1].image" alt="">
+                                <img :src="cards[0].image" alt="">
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
                                 <div class="background-style">
-                                    {{ productCards.card7[0] }}
+                                    {{ cards[6].name }}
                                 </div>
                                 <p>
                                     <span class="old-price">
-                                        {{ productCards.card7[2].oldPrice }}
+                                        {{ cards[6].oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        {{ productCards.card7[3].currentPrice }}
+                                        {{ cards[6].currentPrice }}
                                     </span>
                                 </p>
                             </div>
                             <div class="img-box">
-                                <img :src="productCards.card7[1].image" alt="">
+                                <img :src="cards[6].image" alt="">
                             </div>
                         </li>
                     </ul>
@@ -441,7 +539,7 @@
 @import '../assets/scss/partials/variables.scss';
 
     .my-container-margin{
-        padding: 60px 0 150px 0;
+        padding: 60px 0 500px 0;
     }
     .products{
         display: flex;
@@ -589,9 +687,9 @@
             font-weight: bold;
         }
 
-        .filter{
+        /* .filter{
             
-        }
+        } */
 
         .recently{
             height: 500px;
