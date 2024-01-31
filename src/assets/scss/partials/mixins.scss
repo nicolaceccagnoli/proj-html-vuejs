@@ -85,6 +85,7 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 @mixin info-container {
@@ -158,6 +159,7 @@
     border-radius: 5px;
     padding: 12px 24px;
     margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 @mixin button-form-style {

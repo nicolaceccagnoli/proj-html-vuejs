@@ -5,6 +5,9 @@
             }
             },
             methods: {
+                faceTimeCall() {
+                    alert('Devi Aprire FaceTime')
+                }
             },
             mounted() {
             },
@@ -100,7 +103,9 @@
                         <div class="col-auto">
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a 
+                                    @click="faceTimeCall()"
+                                    href="#">
                                         <div class="icon-container">
                                             <i class="bi bi-telephone-fill"></i>
                                         </div>
@@ -159,8 +164,10 @@
 @import '../assets/scss/partials/variables.scss';
 @import '../assets/scss/partials/mixins.scss';
 #form-container {
-
-    margin: 100px 0;
+    background-image: url('/public/images/geom-bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0;
 
     h3 {
         font-size: 50px;

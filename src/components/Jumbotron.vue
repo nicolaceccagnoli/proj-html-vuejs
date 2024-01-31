@@ -172,10 +172,10 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
     }
 }
 .swiper {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  position: relative;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    position: relative;
 }
 
 .swiper-slide {
