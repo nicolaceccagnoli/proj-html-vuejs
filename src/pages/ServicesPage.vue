@@ -5,17 +5,17 @@
                 serviceCards: [
                 {                
                     title:'Human Capital',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'Humanizing business: Harness the power of technology to improve the way people work.',
                     path: `bi bi-people-fill`
                 },
                 {
                     title:'Core Business',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'It takes innovative approaches to transform, modernize, and run exisiting platforms.',
                     path: `bi bi-pie-chart`
                 },
                 {
                     title:'Performance',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'Achieving maximum impact and value from investments in finance and supply chain',
                     path: 'bi bi-speedometer'
                 }
             
@@ -25,27 +25,27 @@
                 {
                     img:'/svgs/svg-1.svg',
                     name:'Audit & Assurance',
-                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. adipisicing elit.',
                 },
                 {
                     img:'/svgs/svg-2.svg',
                     name:'Financial Advisory',
-                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. adipisicing elit.',
                 },
                 {
                     img:'/svgs/svg-3.svg',
                     name:'Analytics and M&Q',
-                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. adipisicing elit.',
                 },
                 {
                     img:'/svgs/svg-4.svg',
                     name:'Middle Marketing',
-                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. adipisicing elit.',
                 },
                 {
                     img:'/svgs/svg-5.svg',
                     name:'Legal Consulting',
-                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. adipisicing elit.',
                 },
                 {
                     img:'/svgs/svg-6.svg',
@@ -57,7 +57,7 @@
                 {                
                     title:'Standard',
                     price:'$ 490/mo',
-                    icon: `bi bi-rocket-takeoff`,
+                    icon: `bi bi-rocket-takeoff-fill`,
                     list: [
                         {
                         option:'Standard Accounting',
@@ -111,7 +111,7 @@
                 {                
                     title:'ultimate',
                     price:'$ 1390/mo',
-                    icon: `class="bi bi-gem`,
+                    icon: `bi bi-gem`,
                     list: [{
                         option:'Standard Accounting',
                         check: 'bi bi-check'
@@ -144,10 +144,24 @@
 
     <div id="header-service">
         <!--header-->
-        <div class="d-flex justify-content-center">
-            <div class="flex-column">
-                <h1>SERVICES</h1>
-                <h3>home/ services</h3>
+        <div class="text-center video-container">
+            <video autoplay muted loop id="background-video">
+                <source src="/public/videos/video.mp4" type="video/mp4">
+            </video>
+            <div class="services">
+                <h1>
+                    <strong>
+                        SERVICES
+                    </strong>
+                </h1>
+                <h3>
+                    <span id="home-header">
+                        home/ 
+                    </span>
+                    <span id="services-header">
+                        services
+                    </span>
+                </h3>
             </div>     
         </div>
     </div>
@@ -160,9 +174,16 @@
                 <div v-for="(card, i) in serviceCards"
                 :key="i"
                 class="single-card col-4">
-                    <div> {{ card.path }}</div>
+                    <div class="circle d-flex align-items-center justify-content-center">
+                        <div :class="card.path"></div>
+                    </div>
+                    
                     <div>
-                        <h2>{{ card.list }}</h2>
+                        <h2>
+                            <strong>
+                                {{card.title }}
+                            </strong>
+                        </h2>
                         <p>{{ card.text }}</p>
                     </div>
                 </div>
@@ -177,7 +198,9 @@
             <div class="row d-flex">
                 <div class="col-12">
                     <h5>
-                        OUR BUSINESS AREAS
+                        <strong>
+                            OUR BUSINESS AREAS
+                        </strong>                       
                     </h5>
                 </div>
                 <div class="col-12">
@@ -201,8 +224,9 @@
                 :key="j"
                 class="col-6 single-card2">
                     <div class="container-up d-flex justify-content-between">
-                         <div class="icon filter">
-                            <img :src="card2.img" :alt="card2.name">
+                         <div class="icon">
+                            <img style="filter: brightness(0) saturate(100%) invert(38%) sepia(28%) saturate(2716%) hue-rotate(146deg) brightness(88%) contrast(96%);"
+                            :src="card2.img" :alt="card2.name">
                          </div>
                          <div>
                             <i class="bi bi-arrow-right-short"></i>
@@ -212,7 +236,7 @@
                         <h3 class="d-flex">
                             {{ card2.name }}
                         </h3>
-                        <p class="d-flex">
+                        <p id="lenght-text" class="d-flex">
                            {{card2.text}}
                         </p>
                     </div>
@@ -229,7 +253,9 @@
             <div class="row">
                 <div class="col-12">
                     <h5>
-                        MONTHLY PLANS
+                        <strong>
+                            MONTHLY PLANS
+                        </strong>                        
                     </h5>                    
                 </div>
 
@@ -243,7 +269,7 @@
                 </div>
 
                 <div class="col-12">
-                    <p class="padding-bottom">
+                    <p class="padding-bottom color-text2">
                         We can help you deliver and execute your future, wherever you compete, using the latest technologies, from strategy development to implementation.
                     </p>
                 </div>
@@ -262,8 +288,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <div class="icon">
-                                {{ card3.icon }}
+                            <div :class="card3.icon">                            
                             </div>
                         </div>
                         
@@ -278,15 +303,12 @@
                             </h2>
                         </div>
                         
-                        <ul class="">
+                        <ul>
                             <li v-for="(list, index) in card3.list" class="d-flex justify-content-between align-items-center text-left">
                                 <div>
                                     {{ list.option }}
                                 </div>
-                                <div>
-                                    {{ list.check }}
-                                </div>
-                                
+                                <i :class="list.check"></i>                                
                             </li>
                         </ul>
                     </div>
@@ -302,14 +324,63 @@
 @import '../assets/scss/partials/variables.scss';
 
 #header-service {
-    height: 300px;
-    background-color: red;
+    position: relative;
+    height: 400px;
+
+    #services-header {
+        color: $color-one;
+    }
+
+    #home-header {
+        color: white;
+    }
+    
+    h1 {
+        color: white;
+        font-size: 60px;
+    }
+    .video-container {
+        position: relative;
+        overflow: hidden;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+    }
+
+    #background-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: 1;
+    }
+    .video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+    .services {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
 }
 
 .icon {
     height: 50px;
     width: 50px;
-    border: 1px dashed black;
     img {
         height: 100%;
     }
@@ -326,12 +397,24 @@
     background-color: #FFFFFF;
     width: calc((100% / 3) - 30px);
     border-radius: 10px;
-    border: 1px solid black;
     padding: 20px;
     margin: 15px;
 
     h2 {
         margin-bottom: 20px;
+    }
+    .circle {
+        height: 70px;
+        width: 70px;
+        border-radius: 100%;
+        background-color: rgba(5, 130, 131, 0.2);
+    }
+    .bi-people-fill, .bi-pie-chart, .bi-speedometer {
+        font-size: 40px;
+        color: $color-one;
+    }
+    p {
+        color: $color-two;
     }
 }
 
@@ -356,11 +439,13 @@
     h5 {
         color: $color-five;
         padding-top: 100px;
+        font-size: 15px;
     }
     h2{
         padding-top: 20px;
         padding-bottom: 10px;
         color: white;
+        font-size: 50px;
     }
     h3{
         padding-top: 10px;
@@ -370,9 +455,16 @@
     }
     p {
         color: $color-two;
+        margin-bottom: 20px;
+    }
+    #lenght-text {
+        width: 90%;
+        text-align: left;
     }
 
 }
+
+   
 .single-card2 {
     width: calc((100% / 2) - 30px);
     background-color: #19191F;
@@ -385,6 +477,7 @@
 }
 
 //card3 
+
 
 .single-card3 {
     width: calc((100% / 3) - 20px);
@@ -399,9 +492,11 @@
     h5{
         padding-top: 100px;
         color: $color-five;
+        font-size: 15px;
     }
     h2 {
         padding: 20px 0;
+        font-size: 50px;
     }
 
     li {
@@ -412,6 +507,10 @@
     h3 {
         padding-top: 20px;
     }
+    .color-text2{
+        color: $color-two;
+    }
+    
     #most-popular {
     padding-left: 20px;
     padding-right: 20px;
@@ -419,6 +518,19 @@
     }
     .padding-bottom {
         padding-bottom: 20px;
+    }
+
+    .color-icon {
+        height: 50px;
+        color: $color-one;
+    }
+    .bi-gem, .bi-briefcase-fill, .bi-rocket-takeoff-fill {
+        color: $color-one;
+        font-size: 50px;
+    }
+    .bi-x, .bi-check {
+        font-size: 30px;
+        color: $color-one;
     }
 }
    
