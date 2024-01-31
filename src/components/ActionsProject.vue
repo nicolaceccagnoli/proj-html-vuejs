@@ -126,6 +126,9 @@
                 this.projectsCards[index].showInfo = false
             },
             selectedCards(selectedValue) {
+
+                this.selectedTags = [];
+
                 // Applico un controllo per cui se un elemento è già presente nell'array non lo pusho, se è già presente lo toglie
                 if (!this.selectedTags.includes(selectedValue)) {
                     this.selectedTags.push(selectedValue)
@@ -148,10 +151,11 @@
                     
                 // Creo un ciclo per controllare su ogni singola Card dell'Array
                 for (let card in this.projectsCards) {
+
                     // Se il tag di ogni singola Card corrisponde al bottone selezionato
-                    if (isSubset(card.tags_ids, this.selectedTags)) {
+                    if (isSubset(this.projectsCards[card].tags_ids, this.selectedTags)) {
                         // Allora quella Card viene aggiunta a tempArray
-                        this.tempArray.push(card);
+                        this.tempArray.push(this.projectsCards[card]);
                     }
                 }
             }
