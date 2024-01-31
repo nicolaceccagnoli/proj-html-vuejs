@@ -27,7 +27,7 @@
                     {
                         name: "Black t-shirt with lamp print",
                         image: 'https://img01.ztat.net/article/spp-media-p1/bc30f9d073d3426a8a144b12296bf889/dd06e26f3f924218891d325b1ae93887.jpg?imwidth=1800',
-                        oldPrice: '',
+                        oldPrice: null,
                         currentPrice: '$45.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
@@ -75,12 +75,11 @@
                             14,
                             15
                         ]
-
                     },
                     {
                         name: "Gray hooded sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/9cff1e08e2524fed82d4cf9bfa9960bb/7339bb9026b04b46ae079b041c9593cd.jpg?imwidth=762',
-                        oldPrice: '',
+                        oldPrice: null,
                         currentPrice: '$149.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
@@ -94,12 +93,11 @@
                             14,
                             15
                         ]
-
                     },
                     {
                         name: "Navy Blue Hooded Sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/2a7343c1af794dbbbb92c7dcf6a4f37b/e2ed3a8414f0488487f2dac058d0511a.jpg?imwidth=1800',
-                        oldPrice: '',
+                        oldPrice: null,
                         currentPrice: '$79.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
@@ -128,12 +126,11 @@
                         productCategories: [
                             17,
                         ]
-
                     },
                     {
                         name: "Red hooded sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/b54d2da806924ff9b57419c113ca7fef/70caa473c6094186bceaeea4b4a4d084.jpg?imwidth=1800',
-                        oldPrice: '',
+                        oldPrice: null,
                         currentPrice: '$45.90',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
@@ -152,7 +149,7 @@
                     {
                         name: "Skull square poster",
                         image: 'https://images.desenio.com/zoom/7459_2.jpg',
-                        oldPrice: '',
+                        oldPrice: null,
                         currentPrice: '$20.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
@@ -167,7 +164,7 @@
                     {
                         name: "White ninja print t-shirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/3f869be934ef4e359beb6f3bcc817d23/1bf2d8defd5e4db89d557980a31a5850.jpg?imwidth=156',
-                        oldPrice: '',
+                        oldPrice: null,
                         currentPrice: '$90.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
@@ -258,6 +255,26 @@
                         productType: 'Decor',
                         pieces: 2
                     }
+                ],
+                options: [
+                    {
+                        option: 'Default sorting'
+                    },
+                    {
+                        option: 'Sort by popularity'
+                    },
+                    {
+                        option: 'Sort by average rating'
+                    },
+                    {
+                        option: 'Sort by latest'
+                    },
+                    {
+                        option: 'Sort by price: low to higher'
+                    },
+                    {
+                        option: 'Sort by price: higher to low'
+                    },
                 ]
             };
         },
@@ -308,24 +325,9 @@
                     </span>
                 </div>
                 <div class="form-size">
-                    <select class="form-select focus-ring focus-ring-dark" aria-placeholder="Default sorting">
-                        <option value="" disabled>
-                            Default sorting
-                        </option>
-                        <option value="">
-                            Sort by popularity
-                        </option>
-                        <option value="">
-                            Sort by average rating
-                        </option>
-                        <option value="">
-                            Sort by latest
-                        </option>
-                        <option value="">
-                            Sort by price: low to high
-                        </option>
-                        <option value="">
-                            Sort by price: high to low
+                    <select class="my-form-select">
+                        <option :value="elem.option" selected v-for="(elem, index) in options" :key="index">
+                            {{ elem.option }}
                         </option>
                     </select>
                 </div>
@@ -493,7 +495,14 @@
         width: 70%;
 
         .form-size{
-            margin-right: 55px;
+            margin-right: 70px;
+        }
+
+        .my-form-select{
+            border: none;
+            box-shadow: none;
+            padding: 10px;
+            color: $main-text-color;
         }
 
         .products-top{
