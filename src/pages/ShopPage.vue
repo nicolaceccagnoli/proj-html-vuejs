@@ -2,6 +2,8 @@
     export default {
         data() {
             return {
+                productsArray: [],
+                selectedProducts: [],
                 cards: [
                     {
                         name: "Black hooded sweatshirt",
@@ -164,7 +166,7 @@
                     },
                     {
                         name: "White ninja print t-shirt",
-                        image: 'https://img01.ztat.net/article/spp-media-p1/f90237dc60e94e52be37af56cacd270c/d009d37d72174406a3430634520ff84f.jpg?imwidth=762',
+                        image: 'https://img01.ztat.net/article/spp-media-p1/3f869be934ef4e359beb6f3bcc817d23/1bf2d8defd5e4db89d557980a31a5850.jpg?imwidth=156',
                         oldPrice: '',
                         currentPrice: '$90.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -180,80 +182,114 @@
 
                     }
                 ],
-                /* tags: [
+                tags: [
                     {
                         id: 1,
-                        name: Black
+                        name: 'Black'
                     },
                     {
                         id: 2,
-                        name: Blue
+                        name: 'Blue'
                     },
                     {
                         id: 3,
-                        name: Brown
+                        name: 'Brown'
                     },
                     {
                         id: 4,
-                        name: Gray
+                        name: 'Gray'
                     },
                     {
                         id: 5,
-                        name: House
+                        name: 'House'
                     },
                     {
                         id: 6,
-                        name: Long_sleeve
+                        name: 'Long sleeve'
                     },
                     {
                         id: 7,
-                        name: Ninja
+                        name: 'Ninja'
                     },
                     {
                         id: 8,
-                        name: Red
+                        name: 'Red'
                     },
                     {
                         id: 9,
-                        name: Shirt
+                        name: 'Shirt'
                     },
                     {
                         id: 10,
-                        name: Skull
+                        name: 'Skull'
                     },
                     {
                         id: 11,
-                        name: White
+                        name: 'White'
                     },
                     {
                         id: 12,
-                        name: With_hood
+                        name: 'With hood'
                     },
                     {
                         id: 13,
-                        name: With_print
+                        name: 'With print'
                     }
 
                 ],
-                categories : [
+                categories: [
                     {
                         value: 14,
-                        productType: Clothing 
+                        productType: 'Clothing',
+                        pieces: 8
                     },
                     {
                         value: 15,
-                        productType: Hoodies
+                        productType: 'Hoodies',
+                        pieces: 6
                     },
                     {
                         value: 16,
-                        productType: Tshirts
+                        productType: 'Tshirts',
+                        pieces: 2
                     },
                     {
                         value: 17,
-                        productType: Decor
+                        productType: 'Decor',
+                        pieces: 2
                     }
-                ] */
+                ]
             };
+        },
+        methods: {
+            selectedProduct(id){
+                this.selectedProducts = [];
+
+                if (!this.selectedProducts.includes(id)) {
+                    this.selectedProducts.push(id)
+                } else {
+                    const elem = this.selectedProducts.indexOf(id);
+                    this.selectedProducts.splice(elem, 1);
+                }
+
+                this.productsArray = [];
+
+                const isSubset = (array1, array2) =>
+                array2.every((element) => array1.includes(element));
+
+                for (let card in this.cards) {
+
+                    if (isSubset(this.cards[card].productTags, this.selectedProducts)) {
+                        this.productsArray.push(this.cards[card]);
+                    }
+                    else if (isSubset(this.cards[card].productCategories, this.selectedProducts)) {
+                        this.productsArray.push(this.cards[card]);
+                    }
+                }
+            }
+        },
+        mounted() {
+            this.productsArray = this.cards;
         }
     }
 </script>
@@ -268,7 +304,7 @@
                         <i class="bi bi-list-ul w-100"></i>
                     </span>
                     <span class="list-text">
-                        Showing 1-9 of 10 results
+                        Showing {{ productsArray.length }} of 10 results
                     </span>
                 </div>
                 <div class="form-size">
@@ -296,7 +332,7 @@
             </div>
             <div class="products-bottom">
                 <div class="d-flex flex-wrap cards-container">
-                    <div class="card" v-for="(elem, index) in cards" :key="index">
+                    <div class="card" v-for="(elem, index) in productsArray" :key="index">
                         <div class="img-box">
                             <img class="card-img-top" :src="elem.image" alt="Card image cap">
                         </div>
@@ -305,11 +341,11 @@
                         </div>
                         <div class="card-body d-flex">
                             <a href="#" class="link d-flex justify-content-between">
-                                <span class="price">
+                                <span class="price ps-3">
                                     <span class="old-price">
                                         {{ elem.oldPrice }}
                                     </span> 
-                                    <span class="current-price">
+                                    <span class="current-price ps-2">
                                         {{ elem.currentPrice }} 
                                     </span>
                                 </span>
@@ -329,17 +365,7 @@
                 <h5>
                     Filter by Price
                 </h5>
-
-                <!-- <div class="position-relative">
-                    <input type="range" class="position-absolute" min="0" max>
-                    <input type="range" class="position-absolute">
-                </div> -->
             </div>
-            <!-- <div class="recently">
-                <h5>
-                    Recently Viewed
-                </h5>
-            </div> -->
             <div class="on-sale">
                 <h5>
                     On-sale Products
@@ -425,57 +451,16 @@
                 <h5>
                     Product Categories
                 </h5>
-                <ul>
+                <ul v-for="(category, index) in categories" :key="index">
                     <li>
-                        <span>
-                            <span>
-                                <i class="bi bi-folder-fill"></i>
-                                <a href="#">
-                                    Clothing
-                                </a>
-                            </span>
-                            <span class="category-style">
-                                (8)
-                            </span>
+                        <span class="padding">
+                            <i class="bi bi-folder-fill"></i>
+                            <a href="#nogo" @click="selectedProduct(category.value)">
+                                {{ category.productType }}
+                            </a>
                         </span>
-                        <ul>
-                            <li class="ps-4">
-                                <span class="pt-2">
-                                    <span>
-                                        <i class="bi bi-folder-fill"></i>
-                                        <a href="#">
-                                            Hoodies
-                                        </a>
-                                    </span>
-                                    <span class="category-style">
-                                        (6)
-                                    </span>
-                                </span>
-                            </li>
-                            <li class="ps-4">
-                                <span class="pt-2">
-                                    <span>
-                                        <i class="bi bi-folder-fill"></i>
-                                        <a href="#">
-                                            Tshirts
-                                        </a>
-                                    </span>
-                                    <span class="category-style">
-                                        (2)
-                                    </span>
-                                </span>
-                            </li>
-                        </ul>
-                        <span>
-                            <span>
-                                <i class="bi bi-folder-fill"></i>
-                                <a href="#">
-                                    Decor
-                                </a>
-                            </span>
-                            <span class="category-style">
-                                (2)
-                            </span>
+                        <span class="category-style">
+                            ({{ category.pieces }})
                         </span>
                     </li>
                 </ul>
@@ -484,52 +469,13 @@
                 <h5>
                     Product Tags 
                 </h5>
-                <div>
-                    <a href="#">
-                        <span class="badge">Black</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">Blue</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">Brown</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">Gray</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">House</span>
-                    </a>
+                <div class="d-flex flex-wrap gap-2">
+                    <div v-for="(tag, index) in tags" :key="index"> 
+                        <a href="#nogo" @click="selectedProduct(tag.id)">
+                            <span class="badge">{{ tag.name }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div>
-                    <a href="#">
-                        <span class="badge mt-2">Long sleeve</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">Ninja</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">Red</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">Shirt</span>
-                    </a>
-                </div>
-                <div>
-                    <a href="#">
-                        <span class="badge mt-2">Skull</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">White</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">With hood</span>
-                    </a>
-                    <a href="#">
-                        <span class="badge ms-2">With print</span>
-                    </a>
-                </div>
-
             </div>
         </div>     
     </div>
@@ -571,8 +517,6 @@
     .products-bottom{
         width: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
 
         .cards-container{
             max-height: 1100px;
@@ -607,7 +551,7 @@
     }
     .card{
         height: 350px;
-        width: calc(100% / 3.7);
+        width: 220px;
         margin: 15px;
         border: none;
         border-radius: 15px;
@@ -704,6 +648,10 @@
             width: 350px;
             position: relative;
 
+            .padding:nth-child(4){
+                padding-left: 20px;
+            }
+
             a{
                 text-decoration: none;
                 list-style: none;
@@ -723,7 +671,7 @@
         }
 
         .product-tags{
-            width: 350px;
+            width: 320px;
 
             .badge{
                 padding: 10px;
