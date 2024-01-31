@@ -119,7 +119,9 @@
                 <div 
                 v-for="singleTech in technologies"
                 class="tech-container col-2 d-flex justify-content-center">
-                    <img :src="singleTech" alt="#">
+                    <a href="#nogo">
+                        <img :src="singleTech" alt="#">
+                    </a>
                 </div>
             </div>
         </div>

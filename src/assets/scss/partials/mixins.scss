@@ -143,3 +143,47 @@
     transform: translate(-50%, -90%);
     filter: brightness(0) saturate(100%) invert(27%) sepia(23%) saturate(1455%) hue-rotate(138deg) brightness(89%) contrast(86%);
 }
+
+/*
+
+
+    FORM
+
+
+*/
+
+@mixin input-style {
+    background-color: #EFEFEF;
+    border-width: 0px;
+    border-radius: 5px;
+    padding: 12px 24px;
+    margin: 10px 0;
+}
+
+@mixin button-form-style {
+    text-decoration: none;
+    color: white;
+    background-color: $color-one;
+    border-radius: 20px;
+    border: none;
+    padding: 8px 24px;
+}
+
+@mixin icon-container {
+    background-color: #E3F3F2;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+@mixin button-info {
+    border-radius: 18px;
+    border: none;
+    padding: 8px 24px;
+    background-color: #E3F3F2;
+    color: $color-one;
+}
