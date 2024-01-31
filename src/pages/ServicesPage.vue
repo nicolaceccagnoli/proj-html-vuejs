@@ -55,15 +55,53 @@
                 {
                     img:'/public/svgs/svg-6.svg',
                     name:'Regular Risk',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit.Cum aut ab po',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 }
+                ],
+                serviceCards3: [
+                {                
+                    title:'Standard',
+                    price:'$ 490/mo',
+                    list: [
+                        'Standard Accounting',
+                        'Platform Access',
+                        'business Orientation',
+                        'Dedicated Consultant',
+                        'Personal Assistence'
+                    ],
+                    icon1: '',
+                    icon2: '',
+
+                },
+                {                
+                    title:'Professional',
+                    price:'$ 890/mo',
+                    list: [
+                        'Standard Accounting',
+                        'Platform Access',
+                        'business Orientation',
+                        'Dedicated Consultant',
+                        'Personal Assistence'
+                    ]
+                },
+                {                
+                    title:'ultimate',
+                    price:'$ 1390/mo',
+                    list: [
+                        'Standard Accounting',
+                        'Platform Access',
+                        'business Orientation',
+                        'Dedicated Consultant',
+                        'Personal Assistence'
+                    ]
+                },
                 ]
             };
         }
     }
 </script>
-
+<p>1</p>
 
 <template>
 
@@ -80,7 +118,7 @@
     <!--cards-1-->
 
     <div id="container-card-1">
-        <div class="my-container">
+        <div class="my-container" style="background-color: #EEF4ED;">
             <div class="row">
                 <div v-for="(card, i) in serviceCards" class="single-card col-4">
                     <div> {{ card.path }}</div>
@@ -104,8 +142,13 @@
                     </h5>
                 </div>
                 <div class="col-12">
-                    <h2>Excellence in Services</h2>
+                    <h2>
+                        <strong>
+                            Excellence in Services
+                        </strong>
+                    </h2>
                 </div>
+
                 <div class="col-12">
                     <p>
                         We are leaders in providing consultancy services with a set of cutting-edge technologies and a team of experienced and renowned professionals.These are some options that you can hire.
@@ -125,13 +168,76 @@
                         <h2 class="d-flex">
                             {{ card2.name }}
                         </h2>
-                        <h5 class="text-left">
-                           wjk
-                        </h5>
+                        <h4 class="d-flex">
+                           {{card2.text}}
+                        </h4>
                     </div>
                     
                 </div>
                 
+            </div>
+        </div>
+    </div>
+
+    <!--cards-3-->
+    <div class="container-card3">
+        <div class="my-container text-center">
+            <div class="row">
+                <div class="col-12">
+                    <h5>
+                        MONTHLY PLANS
+                    </h5>                    
+                </div>
+
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti deserunt libero blanditiis nobis, aliquid adipisci facere at delectus, architecto dicta repellendus? Voluptate quasi suscipit corporis dolores ipsa quod harum non.</p>
+
+                <div class="col-12">
+                    <h2>
+                        Pricing Table
+                    </h2>
+                </div>
+
+                <div class="col-12">
+                    <p>
+                        We can help you deliver and execute your future, wherever you compete, using the latest technologies, from strategy development to implementation.
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div v-for="(card3, k) in serviceCards3" 
+                    :key="k"
+                    class="col-4 single-card3">
+
+                        <div class="container-up d-flex justify-content-between">
+                            <div class="icon"></div>
+                            <div class="icon"></div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="icon"></div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center">
+                            <h3>
+                                {{ card3.title }}
+                            </h3>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <h2>
+                                {{ card3.price }}
+                            </h2>
+                        </div>
+                        
+                        <ul class="">
+                            <li v-for="(list, index) in card3.list" class="d-flex justify-content-between align-items-center text-left">
+                                <div>
+                                    {{ list }}
+                                </div>
+                                <div>icon</div>
+                            </li>
+                        </ul>
+                    </div>
+                 
+                </div>
             </div>
         </div>
     </div>
@@ -154,16 +260,18 @@
 
 //card
 
-#container-card {
-    background-color: $color-three;
+#container-card-1 {
+    background-color: #EEF4ED;
+    padding: 100px 0;
 }
 
 .single-card {
-    width: calc((100% / 3) - 20px);
+    background-color: #FFFFFF;
+    width: calc((100% / 3) - 30px);
     border-radius: 10px;
     border: 1px solid black;
     padding: 20px;
-    margin: 10px;
+    margin: 15px;
 
     h2 {
         margin-bottom: 20px;
@@ -174,8 +282,6 @@
     padding: 10px;
 }
 
-
-
 .col-3 {
     background-color: white;
     margin: 10px;
@@ -184,6 +290,18 @@
 
 //card2
 
+#container-card2 {
+    background-color: #111117;
+    h5 {
+        color: $color-five;
+    }
+    h2{
+        color: white;
+    }
+    p {
+        color: $color-two;
+    }
+}
 .single-card2 {
     width: calc((100% / 2) - 20px);
     border: 1px solid black;
@@ -194,4 +312,22 @@
         margin-bottom: 20px;
     }
 }
+
+//card3 
+
+.single-card3 {
+    width: calc((100% / 3) - 20px);
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    li {
+        list-style: none;
+    }
+}
 </style>
+
