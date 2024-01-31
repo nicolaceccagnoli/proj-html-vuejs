@@ -25,37 +25,37 @@
                 {
                     img:'/public/svgs/svg-1.svg',
                     name:'Audit & Assurance',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
                     img:'/public/svgs/svg-2.svg',
                     name:'Financial Advisory',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
                     img:'/public/svgs/svg-3.svg',
                     name:'Analytics and M&Q',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
                     img:'/public/svgs/svg-4.svg',
                     name:'Middle Marketing',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
                     img:'/public/svgs/svg-5.svg',
                     name:'Legal Consulting',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aut ab po',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 },
                 {
                     img:'/public/svgs/svg-6.svg',
                     name:'Regular Risk',
-                    text:'Lorem ipsum dolor sit amet consectetur adipisicing elit.Cum aut ab po',
+                    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
                     path: `<i class="fa-solid fa-arrow-right"></i>`
                 }
                 ],
@@ -101,7 +101,6 @@
         }
     }
 </script>
-<p>1</p>
 
 <template>
 
@@ -118,9 +117,11 @@
     <!--cards-1-->
 
     <div id="container-card-1">
-        <div class="my-container" style="background-color: #EEF4ED;">
+        <div class="my-container">
             <div class="row">
-                <div v-for="(card, i) in serviceCards" class="single-card col-4">
+                <div v-for="(card, i) in serviceCards"
+                :key="i"
+                class="single-card col-4">
                     <div> {{ card.path }}</div>
                     <div>
                         <h2>{{ card.title }}</h2>
@@ -159,7 +160,8 @@
             <div class="row">
                 <div 
                 v-for="(card2, j) in serviceCards2"
-                :key="j" class="col-6 single-card2">
+                :key="j"
+                class="col-6 single-card2">
                     <div class="container-up d-flex justify-content-between">
                          <div class="icon"></div>
                          <div class="icon"></div>
@@ -168,9 +170,9 @@
                         <h2 class="d-flex">
                             {{ card2.name }}
                         </h2>
-                        <h4 class="d-flex">
+                        <p class="d-flex">
                            {{card2.text}}
-                        </h4>
+                        </p>
                     </div>
                     
                 </div>
@@ -188,8 +190,6 @@
                         MONTHLY PLANS
                     </h5>                    
                 </div>
-
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti deserunt libero blanditiis nobis, aliquid adipisci facere at delectus, architecto dicta repellendus? Voluptate quasi suscipit corporis dolores ipsa quod harum non.</p>
 
                 <div class="col-12">
                     <h2>
@@ -296,17 +296,21 @@
         color: $color-five;
     }
     h2{
+        padding-top: 10px;
         color: white;
+    }
+    h3{
+        text-align: left;
     }
     p {
         color: $color-two;
     }
 }
 .single-card2 {
-    width: calc((100% / 2) - 20px);
+    width: calc((100% / 2) - 30px);
     border: 1px solid black;
     padding: 20px;
-    margin: 10px;
+    margin: 15px;
 
     h2 {
         margin-bottom: 20px;
