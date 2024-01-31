@@ -14,22 +14,28 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
             return {
                 // Creo una flag per mostrare il Bottone che riporta l'utente in alto nella pagina
                 showUpperButton: false,
+                lastScrollPosition: 0,
             };
         },
         methods: {
             handleScroll() {
-            // Verifica la posizione dello scroll
-            this.showScrollButton = window.scrollY > 100; // Cambia 100 con la posizione desiderata
+                // Creo una costante che corrisponderà alla posizione Y dell'utente in pagina
+                const currentScrollPosition = window.scrollY;
+
+                // Verifico se l'utente sta scrollando verso l'alto o verso il basso
+                this.showUpperButton = currentScrollPosition < this.lastScrollPosition || currentScrollPosition < 100;
+
+                // Aggiorno la posizione di scorrimento precedente
+                this.lastScrollPosition = currentScrollPosition; 
             },
-            scrollToTop() {
-                // Funzione per scorrere verso l'alto
-                window.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-            });
-            }   
         },
         mounted() {
+            // Aggiungo un eventListener all'azione di scroll della pagina
+            window.addEventListener('scroll', this.handleScroll);
+        },
+            beforeDestroy() {
+            // Rimuovo l'eventListener dell'azione di scroll quando il componente viene distrutto
+            window.removeEventListener('scroll', this.handleScroll);
         },
         components: {
             Swiper,
@@ -127,6 +133,7 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
             </swiper-slide>
         </swiper>
         <a 
+        v-if="showUpperButton"
         href="#jumbotron-container"
         id="upper-button">
             <i class="bi bi-arrow-up-circle"></i>
