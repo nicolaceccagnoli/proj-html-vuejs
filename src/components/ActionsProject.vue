@@ -125,7 +125,7 @@
             hideInfoFunction(index) {
                 this.projectsCards[index].showInfo = false
             },
-            showCards(selectedValue) {
+            selectedCards(selectedValue) {
                 // Applico un controllo per cui se un elemento è già presente nell'array non lo pusho, se è già presente lo toglie
                 if (!this.selectedTags.includes(selectedValue)) {
                     this.selectedTags.push(selectedValue)
@@ -176,7 +176,7 @@
                 <div
                 class="my-4 offset-2 col-8 d-flex justify-content-around"> 
                     <button
-                    @click="showCards(button.id)"
+                    @click="selectedCards(button.id)"
                     v-for="(button, i) in buttons"
                     :key="i"
                     href="#nogo">
@@ -257,10 +257,7 @@
     }
 
     button {
-        text-decoration: none;
-        color: $color-one;
-        border: 0;
-        background: none;
+        @include button
     }
 
     button:active {
@@ -270,12 +267,7 @@
     }
 
     .single-project {
-        width: calc((100% / 3) - 20px);
-        height: 300px;
-        margin: 15px 10px;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
+        @include single-project; 
 
         img {
             object-fit: cover;
@@ -284,14 +276,8 @@
         }
 
         .info-container {
-            text-align: center;
-            position: absolute;
-            top:0;
-            left:0;
-            width: 100%;
-            height: 100%;
-            background-color: #2241506d;
-            color: #B3B8C5;
+
+            @include info-container;
 
             h4 {
                 color: white;
