@@ -164,11 +164,8 @@
 @import '../assets/scss/partials/variables.scss';
 @import '../assets/scss/partials/mixins.scss';
 #form-container {
-    background-image: url('/public/images/geom-bg.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 100px 0;
-
+    @include form-container;
+    
     h3 {
         font-size: 50px;
         font-weight: 700;
