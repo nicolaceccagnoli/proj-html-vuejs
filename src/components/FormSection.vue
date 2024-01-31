@@ -71,7 +71,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <textarea id="message" name="message" placeholder="Message" rows="8" cols="90" required></textarea>
+                                <textarea id="message" name="message" placeholder="Message" rows="7" cols="90" required></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -165,6 +165,7 @@
     h3 {
         font-size: 50px;
         font-weight: 700;
+        margin-top: 30px;
 
         span {
             @include main-span-style;
@@ -180,7 +181,7 @@
 
     p {
         color: $color-two;
-        margin-bottom: 30px;
+        margin: 30px 0;
     }
 
     form {

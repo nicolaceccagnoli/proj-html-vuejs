@@ -1,16 +1,35 @@
 <script>
+ import { Swiper, SwiperSlide } from 'swiper/vue';
+ // Import Swiper styles
+ import 'swiper/css';
+
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// import required modules
+import { Parallax, Pagination, Navigation } from 'swiper/modules';
+
     export default {
         data() {
             return {
 
             };
-        }
+        },
+        components: {
+            Swiper,
+            SwiperSlide
+        },
+        setup() {
+        return {
+            modules: [Parallax, Pagination, Navigation],
+            };
+        },
     }
 </script>
 
 
 <template>
-    <div id="jumbotron">
+    <!-- <div id="jumbotron">
         <h1>
             Ready <span> Team </span>
         </h1>
@@ -20,6 +39,90 @@
         <a class="main-anchor-style" href="#">
             GET IN TOUCH
         </a>
+    </div> -->
+    <div id="jumbotron-container">
+        <swiper
+    :style="{
+      '--swiper-navigation-color': '#fff',
+      '--swiper-pagination-color': '#fff',
+    }"
+    :speed="600"
+    :parallax="true"
+    :pagination="{
+      clickable: true,
+    }"
+    :navigation="true"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <div
+      slot="container-start"
+      class="parallax-bg"
+      :style="{
+        'background-image':
+          'url(public/images/bg-parallax.png)',
+      }"
+      data-swiper-parallax="-50%"
+    ></div>
+    <swiper-slide>
+        <div class="row jumbotron-text">
+            <div class="title col-12" data-swiper-parallax="-300">
+                <h1>
+                    We Share <span> Good Ideas </span>
+                </h1>
+            </div>
+            <div class="text col-12" data-swiper-parallax="-100">
+                <p>
+                    Escape the comfort zone and achieve better results with the help of experts who understand the subject.
+                </p>
+            </div>
+            <div class="col-12">
+                <a class="main-anchor-style" href="#">
+                    GET IN TOUCH
+                </a>
+            </div>
+        </div>
+    </swiper-slide>
+    <swiper-slide>
+        <div class="row jumbotron-text">
+            <div class="title col-12" data-swiper-parallax="-300">
+                <h1>
+                    Ready <span> Team </span>
+                </h1>
+            </div>
+            <div class="text col-12" data-swiper-parallax="-100">
+                <p>
+                    No matter what your company needs, we will be ready to assist you in the best possible way.
+                </p>
+            </div>
+            <div class="col-12">
+                <a class="main-anchor-style" href="#">
+                    GET IN TOUCH
+                </a>
+            </div>
+        </div>
+    </swiper-slide>
+    <swiper-slide>
+        <div class="row jumbotron-text">
+            <div class="title col-12" data-swiper-parallax="-300">
+                <h1>
+                    Talk to a <span> Consultant </span>
+                </h1>
+            </div>
+            <div class="text col-12" data-swiper-parallax="-100">
+                <p>
+                    Do not miss the opportunity to achieve better results and solidity in the market.
+                </p>
+            </div>
+            <div class="col-12">
+                <a class="main-anchor-style" href="#">
+                    GET IN TOUCH
+                </a>
+            </div>
+        </div>
+    </swiper-slide>
+  </swiper>
+
     </div>
 </template>
 
@@ -27,36 +130,72 @@
 @import '../assets/scss/partials/variables.scss';
 @import '../assets/scss/partials/mixins.scss';
 
-#jumbotron {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url('public/images/bg-parallax.png');
-    background-size: 200%;
+#jumbotron-container {
     height: calc(100vh - 80px);
-    background-position: center;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-slide .title {
+  font-size: 41px;
+  font-weight: 300;
+}
+
+.swiper-slide .subtitle {
+  font-size: 21px;
+}
+
+.swiper-slide .text {
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.3;
+}
+
+.jumbotron-text {
 
     h1 {
-        font-size: 70px;
-        font-weight: 700;
+    color: #22333E;
+    font-size: 70px;
+    font-weight: 700;
 
-        span {
-                @include main-span-style;
-            }
+    span {
+            @include main-span-style;
+        }
     }
 
     p {
-        margin: 36px 0;
-        max-width: 500px;
-        text-align: center;
-        font-size: 20px;
-        color: $main-text-color;
+    margin: 36px 0;
+    max-width: 500px;
+    text-align: center;
+    font-size: 20px;
+    color: $main-text-color;
     }
 
     .main-anchor-style {
-        @include main-anchor-style;
-        transition: 0.3s background-color;
+    @include main-anchor-style;
+    transition: 0.3s background-color;
     }
 
     .main-anchor-style:hover {
@@ -64,4 +203,5 @@
     }
 
 }
+
 </style>
