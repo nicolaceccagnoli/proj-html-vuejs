@@ -183,7 +183,8 @@ import { store } from '../store';
                                             {{ list.label }}
                                         </router-link>
                                         <a v-else href="#">
-                                            {{ list.label }}                                            
+                                            {{ list.label }}
+                                            
                                         </a>
                                     </li>                                        
                                     </ul>
@@ -280,10 +281,13 @@ import { store } from '../store';
 
 #header-top {
     background-color: $color-one;
-    height: 30px;
+    height: 50px;
 }
 #header-button {
+    padding-top: 40px ;
     height: 50px;
+    background: transparent;
+    z-index: 10;
 }
 
 .bi-search, .bi-handbag {

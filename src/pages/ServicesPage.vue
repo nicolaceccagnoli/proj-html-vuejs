@@ -464,7 +464,6 @@
 
 }
 
-   
 .single-card2 {
     width: calc((100% / 2) - 30px);
     background-color: #19191F;
