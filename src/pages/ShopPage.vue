@@ -379,7 +379,7 @@
                 this.store.globalCart.push({ name: card.name, currentPrice: currentPrice.toFixed(2), image: card.image });
                 }
             },
-            oldRemoveFromCart(index) {
+            removeFromCart(index) {
                 this.cart.splice(index, 1)
                 if(this.cart.length == 0){
                     this.showEmptyCart = true
@@ -389,13 +389,13 @@
                 }
                 
             },
-            oldCartTotal() {
+            getCartTotal() {
                 const total = this.cart.reduce((total, item) => total + Number(item.currentPrice), 0);
                 const globalTotal = this.store.globalCart.reduce((total, item) => total + Number(item.currentPrice), 0);
                 console.log('Cart Total:', total);
                 return total, globalTotal;
             },
-            oldTotalPrice(price) {
+            totalPrice(price) {
                 return Number(price).toFixed(2);
             },
             sortedCards() {
@@ -417,7 +417,7 @@
             },
             filteredPrices(cards) {
                 return cards.filter(cards => typeof cards.oldPrice === 'string');
-            },
+            }
         },
         mounted() {
             this.productsArray = this.cards;
@@ -512,7 +512,7 @@
                                 <div class="img-box position-relative">
                                     <img :src="item.image" :alt="item.name">
                                     <div class="remove-item">
-                                        <a href="#nogo" @click="oldRemoveFromCart(index)">
+                                        <a href="#nogo" @click="removeFromCart(index)">
                                             ×
                                         </a>
                                     </div>
@@ -531,7 +531,7 @@
                                 Subtotal:
                             </div>
                             <div>
-                                ${{ oldTotalPrice(oldCartTotal()) }}
+                                ${{ totalPrice(getCartTotal()) }}
                             </div>
                         </div>
                         <div class="py-3 fw-bold d-flex justify-content-between gap-3">
