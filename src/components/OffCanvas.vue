@@ -6,12 +6,67 @@ import { store } from '../store';
         data() {
             return {
                 store,
+
+                //Dichiaro un Array vuoto
+                tempGlobalCart: [],
+
+                // Dichiaro una nuova flag per mostrare il carrello
+                newShowCart: false
+
                 }
             },
             methods: {
+                // Dichiaro una funzione per rimuovere gli elementi dal carrello
+                newRemoveFromCart(index) {
+                    this.tempGlobalCart.splice(index, 1)
+
+                    if(this.tempGlobalCart.length == 0){
+                        this.newShowEmptyCart = true
+                    }
+
+                    // Controllo le flag che mostrano il carrello pieno o l'icona del carrello vuoto
+                    if (this.newShowCart == true) {
+
+                        this.newShowCart = false;
+
+                        this.store.showShopOffcanvas = true;
+                    }
+                },
+                // Dichiaro una funzione per stampare il prezzo con i decimali
+                // Gli passo come argomento una stringa che poi viene convertita in numero
+                newTotalPrice(price) {
+                    return Number(price).toFixed(2);
+                },
+                // Dichiaro una funzione per il totale del carrello
+                newGetCartTotal() {
+                    // Itero su ogni elemento di globalCart tramite .reduce,
+                    // Passo 2 argomenti, Total che tiene traccia della somma durante il ciclo e Item che rappresenta ogni articolo di globalCart 
+                    const total = this.store.globalCart.reduce((total, item) => total + Number(item.currentPrice), 0);
+                    
+                    const globalTotal = this.store.globalCart.reduce((total, item) => total + Number(item.currentPrice), 0);
+                    console.log('Cart Total:', total);
+                    return total, globalTotal;
+                },
+                // Cambio il valore delle flag in base alla lunghezza di tempGlobalCart
+                changeShowCard() {
+
+                    if (this.tempGlobalCart.length > 0) {
+
+                        this.newShowCart = true
+
+                        this.store.showShopOffcanvas = false
+
+                    }
+                }
             },
+            // Nel mounted assegno al mio Array temporaneo gli elementi dell'Array Globale
             mounted() {
-                console.log(this.store.globalCart);
+
+                this.tempGlobalCart = this.store.globalCart;
+            },
+            // All'aggiornamento dello shop richiamo la funzione che cambia la flag del carrello
+            updated(){
+                this.changeShowCard();
             }
         }
 </script>
@@ -72,6 +127,8 @@ import { store } from '../store';
         <div 
         v-show="store.showShopOffcanvas"
         class="offcanvas-body shop">
+
+            <!-- Qui inizia l'Offcanvas con il carrello vuoto -->
             <button type="button" class="my-button" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i class="bi bi-arrow-left"></i>
             </button>
@@ -85,9 +142,52 @@ import { store } from '../store';
                     </h2>
                 </div>
             </div>
+            <!-- Qui finisce l'Offcanvas con il carrello vuoto -->
         </div>
-        <!-- Qui inizia l'Offcanvas da mostrare per lo Shop -->
-           
+
+        <!-- Qui inizia l'Offcanvas con il carrello pieno -->
+        <div class="offcanvas-cart"
+        v-show="newShowCart">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between" v-for="(item, index) in tempGlobalCart" :key="index">
+                    <div class="d-flex">
+                        <div class="img-box position-relative">
+                            <img :src="item.image" :alt="item.name">
+                            <div class="remove-item">
+                                <a href="#nogo" @click="newRemoveFromCart(index)">
+                                    ×
+                                </a>
+                            </div>
+                        </div>
+                        <span class="ps-3 pt-3">
+                            {{ item.name }}
+                        </span>
+                        
+                    </div>
+                    <div class="pt-3">
+                        ${{ item.currentPrice }}
+                    </div>
+                </li>
+                <div class="py-4 fw-bold d-flex justify-content-between">
+                    <div>
+                        Subtotal:
+                    </div>
+                    <div>
+                        ${{ newTotalPrice(newGetCartTotal()) }}
+                    </div>
+                </div>
+                <div class="py-3 fw-bold d-flex justify-content-between gap-3">
+                    <button class="btn cart-button">
+                        View Cart
+                    </button>
+                    <button class="btn cart-button">
+                        Checkout
+                    </button>
+                </div>
+            </ul>
+        </div>
+        <!-- Qui finisce l'Offcanvas con il carrello pieno -->
+
     </div>
     <!-- Qui finisce l'Offcanvas -->
 
@@ -158,8 +258,74 @@ import { store } from '../store';
                 font-size: 24px;
             }
         }
+
     }
 
+    .offcanvas-cart {
+    position: relative;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%, -5%);
+
+        .list-group{
+
+            width: 350px;
+            border-radius: 0px;
+
+            }
+
+            .list-group-item{
+
+                border: none;
+                border-bottom: 1px solid lightgray;
+                margin-top: 15px;
+                padding-left: 0px;
+                color: $main-text-color;
+                font-weight: bold;
+
+                .img-box{
+                    width: 50px;
+                    height: 50px;
+                    margin-bottom: 5px;
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .remove-item{
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #FBE6E9;
+                line-height: 20px;
+                text-align: center;
+                position: absolute;
+                right: -10px;
+                top: -10px;
+
+                a{
+                    text-decoration: none;
+                    color: #D90A2C;
+                    font-weight: lighter;
+                }
+            }
+            .cart-button{
+            width: 170px;
+            background-color: #EDEDED;
+            color: $main-text-color;
+
+            &:hover{
+                background-color: $color-five;
+                color: white;
+                -webkit-transition: all 0.3s ease-out 0s;
+                transition: all 0.3s ease-out 0s;
+            }
+        }
+
+    }
 
 }
 
