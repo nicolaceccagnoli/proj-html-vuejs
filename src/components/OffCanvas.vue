@@ -10,6 +10,9 @@ import { store } from '../store';
             },
             methods: {
             },
+            mounted() {
+                console.log(this.store.globalCart);
+            }
         }
 </script>
 
