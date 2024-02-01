@@ -13,36 +13,36 @@ import { RouterLink } from 'vue-router';
 <template>
     <header class="debug">
         <!--header top-->
-        <div id="header-top" class="my-container">
-            <div class="container">
-                <nav>
+        <div id="header-top">
+            <div class="my-container">
+                <nav id="nav-header">
                     <!--nav-info-->
-                    <ul class="justify-content-between">
+                    <ul>
                         <li>
                             <a href="#">
-                                <i class="fa-solid fa-clock"></i>
+                                <i class="bi bi-clock-fill"></i>
                                 orari di apertura: Lun - Sab - 9:00 - 18:00
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa-solid fa-phone"></i>
+                                <i class="bi bi-telephone-fill"></i>
                                 +1 123456789
                             </a>
 
                             <a href="#">
-                                <i class="fa-solid fa-envelope"></i>
+                                <i class="bi bi-envelope-fill"></i>
                                 lorem@lorem.com
                             </a>
                             <!--loghi social-->
                             <a href="#">
-                                <i class="fa-brands fa-facebook-f"></i>
+                                <i class="bi bi-facebook"></i>
                             </a>
                             <a href="#">
-                                <i class="fa-brands fa-twitter"></i>
+                                <i class="bi bi-twitter"></i>
                             </a>
                             <a href="#">
-                                <i class="fa-brands fa-linkedin-in"></i>
+                                <i class="bi bi-linkedin"></i>
                             </a>
                         </li>                
                     </ul>
@@ -52,11 +52,13 @@ import { RouterLink } from 'vue-router';
         </div>
 
         <!--header button-->
-        <div id="header-button" class="my-container d-flex justify-content-between align-items-center">
+        <div id="header-button" class="my-container d-flex justify-content-between">
             <div class="container d-flex justify-content-between align-items-center">
                 <!--header top-->
                 <div class="container-logo">
-                    logo
+                    <a href="">
+                        <img src="/public/logo.png" alt="">
+                    </a>
                 </div>
 
                 <div class="container-info d-flex align-items-center">
@@ -68,7 +70,7 @@ import { RouterLink } from 'vue-router';
                                 <li>
                                     <a href="#">
                                         Demo
-                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
                                         <li><a href="#">lorem</a></li>
@@ -86,7 +88,7 @@ import { RouterLink } from 'vue-router';
                                 <li>
                                     <a href="#">
                                         Page
-                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
                                         <li><a href="#">chi siamo</a></li>
@@ -102,13 +104,13 @@ import { RouterLink } from 'vue-router';
                     </div>
 
                     <!--PORTFOLIO-->
-                    <div id="drop-down" class="d-flex">
+                    <div id="drop-down" class="">
                         <nav>
                             <ul>
                                 <li>
                                     <a href="#">
                                         Portfolio
-                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
                                         <li><a href="#">lorem</a></li>
@@ -126,7 +128,7 @@ import { RouterLink } from 'vue-router';
                                 <li>
                                     <a href="#">
                                         Blog
-                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
                                         <li><a href="#">lorem</a></li>
@@ -138,21 +140,29 @@ import { RouterLink } from 'vue-router';
                     </div>
 
                     <!--links/button-->
-                    <nav>
+                    <nav class="nav-icon">
                         <ul>
-                            <li>
-                                <a href="#">link</a>
-                                <a href="#">link</a>
-                            </li>
                             <li>
                                 <router-link :to="{ name: 'shop' }">
                                     Shop
                                 </router-link>
                             </li>
                             <li>
-                                <button>
-                                    button
-                                </button>
+                                <a href="#">
+                                    <i class="bi bi-search"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="bi bi-handbag"></i>
+                                </a>
+                            </li>
+                            
+                            <li id="button-header">
+                                <a href="#">
+                                    BUY NEXGEN
+                                </a>
                             </li>
                         </ul>              
                     </nav>
@@ -165,13 +175,35 @@ import { RouterLink } from 'vue-router';
 <style lang="scss" scoped>
 @import '../assets/scss/partials/variables.scss';
 
+#header-top {
+    background-color: $color-one;
+    height: 30px;
+}
+#header-button {
+    height: 50px;
+}
+
+.bi-search, .bi-handbag {
+    color: $color-two;
+}
+.container-logo {
+    margin-top: 50px;
+    height: 100px;
+    width: 170px;
+    img {
+        width: 100%;
+    }
+}
 nav {
     ul {
         display: flex;
         list-style: none;
-        justify-content: center;
+        justify-content: space-between;
     }
-
+    li {
+        display: flex;
+        align-items: center;
+    }
     a {
         margin-left:5px;
         padding: 5px;
@@ -179,6 +211,9 @@ nav {
     }
 }
 
+.bi-arrow-down-short {
+    font-size: 20px;
+}
 .form-control-sm {
     min-width: 30px;
     margin: 0 5px;
@@ -191,20 +226,13 @@ button {
 select {
     margin: 0 5px;
 }
-#header-top {
-    background-color: $color-one;
-    height: 30px;
-}
     
 .debug #header-button {
     background-color: rgba(0, 0, 0, 0);
-    height: 50px;
+    
 }
 
-.icon-arrow-down {
-    color: black;
-}
-
+//drop-down
 #drop-down {
 
     ul {
@@ -222,8 +250,7 @@ select {
         text-decoration: none;
         display: block;
         padding: 10px 20px;
-        color: #333;
-        background-color: white;
+        color: #BEC1CE;
     }
 
     a:hover {
