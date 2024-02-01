@@ -8,7 +8,7 @@ import { store } from '../store';
         return {
             store,
 
-            scrollPosition: 0,
+            scrollPosition: false,
 
             menuDataDemo: [
                 {
@@ -93,21 +93,23 @@ import { store } from '../store';
         }
     },
     mounted() {
-        window.addEventListener('scroll', this.userScroll());
+        window.addEventListener('scroll', this.userScroll);
+        console.log(this.scrollPosition);
     },
     beforeDestroy() {
-        window.addEventListener('scroll', this.userScroll());
+        window.addEventListener('scroll', this.userScroll);
     },
     components: { RouterLink }
 }
 </script>
 
 <template>
-    <header class="debug">
+    <div
+    class="debug new-header-top">
         <!--header top-->
         <div id="header-top">
-            <div class="my-container">
-                <nav id="nav-header" class="row g-0 justify-content-between">
+            <div class="my-container h-100">
+                <nav id="nav-header" class="row g-0 justify-content-between align-items-center h-100">
                     <!--nav-info-->
                     <div class="col-auto">
                         <ul>
@@ -158,15 +160,20 @@ import { store } from '../store';
                 </nav>
             </div>
         </div>
+    </div>
     
-        <div class="my-container">
+    <div 
+    :class="{
+                'active-bg' : scrollPosition > 0,
+                'fixed-header': scrollPosition > 0 
+            }" 
+    class="new-header-bottom">
+        <div 
+        class="my-container bottom-container">
 
             <div 
-            :class="{
-                'active-bg' : scrollPosition > 0
-            }" 
             id="header-button" 
-            class="d-flex align-items-center ">
+            class="d-flex align-items-center">
                 <div class="w-100 d-flex justify-content-between">
                     <!--header top-->
                     <div class="container-logo">
@@ -310,12 +317,27 @@ import { store } from '../store';
             </div> 
         </div>
                
-</header>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 @import '../assets/scss/partials/variables.scss';
+.new-header-bottom {
+    background: rgb(16,75,85);
+    background: linear-gradient(35deg, rgba(16,75,85,1) 30%, rgba(5,130,131,1) 66%);
+}
 
+.active-bg {
+    background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
 .color-hover {
     :hover {
         color:$color-one;
@@ -339,14 +361,10 @@ import { store } from '../store';
     }
 }
 }
+
 #header-button {
     height: 80px;
-    background: transparent;
 }
-
-.active-bg {
-        background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
-    }
 
 .bi-search, .bi-handbag {
     color: $color-two;
