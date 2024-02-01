@@ -281,6 +281,7 @@ import { store } from '../store';
 
 #header-top {
     background-color: $color-one;
+    color: $color-two;
     height: 50px;
 }
 #header-button {
