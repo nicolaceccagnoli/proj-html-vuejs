@@ -36,8 +36,8 @@
 
 @mixin tertiary-span-style {
     color: white;
-    background: rgb(13,26,41);
-    background: linear-gradient(180deg, rgba(13,26,41,1) 50%, rgba(16,75,85,1) 50%);
+    background: rgb(16,75,85);
+    background: linear-gradient(0deg, rgba(16,75,85,1) 50%, rgba(153,153,153,0) 50%);
     border-radius: 5px;
 }
 
