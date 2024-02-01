@@ -276,40 +276,36 @@ import { store } from '../store';
                     text-decoration: none;
                     display: flex;
                     align-items: center;
-                    
-
-
                     .icon-container {
                         @include icon-container;
 
                         i {
                         font-size: 24px;
-                    }
+                        }
 
                     }
                 }
             }
 
-            li:hover {
+            a:hover {
                 transition: color;
 
-                a {
+                span {
                     color: $color-five;
                     transition-duration: 0.5s;
                 }
 
             }
 
-            li:hover {
+            a:hover {
                 transition: background-color;
-
                 .icon-container {
                     background-color: $color-one;
                     transition-duration: 0.5s;
                 }
             }
 
-            li:hover {
+            a:hover {
                 transition: color;
 
                 i {

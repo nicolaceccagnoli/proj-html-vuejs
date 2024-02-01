@@ -21,6 +21,10 @@ export const store = reactive ({
         {
             icon: 'bi bi-geo-alt-fill',
             info: 'Main Avenue, 123'
+        },
+        {
+            icon: 'bi bi-geo-alt-fill',
+            info: 'Main Avenue, 987'
         }
     ],
     // Definisco un array di oggetti per i profili social
