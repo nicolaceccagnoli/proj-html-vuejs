@@ -27,6 +27,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2023-12-31',
                         popularity: '7.4',
+                        default: '1',
                         productTags: [
                             1,
                             6,
@@ -48,6 +49,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-01',
                         popularity: '7',
+                        default: '2',
                         productTags: [
                             1,
                             9,
@@ -66,6 +68,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-02',
                         popularity: '8.4',
+                        default: '3',
                         productTags: [
                             2,
                             6,
@@ -86,6 +89,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-03',
                         popularity: '6.2',
+                        default: '4',
                         productTags: [
                             3,
                             6,
@@ -106,6 +110,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-04',
                         popularity: '9',
+                        default: '5',
                         productTags: [
                             4,
                             6,
@@ -126,6 +131,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-05',
                         popularity: '7.8',
+                        default: '6',
                         productTags: [
                             2,
                             6,
@@ -147,6 +153,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-06',
                         popularity: '5.5',
+                        default: '7',
                         productTags: [
                             5,
                             7
@@ -163,6 +170,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-07',
                         popularity: '8',
+                        default: '8',
                         productTags: [
                             6,
                             7,
@@ -184,6 +192,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-08',
                         popularity: '9.4',
+                        default: '9',
                         productTags: [
                             5,
                             10
@@ -201,6 +210,7 @@
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         date: '2024-01-09',
                         popularity: '7.1',
+                        default: '10',
                         productTags: [
                             7,
                             9,
@@ -369,7 +379,7 @@
                 this.store.globalCart.push({ name: card.name, currentPrice: currentPrice.toFixed(2), image: card.image });
                 }
             },
-            removeFromCart(index) {
+            oldRemoveFromCart(index) {
                 this.cart.splice(index, 1)
                 if(this.cart.length == 0){
                     this.showEmptyCart = true
@@ -379,13 +389,13 @@
                 }
                 
             },
-            getCartTotal() {
+            oldCartTotal() {
                 const total = this.cart.reduce((total, item) => total + Number(item.currentPrice), 0);
                 const globalTotal = this.store.globalCart.reduce((total, item) => total + Number(item.currentPrice), 0);
                 console.log('Cart Total:', total);
                 return total, globalTotal;
             },
-            totalPrice(price) {
+            oldTotalPrice(price) {
                 return Number(price).toFixed(2);
             },
             sortedCards() {
@@ -400,6 +410,9 @@
                 }
                 else if (this.selectedSort === 'popularity') {
                     this.cards.sort((a, b) => b.popularity - a.popularity);
+                }
+                else if (this.selectedSort === 'default') {
+                    this.cards.sort((a, b) => a.default - b.default);
                 }
             },
             filteredPrices(cards) {
@@ -499,7 +512,7 @@
                                 <div class="img-box position-relative">
                                     <img :src="item.image" :alt="item.name">
                                     <div class="remove-item">
-                                        <a href="#nogo" @click="removeFromCart(index)">
+                                        <a href="#nogo" @click="oldRemoveFromCart(index)">
                                             ×
                                         </a>
                                     </div>
@@ -518,7 +531,7 @@
                                 Subtotal:
                             </div>
                             <div>
-                                ${{ totalPrice(getCartTotal()) }}
+                                ${{ oldTotalPrice(oldCartTotal()) }}
                             </div>
                         </div>
                         <div class="py-3 fw-bold d-flex justify-content-between gap-3">
@@ -880,6 +893,10 @@
                     transition: all 0.3s ease-out 0s;
                 }
             }
+        }
+
+        #my-list-group{
+            border-radius: none;
         }
 
         .list-group{
