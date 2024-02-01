@@ -292,6 +292,10 @@
         },
         methods: {
             selectedProduct(id){
+                if(this.showEmptyCart == true){
+                    this.showEmptyCart = false
+                }
+
                 this.selectedProducts = [];
 
                 if (!this.selectedProducts.includes(id)) {
@@ -317,6 +321,9 @@
                 }
             },
             filteredProducts() {
+                if(this.showEmptyCart == true){
+                    this.showEmptyCart = false
+                }
                 this.productsArray = this.cards.filter(
                     (card) =>
                     card.currentPrice >= this.value[0] && card.currentPrice <= this.value[1],
@@ -334,7 +341,7 @@
                 }
                 const currentPrice = Number(card.currentPrice);
                 if (!isNaN(currentPrice)) {
-                this.cart.push({ name: card.name, currentPrice: currentPrice.toFixed(2) });
+                this.cart.push({ name: card.name, currentPrice: currentPrice.toFixed(2), image: card.image });
                 }
             },
             removeFromCart(index) {
@@ -434,22 +441,28 @@
                     </div>
                 </div>
             </div>
-            <div class="shop-cart mt-5">
+            <div class="shop-cart mt-5" v-if="cart.length > 0">
                 <h5>
                     Shop Cart
                 </h5>
                 <div>
-                    <ul class="list-group" v-if="cart.length > 0">
+                    <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between" v-for="(item, index) in cart" :key="index">
                             <div class="d-flex">
-                               <button @click="removeFromCart(index)">
-                                    remove from cart
-                               </button>
-                               <span>
+                                <div class="img-box position-relative">
+                                    <img :src="item.image" :alt="item.name">
+                                    <div class="remove-item">
+                                        <a href="#nogo" @click="removeFromCart(index)">
+                                            ×
+                                        </a>
+                                    </div>
+                                </div>
+                               <span class="ps-3 pt-3">
                                     {{ item.name }}
                                </span>
+                               
                             </div>
-                            <div>
+                            <div class="pt-3">
                                 ${{ item.currentPrice }}
                             </div>
                         </li>
@@ -461,13 +474,21 @@
                                 ${{ totalPrice(getCartTotal()) }}
                             </div>
                         </div>
+                        <div class="py-3 fw-bold d-flex justify-content-between gap-3">
+                            <button class="btn cart-button">
+                                View Cart
+                            </button>
+                            <button class="btn cart-button">
+                                Checkout
+                            </button>
+                        </div>
                     </ul>
-                    <div class="empty-bin" v-if="showEmptyCart">
-                        <img src="../../public/images/empty-bin.png" alt="" />
-                    </div>
                 </div>
             </div>
-            <div class="on-sale pt-5">
+            <div class="empty-bin" v-if="showEmptyCart">
+                <img src="../../public/images/empty-bin.png" alt="" />
+            </div>
+            <div class="on-sale pt-4">
                 <h5>
                     On-sale Products
                 </h5>
@@ -622,6 +643,37 @@
         }
     }
 
+    .remove-item{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #FBE6E9;
+        line-height: 20px;
+        text-align: center;
+        position: absolute;
+        right: -10px;
+        top: -10px;
+
+        a{
+            text-decoration: none;
+            color: #D90A2C;
+            font-weight: lighter;
+        }
+    }
+
+    .cart-button{
+        width: 170px;
+        background-color: #EDEDED;
+        color: $main-text-color;
+
+        &:hover{
+            background-color: $color-five;
+            color: white;
+            -webkit-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+    }
+
     .products-bottom{
         width: 100%;
         display: flex;
@@ -645,7 +697,13 @@
 
     .empty-bin{
         width: 350px;
-        height: 400px;
+        height: 350px;
+        padding-left: 20px;
+        padding-top: 40px;
+
+        img{
+            width: 100%;
+        }
     }
 
     .filter-button{
