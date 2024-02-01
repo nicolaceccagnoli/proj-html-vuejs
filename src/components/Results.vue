@@ -97,7 +97,7 @@
                 <div 
                 v-for="(singleGoal, i) in goals"
                 :key="i"
-                class="goal text-success col text-center">
+                class="goal text-success col-lg col-md-6 text-center">
                     <h3 class="goal-number">
                         {{singleGoal.currentValue}}
                     </h3>
@@ -118,7 +118,7 @@
             <div class="row align-items-center">
                 <div 
                 v-for="singleTech in technologies"
-                class="tech-container col-2 d-flex justify-content-center">
+                class="tech-container col-lg-2 col-md-6 d-flex justify-content-center">
                     <a href="#nogo">
                         <img :src="singleTech" alt="#">
                     </a>
@@ -139,7 +139,7 @@
 
     h3 {
         color: white;
-        font-size: 50px;
+        font-size: $title-3-size;
         font-weight: bold;
 
         span {

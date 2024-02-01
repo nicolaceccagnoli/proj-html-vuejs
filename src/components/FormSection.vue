@@ -189,7 +189,7 @@ import { store } from '../store';
     @include form-container;
     
     h3 {
-        font-size: 50px;
+        font-size: $title-3-size;
         font-weight: 700;
         margin-top: 30px;
 
@@ -229,14 +229,14 @@ import { store } from '../store';
 
         button:hover {
             transition: 0.5s;
-            background-color: #E3F3F2;
+            background-color: $hover-btn-form-color;
             color: $color-one;
         }
 
         #name:hover, #phone:hover, #email:hover,
         #department:hover, #message:hover {
             transition: 0.5s;
-            background-color: #E8E8E8;
+            background-color: $hover-input-form-color;
         }
 
     }
@@ -301,7 +301,7 @@ import { store } from '../store';
                 transition: color;
 
                 i {
-                    color: #E3F3F2;
+                    color: $i-form-color;
                     transition-duration: 0.5s;
                 }
             }
@@ -317,7 +317,7 @@ import { store } from '../store';
         button:hover {
             transition: 0.5s;
             background-color: $color-one;
-            color: #E3F3F2;
+            color: $hover-btn-form-color;
         }
     }
 }

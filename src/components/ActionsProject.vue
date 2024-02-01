@@ -194,7 +194,7 @@
                 @mouseout="hideInfoFunction(i)"
                 v-for="(singleProject, i) in tempArray"
                 :key="i"
-                class="single-project col-4">
+                class="single-project col-lg-4 col-md-6 col-sm-12">
                     <img :src="singleProject.path" alt="#">
                     <div class="info-container">
                         <div class="row g-0 h-100">
@@ -252,7 +252,7 @@
     }
 
     h3 {
-    font-size: 50px;
+    font-size: $title-3-size;
     font-weight: bold;
 
     span {
@@ -315,5 +315,4 @@
     }
 
 }
-
 </style>

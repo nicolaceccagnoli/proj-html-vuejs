@@ -108,11 +108,10 @@ import { store } from '../store';
         }
     }
 
-
     input {
         border: none;
         border-radius: 5px;
-        background-color: #E1E1E1;
+        background-color: $input-search-off-color;
         padding: 8px 12px;
         margin-top: 30px;
         width: 80%;
@@ -123,7 +122,7 @@ import { store } from '../store';
         border: none;
         border-radius: 5px;
         padding: 4px 12px;
-        background-color: #E1E1E1;
+        background-color: $input-search-off-color;
     }
 
     .offcanvas-body.shop{

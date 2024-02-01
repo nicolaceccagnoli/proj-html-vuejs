@@ -150,16 +150,10 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
 @import '../assets/scss/partials/mixins.scss';
 
 #jumbotron-container {
-    height: calc(100vh - 80px);
+    height: $jumbo-hg;
 
     #upper-button {
-        position: fixed;
-        z-index: 1;
-        bottom: 50px;
-        right: 50px;
-        background-color: transparent;
-        color: $color-five;
-        border: none;
+        @include upper-button;
 
         i {
             color: $color-one;
@@ -176,29 +170,14 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
     }
 }
 .swiper {
-    width: 100%;
-    height: 100%;
-    background: url('/public/images/jumbo-bg.gif');
-    background-size: cover;
-    position: relative;
+    @include swiper;
 }
 
 .swiper-slide {
-  font-size: 18px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 40px 60px;
+    @include swiper-slide;
 }
-
 .parallax-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 200%;
-  height: 100%;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-position: center;
+    @include parallax-bg;
 }
 
 .swiper-slide .title {
@@ -207,7 +186,7 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
 }
 
 .swiper-slide .subtitle {
-  font-size: 21px;
+  font-size: 20px;
 }
 
 .swiper-slide .text {
@@ -219,7 +198,7 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
 .jumbotron-text-one, .jumbotron-text-two, .jumbotron-text-three {
    
     h1 {
-    color: #22333E;
+    color: $title-1;
     font-size: 70px;
     font-weight: 700;
 
@@ -246,16 +225,11 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
 }
 
 .jumbotron-text-one {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    @include jumbo-txt-one;
 }
 
 .jumbotron-text-two {
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
+    @include jumbo-txt-two;
 
     .main-anchor-style {
         position: relative;
@@ -265,11 +239,7 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
 }
 
 .jumbotron-text-three {
-    position: absolute;
-    top: 50%;
-    left: 80%;
-    transform: translate(-50%, -50%);
+    @include jumbo-txt-three;
 }
-
 
 </style>

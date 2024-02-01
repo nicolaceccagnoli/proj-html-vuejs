@@ -143,7 +143,8 @@ export default {
 
         .single-services-img {
             width: 50px;
-            filter: brightness(0) saturate(100%) invert(44%) sepia(99%) saturate(5164%) hue-rotate(162deg) brightness(87%) contrast(96%);        }
+            filter: $filter-svg-color;
+        }
 
         h4 {
             font-weight: bold;
@@ -177,7 +178,7 @@ export default {
                 border-radius: 50%;
             }
             50% {
-                background-color: #03a6a6c5;
+                background-color: $color-hover-arrow;
                 border-radius: 50%;
             }
             100% {

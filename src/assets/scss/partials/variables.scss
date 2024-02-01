@@ -27,9 +27,65 @@ $main-text-color: #7E888D;
 
 */
 
+$title-1: #22333E;
+$title-3-size: 50px;
+$title-5-size: 24px;
+
+/*
 
 
+    JUMBO
 
+
+*/
+
+$jumbo-hg: calc(100vh - 80px);
+
+
+/*
+
+
+    EXCELLENCE
+
+
+*/
+
+$filter-svg-color: brightness(0) saturate(100%) invert(44%) sepia(99%) saturate(5164%) hue-rotate(162deg) brightness(87%) contrast(96%);
+$color-hover-arrow: #03a6a6c5; 
+
+/*
+
+
+    THE COMPANY
+
+
+*/
+
+$company-cards-wd: calc((100% / 2) - 20px);
+
+/*
+
+
+    FORM SECTION
+
+
+*/
+
+
+$hover-btn-form-color: #E3F3F2;
+$hover-input-form-color: #E8E8E8;
+$i-form-color: #E3F3F2;
+
+
+/*
+
+
+    OFFCANVAS
+
+
+*/
+
+$input-search-off-color: #E1E1E1;
 
 /*
 

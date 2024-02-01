@@ -93,7 +93,7 @@
 
     h3 {
         color: white;
-        font-size: 50px;
+        font-size: $title-3-size;
         margin-bottom: 30px;
 
         span {
@@ -104,7 +104,7 @@
 
     h5 {
         font-weight: bold;
-        font-size: 24px;
+        font-size: $title-5-size;
         color: white;
     }
 
@@ -120,7 +120,7 @@
     }
 
     .company-cards {
-        width: calc((100% / 2) - 20px);
+        width: $company-cards-wd;
         margin: 10px 10px;
         color: #AFB6BA;
     }
