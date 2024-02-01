@@ -94,7 +94,7 @@ import { store } from '../store';
         <!--header top-->
         <div id="header-top">
             <div class="my-container">
-                <nav id="nav-header">
+                <nav id="nav-header" class="d-flex justify-content-between">
                     <!--nav-info-->
                     <ul>
                         <li>
@@ -103,28 +103,40 @@ import { store } from '../store';
                                 orari di apertura: Lun - Sab - 9:00 - 18:00
                             </a>
                         </li>
+                    </ul>
+                    <ul>
                         <li>
                             <a href="#">
                                 <i class="bi bi-telephone-fill"></i>
                                 +1 123456789
                             </a>
-
+                        </li>
+                        <li>
                             <a href="#">
                                 <i class="bi bi-envelope-fill"></i>
                                 lorem@lorem.com
                             </a>
+                        </li>  
                             <!--loghi social-->
+
+                        <li>
                             <a href="#">
                                 <i class="bi bi-facebook"></i>
                             </a>
+                        </li>
+                        <li>
                             <a href="#">
                                 <i class="bi bi-twitter"></i>
                             </a>
+                        </li>
+                        <li>
                             <a href="#">
                                 <i class="bi bi-linkedin"></i>
                             </a>
-                        </li>                
+                        </li>            
+                    
                     </ul>
+                        
                 </nav>
             </div>
             
@@ -147,7 +159,7 @@ import { store } from '../store';
                     :key="i" id="drop-down" class="d-flex">
                         <nav>
                             <ul>
-                                <li>
+                                <li class="color-hover">
                                     <a href="#">
                                         {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
@@ -170,7 +182,7 @@ import { store } from '../store';
                     id="drop-down" class="d-flex">
                         <nav>
                             <ul>
-                                <li>
+                                <li class="color-hover">
                                     <a href="#">
                                         {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
@@ -199,7 +211,7 @@ import { store } from '../store';
                     id="drop-down" class="">
                         <nav>
                             <ul>
-                                <li>
+                                <li class="color-hover">
                                     <a href="#">
                                         {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
@@ -220,7 +232,7 @@ import { store } from '../store';
                     id="drop-down" class="d-flex">
                         <nav>
                             <ul>
-                                <li>
+                                <li class="color-hover">
                                     <a href="#">
                                         {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
@@ -279,10 +291,33 @@ import { store } from '../store';
 <style lang="scss" scoped>
 @import '../assets/scss/partials/variables.scss';
 
+.color-hover {
+    :hover {
+        color:$color-one;
+    }
+}
 #header-top {
-    background-color: $color-one;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
     color: $color-two;
     height: 50px;
+    nav {
+    ul {
+        display: flex;
+        list-style: none;
+    }
+    
+    a {
+        margin-left:5px;
+        padding: 5px;
+        text-decoration: none;
+        color: #BEC1CE;  
+    } :hover {
+        color:$color-one;
+    }
+}
 }
 #header-button {
     padding-top: 40px ;
@@ -291,9 +326,14 @@ import { store } from '../store';
     z-index: 10;
 }
 
+#nav-header {
+    width: 100%;
+}
 .bi-search, .bi-handbag {
     color: $color-two;
-}
+} :hover {
+        color:$color-one;
+    }
 .container-logo {
     margin-top: 50px;
     height: 100px;
@@ -316,28 +356,26 @@ nav {
         margin-left:5px;
         padding: 5px;
         text-decoration: none;
+        color: #BEC1CE; 
     }
 }
 
+#button-header {
+    padding: px 15px;
+    border-radius:20px;
+    background-color: rgba(0, 0, 0 ,0.1);
+}
 .bi-arrow-down-short {
     font-size: 20px;
-}
-.form-control-sm {
-    min-width: 30px;
-    margin: 0 5px;
-}
+} :hover {
+        color:$color-one;
+    }
 
 button {
-    margin-left: 5px;
-}
-
-select {
+    padding: 5px;
     margin: 0 5px;
-}
-    
-.debug #header-button {
-    background-color: rgba(0, 0, 0, 0);
-    
+    border: none;
+    background-color: transparent;
 }
 
 //drop-down
