@@ -159,7 +159,7 @@ import { store } from '../store';
                     :key="i" id="drop-down" class="d-flex">
                         <nav>
                             <ul>
-                                <li class="color-hover">
+                                <li>
                                     <a href="#">
                                         {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
@@ -182,7 +182,7 @@ import { store } from '../store';
                     id="drop-down" class="d-flex">
                         <nav>
                             <ul>
-                                <li class="color-hover">
+                                <li>
                                     <a href="#">
                                         {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
@@ -211,7 +211,7 @@ import { store } from '../store';
                     id="drop-down" class="">
                         <nav>
                             <ul>
-                                <li class="color-hover">
+                                <li>
                                     <a href="#">
                                         {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
@@ -232,7 +232,7 @@ import { store } from '../store';
                     id="drop-down" class="d-flex">
                         <nav>
                             <ul>
-                                <li class="color-hover">
+                                <li>
                                     <a href="#">
                                         {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
@@ -390,12 +390,14 @@ button {
     li {
         display: inline-block;
         position: relative;
+    } :hover {
+        color: $color-one;
     }
 
     a {
         text-decoration: none;
         display: block;
-        padding: 10px 20px;
+        padding: 10px 10px;
         color: #BEC1CE;
     }
 
