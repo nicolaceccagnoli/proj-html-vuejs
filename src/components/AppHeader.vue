@@ -7,7 +7,9 @@ import { store } from '../store';
     data() {
         return {
             store,
+
             scrollPosition: 0,
+
             menuDataDemo: [
                 {
                 title:'demo',
@@ -91,7 +93,10 @@ import { store } from '../store';
         }
     },
     mounted() {
-        window.addEventListener('scroll', this.userScroll)
+        window.addEventListener('scroll', this.userScroll());
+    },
+    beforeDestroy() {
+        window.addEventListener('scroll', this.userScroll());
     },
     components: { RouterLink }
 }
@@ -100,55 +105,69 @@ import { store } from '../store';
 <template>
     <header class="debug">
         <!--header top-->
-        <div id="header-top" class="d-flex flex-wrap">
+        <div id="header-top">
             <div class="my-container">
-                <nav id="nav-header" class="d-flex justify-content-between">
+                <nav id="nav-header" class="row g-0 justify-content-between">
                     <!--nav-info-->
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-clock-fill"></i>
-                                orari di apertura: Lun - Sab - 9:00 - 18:00
-                            </a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-telephone-fill"></i>
-                                +1 123456789
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-envelope-fill"></i>
-                                lorem@lorem.com
-                            </a>
-                        </li>  
-                            <!--loghi social-->
+                    <div class="col-auto">
+                        <ul>
+                            <li>
+                                <a 
+                                href="#">
+                                    <i class="bi bi-clock-fill"></i>
+                                    orari di apertura: Lun - Sab - 9:00 - 18:00
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-linkedin"></i>
-                            </a>
-                        </li>                                
-                    </ul>                        
+                    <div class="col-auto">
+                        <ul>
+                            <li>
+                                <a 
+                                href="#">
+                                    <i class="bi bi-telephone-fill ms-2"></i>
+                                    +1 123456789
+                                </a>
+                            </li>
+                            <li>
+                                <a 
+                                href="#">
+                                    <i class="bi bi-envelope-fill ms-2"></i>
+                                    lorem@lorem.com
+                                </a>
+                            </li> 
+                            <li>
+                                <a 
+                                href="#">
+                                    <i class="bi bi-facebook ms-2"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bi bi-twitter m-2"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bi bi-linkedin m-2"></i>
+                                </a>
+                            </li>                                
+                        </ul>                        
+                    </div>
                 </nav>
             </div>
         </div>
     
-            <div :class="{'active-bg':scrollPosition > 0}" id="header-button" class="d-flex align-items-center">
-                <div class="container d-flex justify-content-between">
+        <div class="my-container">
+
+            <div 
+            :class="{
+                'active-bg' : scrollPosition > 0
+            }" 
+            id="header-button" 
+            class="d-flex align-items-center ">
+                <div class="w-100 d-flex justify-content-between">
                     <!--header top-->
                     <div class="container-logo">
                         <router-link to="/">
@@ -156,7 +175,7 @@ import { store } from '../store';
                         </router-link>
                     </div>
 
-                    <div class="container-info d-flex">
+                    <div class="container-info d-flex align-items-center">
 
                         <!--DEMO-->
                         <div v-for="(option, i) in menuDataDemo"
@@ -254,7 +273,7 @@ import { store } from '../store';
                         </div>
 
                         <!--links/button-->
-                        <nav class="nav-icon">
+                        <nav class="nav-icon ">
                             <ul>
                                 <li>
                                     <router-link :to="{ name: 'shop' }">
@@ -288,7 +307,9 @@ import { store } from '../store';
                         </nav>
                     </div>                                                        
                 </div>
-            </div>                
+            </div> 
+        </div>
+               
 </header>
 </template>
 
@@ -301,19 +322,16 @@ import { store } from '../store';
     }
 }
 #header-top {
-    align-items: center;
     background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
     color: $color-two;
     height: 50px;
+
     nav {
-    ul {
-        display: flex;
-        list-style: none;
-    }
+        ul {
+            list-style: none;
+        }
     
     a {
-        margin-left:5px;
-        padding: 5px;
         text-decoration: none;
         color: #BEC1CE;  
     } :hover {
@@ -322,14 +340,13 @@ import { store } from '../store';
 }
 }
 #header-button {
-    padding-top: 40px ;
     height: 80px;
     background: transparent;
 }
+
 .active-bg {
-    background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
-    
-}
+        background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
+    }
 
 .bi-search, .bi-handbag {
     color: $color-two;
@@ -337,7 +354,6 @@ import { store } from '../store';
         color:$color-one;
     }
 .container-logo {
-    height: 100px;
     width: 150px;
     img {
         width: 100%;
@@ -353,15 +369,13 @@ nav {
         align-items: center;
     }
     a {
-        margin-left:5px;
-        padding: 5px;
         text-decoration: none;
         color: #BEC1CE; 
     }
 }
 
 #button-header {
-    padding: px 15px;
+    padding: 0px 15px;
     border-radius:20px;
     background-color: rgba(0, 0, 0 ,0.1);
 }
@@ -373,7 +387,8 @@ nav {
 
 button {
     padding: 5px;
-    margin: 0 5px;
+    margin-right: 5px;
+    margin-left: 5px;
     border: none;
     background-color: transparent;
 }
@@ -383,8 +398,6 @@ button {
 
     ul {
         list-style: none;
-        padding: 0;
-        margin: 0;
     }
 
     li {
@@ -421,15 +434,6 @@ button {
 
     ul ul li {
         width: 200px;
-        float: none;
-        display: list-item;
-        position: relative;
-    }
-
-    ul ul ul li {
-        position: relative;
-        top: -60px;
-        left: 200px;
     }
 }    
 
