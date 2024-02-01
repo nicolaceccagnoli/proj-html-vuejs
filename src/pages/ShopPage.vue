@@ -882,10 +882,6 @@
             }
         }
 
-        #my-list-group{
-            border-radius: none;
-        }
-
         .list-group{
             width: 350px;
             border-radius: 0px;

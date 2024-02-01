@@ -85,6 +85,45 @@ import { store } from '../store';
                     </h2>
                 </div>
             </div>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between" v-for="(item, index) in cart" :key="index">
+                        <div class="d-flex">
+                            <div class="img-box position-relative">
+                                <img :src="item.image" :alt="item.name">
+                                <div class="remove-item">
+                                    <a href="#nogo" @click="removeFromCart(index)">
+                                        ×
+                                    </a>
+                                </div>
+                            </div>
+                            <span class="ps-3 pt-3">
+                                {{ item.name }}
+                            </span>
+                            
+                        </div>
+                        <div class="pt-3">
+                            ${{ item.currentPrice }}
+                        </div>
+                    </li>
+                    <div class="py-4 fw-bold d-flex justify-content-between">
+                        <div>
+                            Subtotal:
+                        </div>
+                        <div>
+                            ${{ totalPrice(getCartTotal()) }}
+                        </div>
+                    </div>
+                    <div class="py-3 fw-bold d-flex justify-content-between gap-3">
+                        <button class="btn cart-button">
+                            View Cart
+                        </button>
+                        <button class="btn cart-button">
+                            Checkout
+                        </button>
+                    </div>
+                </ul>
+            </div>
         </div>
         <!-- Qui inizia l'Offcanvas da mostrare per lo Shop -->
            
@@ -156,6 +195,63 @@ import { store } from '../store';
 
             i {
                 font-size: 24px;
+            }
+        }
+
+        .list-group{
+            width: 350px;
+            border-radius: 0px;
+        }
+
+        .list-group-item{
+            border: none;
+            border-bottom: 1px solid lightgray;
+            margin-top: 15px;
+            padding-left: 0px;
+            color: $main-text-color;
+            font-weight: bold;
+
+            .img-box{
+                width: 50px;
+                height: 50px;
+                margin-bottom: 5px;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .remove-item{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #FBE6E9;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+
+            a{
+                text-decoration: none;
+                color: #D90A2C;
+                font-weight: lighter;
+            }
+        }
+
+        .cart-button{
+            width: 170px;
+            background-color: #EDEDED;
+            color: $main-text-color;
+
+            &:hover{
+                background-color: $color-five;
+                color: white;
+                -webkit-transition: all 0.3s ease-out 0s;
+                transition: all 0.3s ease-out 0s;
             }
         }
 
