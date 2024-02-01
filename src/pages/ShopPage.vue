@@ -1,11 +1,16 @@
 <script>
     import Slider from '@vueform/slider';
     import "@vueform/slider/themes/default.css";
+    import { store } from '../store';
     export default {
         data() {
             return {
                 productsArray: [],
                 selectedProducts: [],
+                store,
+                cart: [],
+                showEmptyCart: false,
+                showCart: false,
                 value: [0, 150],
                 min: 20,
                 max: 150,
@@ -322,7 +327,31 @@
             },
             filterProducts(){
                 this.filteredProducts();
-            }
+            },
+            addToCart(card) {
+                if(this.showEmptyCart == true){
+                    this.showEmptyCart = false
+                }
+                const currentPrice = Number(card.currentPrice);
+                if (!isNaN(currentPrice)) {
+                this.cart.push({ name: card.name, currentPrice: currentPrice.toFixed(2) });
+                }
+            },
+            removeFromCart(index) {
+                this.cart.splice(index, 1)
+                if(this.cart.length == 0){
+                    this.showEmptyCart = true
+                }
+                
+            },
+            getCartTotal() {
+                const total = this.cart.reduce((total, item) => total + Number(item.currentPrice), 0);
+                console.log('Cart Total:', total);
+                return total;
+            },
+            totalPrice(price) {
+                return Number(price).toFixed(2);
+            },
         },
         mounted() {
             this.productsArray = this.cards;
@@ -374,7 +403,7 @@
                                     </span>
                                 </span>
                             </a>
-                            <a href="#" class="shop-cart">
+                            <a href="#nogo" class="shop-cart" @click="addToCart(elem)">
                                 <span class="my-rounded">
                                     <i class="bi bi-cart-plus"></i>
                                 </span>
@@ -402,6 +431,39 @@
                                 Price: ${{ value[0] }} - ${{ value[1] }}
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-cart mt-5">
+                <h5>
+                    Shop Cart
+                </h5>
+                <div>
+                    <ul class="list-group" v-if="cart.length > 0">
+                        <li class="list-group-item d-flex justify-content-between" v-for="(item, index) in cart" :key="index">
+                            <div class="d-flex">
+                               <button @click="removeFromCart(index)">
+                                    remove from cart
+                               </button>
+                               <span>
+                                    {{ item.name }}
+                               </span>
+                            </div>
+                            <div>
+                                ${{ item.currentPrice }}
+                            </div>
+                        </li>
+                        <div class="py-4 fw-bold d-flex justify-content-between">
+                            <div>
+                                Subtotal:
+                            </div>
+                            <div>
+                                ${{ totalPrice(getCartTotal()) }}
+                            </div>
+                        </div>
+                    </ul>
+                    <div class="empty-bin" v-if="showEmptyCart">
+                        <img src="../../public/images/empty-bin.png" alt="" />
                     </div>
                 </div>
             </div>
@@ -579,6 +641,11 @@
             }
             
         }
+    }
+
+    .empty-bin{
+        width: 350px;
+        height: 400px;
     }
 
     .filter-button{
