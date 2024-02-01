@@ -1,11 +1,46 @@
 <script >
 import { RouterLink } from 'vue-router';
+import { store } from '../store';
+
 
     export default {
     data() {
-        return {};
+        return {
+            store
+        };
     },
-    methods: {},
+    methods: {
+        showSearchOffcanvas() {
+
+            if (this.store.showMapOffcanvas) {
+                this.store.showMapOffcanvas = false
+            }
+
+            if (this.store.showShopOffcanvas) {
+                this.store.showShopOffcanvas = false
+            }
+
+            this.store.showSearchOffcanvas = true;
+            console.log('OFFCANVAS SEARCH')
+            console.log('FLAG SEARCH',this.store.showSearchOffcanvas);
+            console.log('FLAG MAPPA',this.store.showMapOffcanvas)
+        },
+        showShopOffcanvas() {
+            if (this.store.showSearchOffcanvas) {
+                this.store.showSearchOffcanvas = false;
+            }
+
+            if (this.store.showMapOffcanvas) {
+                this.store.showMapOffcanvas = false;
+            }
+
+            this.store.showShopOffcanvas = true;
+            
+            console.log('OFFCANVAS MAPPE')
+            console.log('FLAG SEARCH',this.store.showSearchOffcanvas);
+            console.log('FLAG MAPPA',this.store.showMapOffcanvas)
+        }
+    },
     components: { RouterLink }
 }
 </script>
@@ -148,15 +183,21 @@ import { RouterLink } from 'vue-router';
                                 </router-link>
                             </li>
                             <li>
-                                <a href="#">
+                                <button
+                                @click="showSearchOffcanvas()"
+                                type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+                                href="#">
                                     <i class="bi bi-search"></i>
-                                </a>
+                                </button>
                             </li>
 
                             <li>
-                                <a href="#">
+                                <button
+                                @click="showShopOffcanvas()"
+                                type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+                                href="#">
                                     <i class="bi bi-handbag"></i>
-                                </a>
+                                </button>
                             </li>
                             
                             <li id="button-header">

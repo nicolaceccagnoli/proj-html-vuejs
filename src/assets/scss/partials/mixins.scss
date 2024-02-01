@@ -22,8 +22,8 @@
 
 @mixin main-span-style {
     color: $color-one;
-    background: rgb(255,255,255,);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(214,230,230,1) 50%);
+    background: rgb(215,229,230);
+    background: linear-gradient(0deg, rgba(215,229,230,1) 50%, rgba(153,153,153,0) 50%);
     border-radius: 5px;
 }
 
@@ -47,7 +47,7 @@
 */
 
 @mixin single-services-card {
-    width: calc((100% / 3) - 30px);
+    max-width: calc((100% / 3) - 30px);
     margin: 15px 15px;
     padding: 20px;
     height: 250px;

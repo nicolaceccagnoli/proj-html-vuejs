@@ -45,14 +45,14 @@ export default {
         <div class="my-container">
             <div>
                 <div class="row g-0">
-                    <div class="col-12">
+                    <div class="col-lg-12 col-md-8 col-sm-6">
                         <h3>
                             Excellence in <span> Services </span>
                         </h3>
                     </div>
                 </div>
                 <div class="row g-0 align-items-center">
-                    <div class="col-10">
+                    <div class="col-md-10 col-sm-4">
                         <p>
                             We are leaders in providing consultancy services with a set of cutting-edge technologies and a team of experienced ad renowned professionals. These are some options that you can hire.
                         </p>

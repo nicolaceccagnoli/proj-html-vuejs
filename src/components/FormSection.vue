@@ -1,13 +1,31 @@
 <script>
+import { store } from '../store';
+
     export default {
         data() {
             return {
+                store
             }
             },
             methods: {
                 faceTimeCall() {
                     alert('Devi Aprire FaceTime')
-                }
+                },
+                showMapOffcanvas() {
+                    if (this.store.showSearchOffcanvas) {
+                        this.store.showSearchOffcanvas = false;
+                    }
+
+                    if (this.store.showShopOffcanvas) {
+                        this.store.showShopOffcanvas = false;
+                    }
+
+                    this.store.showMapOffcanvas = true;
+
+                    console.log('OFFCANVAS MAPPE')
+                    console.log('FLAG SEARCH',this.store.showSearchOffcanvas);
+                    console.log('FLAG MAPPA',this.store.showMapOffcanvas)
+                },
             },
             mounted() {
             },
@@ -148,7 +166,9 @@
                         </div>
                         <div class="row">
                             <div class="col-auto">
-                                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <button 
+                                @click="showMapOffcanvas()"
+                                type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                     VIEW MAP
                                 </button>
                             </div>

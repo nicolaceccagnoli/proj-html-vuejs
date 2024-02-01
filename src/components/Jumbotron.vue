@@ -80,17 +80,17 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
             </div>
             <swiper-slide>
                 <div class="row jumbotron-text-one">
-                    <div class="title col-12" data-swiper-parallax="-300">
+                    <div class="title col-lg-12 col-md-8 col-sm-6" data-swiper-parallax="-300">
                         <h1>
                             We Share <br> <span> Good Ideas </span>
                         </h1>
                     </div>
-                    <div class="text col-12" data-swiper-parallax="-100">
+                    <div class="text col-lg-12 col-md-8 col-sm-6" data-swiper-parallax="-100">
                         <p>
                             Escape the comfort zone and achieve better results with the help of experts who understand the subject.
                         </p>
                     </div>
-                    <div class="col-12">
+                    <div class="col-lg-12 col-md-8 col-sm-6">
                         <a class="main-anchor-style" href="#">
                             GET IN TOUCH
                         </a>
@@ -99,17 +99,17 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
             </swiper-slide>
             <swiper-slide>
                 <div class="row jumbotron-text-two">
-                    <div class="title col-12" data-swiper-parallax="-300">
+                    <div class="title col-lg-12 col-md-8 col-sm-6" data-swiper-parallax="-300">
                         <h1>
                             Ready <span> Team </span>
                         </h1>
                     </div>
-                    <div class="text col-12 text-center" data-swiper-parallax="-100">
+                    <div class="text col-lg-12 col-md-8 col-sm-6 text-center" data-swiper-parallax="-100">
                         <p>
                             No matter what your company needs, we will be ready to assist you in the best possible way.
                         </p>
                     </div>
-                    <div class="col-12">
+                    <div class="col-lg-12 col-md-8 col-sm-6">
                         <a class="main-anchor-style" href="#">
                             GET IN TOUCH
                         </a>
@@ -118,17 +118,17 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
             </swiper-slide>
             <swiper-slide>
                 <div class="row jumbotron-text-three">
-                    <div class="title col-12" data-swiper-parallax="-300">
+                    <div class="title col-lg-12 col-md-8 col-sm-6" data-swiper-parallax="-300">
                         <h1>
                             Talk to a <br> <span> Consultant </span>
                         </h1>
                     </div>
-                    <div class="text col-12" data-swiper-parallax="-100">
+                    <div class="text col-lg-12 col-md-8 col-sm-6" data-swiper-parallax="-100">
                         <p>
                             Do not miss the opportunity to achieve better results and solidity in the market.
                         </p>
                     </div>
-                    <div class="col-12">
+                    <div class="col-lg-12 col-md-8 col-sm-6">
                         <a class="main-anchor-style" href="#">
                             GET IN TOUCH
                         </a>
