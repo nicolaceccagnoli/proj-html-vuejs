@@ -2,6 +2,9 @@ import { reactive } from 'vue';
 
 export const store = reactive ({
 
+    // Creo una array globale per l'offcanvas dello shop
+    globalCart: [],
+
     // Creo una variabile globale per l'offcanvas delle Mappe
     showMapOffcanvas: false,
     // Creo una variabile globale per l'offcanvas delle Mappe

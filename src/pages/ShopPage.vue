@@ -10,6 +10,7 @@
                 selectedProducts: [],
                 store,
                 cart: [],
+                selectedSort: 'default',
                 showEmptyCart: false,
                 showCart: false,
                 value: [0, 150],
@@ -24,6 +25,8 @@
                         oldPrice: '$200.00',
                         currentPrice: '129.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2023-12-31',
+                        popularity: '7.4',
                         productTags: [
                             1,
                             6,
@@ -43,6 +46,8 @@
                         oldPrice: null,
                         currentPrice: '45.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-01',
+                        popularity: '7',
                         productTags: [
                             1,
                             9,
@@ -59,6 +64,8 @@
                         oldPrice: '$129.50',
                         currentPrice: '89.90',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-02',
+                        popularity: '8.4',
                         productTags: [
                             2,
                             6,
@@ -77,6 +84,8 @@
                         oldPrice: '$75.00',
                         currentPrice: '39.50',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-03',
+                        popularity: '6.2',
                         productTags: [
                             3,
                             6,
@@ -95,6 +104,8 @@
                         oldPrice: null,
                         currentPrice: '149.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-04',
+                        popularity: '9',
                         productTags: [
                             4,
                             6,
@@ -113,6 +124,8 @@
                         oldPrice: null,
                         currentPrice: '79.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-05',
+                        popularity: '7.8',
                         productTags: [
                             2,
                             6,
@@ -132,6 +145,8 @@
                         oldPrice: '$60.00',
                         currentPrice: '35.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-06',
+                        popularity: '5.5',
                         productTags: [
                             5,
                             7
@@ -146,6 +161,8 @@
                         oldPrice: null,
                         currentPrice: '45.90',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-07',
+                        popularity: '8',
                         productTags: [
                             6,
                             7,
@@ -165,6 +182,8 @@
                         oldPrice: null,
                         currentPrice: '20.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-08',
+                        popularity: '9.4',
                         productTags: [
                             5,
                             10
@@ -180,6 +199,8 @@
                         oldPrice: null,
                         currentPrice: '90.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2024-01-09',
+                        popularity: '7.1',
                         productTags: [
                             7,
                             9,
@@ -272,16 +293,15 @@
                 options: [
                     {
                         option: 'Default sorting',
-                         
+                        value: 'default'
                     },
                     {
-                        option: 'Sort by popularity'
+                        option: 'Sort by popularity',
+                        value: 'popularity'
                     },
                     {
-                        option: 'Sort by average rating'
-                    },
-                    {
-                        option: 'Sort by latest'
+                        option: 'Sort by latest',
+                        value: 'latest'
                     },
                     {
                         option: 'Sort by price: low to higher',
@@ -346,6 +366,7 @@
                 const currentPrice = Number(card.currentPrice);
                 if (!isNaN(currentPrice)) {
                 this.cart.push({ name: card.name, currentPrice: currentPrice.toFixed(2), image: card.image });
+                this.store.globalCart.push({ name: card.name, currentPrice: currentPrice.toFixed(2), image: card.image });
                 }
             },
             removeFromCart(index) {
@@ -353,12 +374,16 @@
                 if(this.cart.length == 0){
                     this.showEmptyCart = true
                 }
+                if(this.store.globalCart.length == 0){
+                    this.showEmptyCart = true
+                }
                 
             },
             getCartTotal() {
                 const total = this.cart.reduce((total, item) => total + Number(item.currentPrice), 0);
+                const globalTotal = this.store.globalCart.reduce((total, item) => total + Number(item.currentPrice), 0);
                 console.log('Cart Total:', total);
-                return total;
+                return total, globalTotal;
             },
             totalPrice(price) {
                 return Number(price).toFixed(2);
@@ -369,6 +394,12 @@
                 } 
                 else if (this.selectedSort === 'highToLow') {
                     this.cards.sort((a, b) => b.currentPrice - a.currentPrice);
+                }
+                else if (this.selectedSort === 'latest') {
+                    this.cards.sort((a, b) => new Date(b.date) - new Date(a.date));
+                }
+                else if (this.selectedSort === 'popularity') {
+                    this.cards.sort((a, b) => b.popularity - a.popularity);
                 }
             },
             filteredPrices(cards) {
@@ -399,7 +430,7 @@
                     </span>
                 </div>
                 <div class="form-size">
-                    <select class="my-form-select" id="sortSelect" v-model="selectedSort" @change="sortedCards">
+                    <select class="my-form-select" id="sortSelect" v-model="selectedSort" @change="sortedCards" placeholder="Default sorting">
                         <option :value="elem.value" selected v-for="(elem, index) in options" :key="index">
                             {{ elem.option }}
                         </option>
@@ -605,7 +636,6 @@
             
         }
     }
-
     .remove-item{
         width: 20px;
         height: 20px;
