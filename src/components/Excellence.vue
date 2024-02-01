@@ -2,6 +2,7 @@
 export default {
     data() {
         return {
+            // Definisco un Array di Oggetti per ogni singola Card
             servicesCard: [
                 {
                     path: 'svg-1.svg',
@@ -32,6 +33,7 @@ export default {
         }
     },
     methods: {
+        // Utilizzo una funzione per ottenere un percorso alle SVG presenti in ogni singolo oggetto
         getImagePath: function(imgPath) {
             return new URL(imgPath, import.meta.url).href;
         }
@@ -41,8 +43,13 @@ export default {
 
 
 <template>
-    <div id="excellence">
+    <!-- Inizio della Sezione Excellence -->
+    <section id="excellence">
+
+        <!-- Inizio di my-container -->
         <div class="my-container">
+            
+            <!-- Qui inizia il titolo -->
             <div>
                 <div class="row g-0">
                     <div class="col-lg-12 col-md-8 col-sm-6">
@@ -64,9 +71,14 @@ export default {
                     </div>
                 </div>
             </div>
+            <!-- Qui finisce il titolo -->
+
+            <!-- Qui inizia il contenitore delle Card -->
             <div id="services-cards-container">
                 <div id="services-card">
                     <div class="row g-0">
+
+                        <!-- Qui iniziano le singole card -->
                         <div 
                         v-for="(singleCard, i) in servicesCard"
                         :key="i"
@@ -94,12 +106,18 @@ export default {
                                 </div>
                             </div>
                         </div>
+                        <!-- Qui finiscono le singole card -->
                     </div>
                 </div>
             </div>
+            <!-- Qui finisce il contenitore delle Card -->
+            
         </div>
+        <!-- Fine di my-container -->
 
-    </div>
+    </section>
+    <!-- Fine del contenitore Excellence -->
+
 </template>
 
 <style lang="scss" scoped>

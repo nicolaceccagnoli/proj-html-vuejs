@@ -4,40 +4,58 @@ import { store } from '../store';
     export default {
         data() {
             return {
-                store
+                store,
+
+                // Definisco un Array vuoto
+                newInfoContainer: []
             }
             },
             methods: {
+                // Richiamo un alert quando premo il pulsante delle chiamate
                 faceTimeCall() {
                     alert('Devi Aprire FaceTime')
                 },
+
+                // Creo una funzione per mostrare l'Offcanvas con la Mappa
                 showMapOffcanvas() {
+
+                    // Definisco una condizione per cui se è stata aperta l'Offcanvas al tasto Search dell'Header allora cambia la Flag
                     if (this.store.showSearchOffcanvas) {
                         this.store.showSearchOffcanvas = false;
                     }
 
+                    // Definisco una condizione per cui se è stata aperta l'Offcanvas al tasto Store dell'Header allora cambia la Flag
                     if (this.store.showShopOffcanvas) {
                         this.store.showShopOffcanvas = false;
                     }
 
+                    // Cambio il valore della flag per mostrare la Mappa
                     this.store.showMapOffcanvas = true;
-
-                    console.log('OFFCANVAS MAPPE')
-                    console.log('FLAG SEARCH',this.store.showSearchOffcanvas);
-                    console.log('FLAG MAPPA',this.store.showMapOffcanvas)
                 },
             },
             mounted() {
+                // Appena l'istanza viene montata in pagina assegno all'array vuoto il contenuto di infoContainer dello store
+                this.newInfoContainer = this.store.infoContainer;
             },
         }
 </script>
 
 
 <template>
-    <div id="form-container">
+
+    <!-- Inizio della sezione Form -->
+    <section id="form-container">
+
+        <!-- Inizio di my-container -->
         <div class="my-container">
+
+            <!-- Qui inizia la row che contiene sia il Form che i contatti -->
             <div class="row">
+
+                <!-- Qui inizia la col del Form -->
                 <div class="col-9">
+
+                    <!-- Qui inizia il titolo -->
                     <div class="row">
                         <div class="col-auto">
                             <h6>
@@ -57,6 +75,9 @@ import { store } from '../store';
                             </p>
                         </div>
                     </div>
+                    <!-- Qui finisce il titolo -->
+
+                    <!-- Qui inizia il Form -->
                     <form action="#" method="POST" id="contactForm">
                         <div class="row">
                             <div class="col-6">
@@ -103,8 +124,15 @@ import { store } from '../store';
                             </div>
                         </div>
                     </form>
+                    <!-- Qui finisce il Form -->
+
                 </div>
+                <!-- Qui finisce la col del Form -->
+
+                <!-- Qui inizia la col dei contatti -->
                 <div id="info" class="col-3">
+
+                    <!-- Qui inizia l'intestazione -->
                     <div class="row">
                         <div class="col-auto">
                             <h4>
@@ -117,48 +145,22 @@ import { store } from '../store';
                             </p>
                         </div>
                     </div>
+                    <!-- Qui finisce l'intestazione -->
+
+                    <!-- Qui iniziano i singoli contatti -->
                     <div class="row">
                         <div class="col-auto">
                             <ul>
                                 <li>
-                                    <a 
+                                    <a
                                     @click="faceTimeCall()"
+                                    v-for="(singleInfo, i) in newInfoContainer"
                                     href="#">
                                         <div class="icon-container">
-                                            <i class="bi bi-telephone-fill"></i>
+                                            <i :class="singleInfo.icon"></i>
                                         </div>
                                         <span>
-                                            +1 (305) 1234-5678
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="icon-container">
-                                            <i class="bi bi-envelope-fill"></i>
-                                        </div>
-                                        <span>
-                                            mail@example.com
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="icon-container">
-                                            <i class="bi bi-geo-alt-fill"></i>
-                                        </div>
-                                        <span>
-                                            Main Avenue, 123
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="icon-container">
-                                            <i class="bi bi-geo-alt-fill"></i>
-                                        </div>
-                                        <span>
-                                            Main Avenue 987
+                                            {{ singleInfo.info }}
                                         </span>
                                     </a>
                                 </li>
@@ -176,10 +178,20 @@ import { store } from '../store';
                             </div>
                         </div>
                     </div>
+                    <!-- Qui finiscono i contatti -->
+
                 </div>
+                <!-- Qui finisce la col dei contatti -->
+
             </div>
+            <!-- Qui Finisce la row che contiene sia il Form che i contatti -->
+
         </div>
-    </div>
+        <!-- Fine di my-container -->
+
+    </section>
+    <!-- Fine della sezione Form -->
+    
 </template>
 
 <style lang="scss" scoped>
@@ -256,10 +268,10 @@ import { store } from '../store';
 
         ul {
             li {
-                margin: 30px 0;
                 list-style: none;
 
                 a {
+                    margin: 30px 0;
                     color: $color-one;
                     text-decoration: none;
                     display: flex;
