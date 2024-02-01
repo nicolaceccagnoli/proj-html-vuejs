@@ -176,12 +176,16 @@ import { store } from '../store';
                                         <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
-                                        <li><a href="#">chi siamo</a></li>
-                                        <li><a href="#">
-                                            <router-link :to="{ name: 'services' }">
-                                            service
-                                            </router-link>
-                                        </a></li>                                        
+                                        
+                                        <li v-for="(list,index) in option.subMenu"
+                                        :key="index">
+                                        <router-link v-if="list.label === 'services'" :to="{name: 'services'}">
+                                            {{ list.label }}
+                                        </router-link>
+                                        <a v-else href="#">
+                                            {{ list.label }}                                            
+                                        </a>
+                                    </li>                                        
                                     </ul>
                                 </li>
                             </ul>
