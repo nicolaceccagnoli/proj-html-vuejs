@@ -85,6 +85,7 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 @mixin info-container {
@@ -129,7 +130,7 @@
 @mixin technologies {
     background: rgb(14,27,42);
     background: linear-gradient(77deg, rgba(14,27,42,1) 0%, rgba(23,58,81,1) 100%);
-    padding: 60px 0;
+    padding: 100px 0;
 }
 
 @mixin tech-container-img {
@@ -140,7 +141,7 @@
 @mixin bullets-img {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -90%);
+    transform: translate(-50%, -125%);
     filter: brightness(0) saturate(100%) invert(27%) sepia(23%) saturate(1455%) hue-rotate(138deg) brightness(89%) contrast(86%);
 }
 
@@ -158,6 +159,7 @@
     border-radius: 5px;
     padding: 12px 24px;
     margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 @mixin button-form-style {
@@ -186,4 +188,12 @@
     padding: 8px 24px;
     background-color: #E3F3F2;
     color: $color-one;
+}
+
+@mixin form-container {
+    background-image: url('/public/images/geom-bg.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 100px 0; 
 }

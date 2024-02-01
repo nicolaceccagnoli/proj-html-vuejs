@@ -24,7 +24,7 @@
                                 ]
                     },       
                     {
-                        path: '/public/images/airpods-max.jpeg',
+                        path: '/public/images/cactus.jpeg',
                         title: 'Portfolio item with intro with sidebar',
                         info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
                         showInfo: false,
@@ -37,7 +37,7 @@
     
                     },
                     {
-                        path: '/public/images/airpods-max.jpeg',
+                        path: '/public/images/cherries.jpeg',
                         title: 'Portfolio item with intro with sidebar',
                         showInfo: false,
                         tags_ids: [
@@ -48,7 +48,7 @@
                                 ]    
                     },
                     {
-                        path: '/public/images/airpods-max.jpeg',
+                        path: '/public/images/headphones.avif',
                         title: 'Portfolio item with intro with sidebar',
                         info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
                         showInfo: false,
@@ -60,7 +60,7 @@
                                 ]    
                     },      
                     {
-                        path: '/public/images/airpods-max.jpeg',
+                        path: '/public/images/avocado.jpeg',
                         title: 'Portfolio item with intro with sidebar',
                         showInfo: false,
                         tags_ids: [
@@ -71,7 +71,7 @@
                                 ]    
                     }, 
                     {
-                        path: '/public/images/airpods-max.jpeg',
+                        path: '/public/images/cocktail.webp',
                         title: 'Portfolio item with intro with sidebar',
                         info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulu...',
                         showInfo: false,

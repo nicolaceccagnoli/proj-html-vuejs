@@ -52,12 +52,14 @@
                                     class="company-cards col-6">
                                         <div class="row g-0 align-items-center mb-3">
                                             <div class="col-auto">
-                                                <i :class="card.icon"></i>
-                                            </div>
-                                            <div class="col-auto ps-1">
-                                                <h5>
-                                                    {{ card.name }}
-                                                </h5>
+                                                <a 
+                                                class="d-flex align-items-center text-decoration-none"
+                                                href="#">
+                                                    <i :class="card.icon"></i>
+                                                    <h5 class="ps-2">
+                                                        {{ card.name }}
+                                                    </h5>
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="row g-0">

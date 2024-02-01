@@ -1,9 +1,18 @@
 <script>
+    import Slider from '@vueform/slider';
+    import "@vueform/slider/themes/default.css";
     export default {
         data() {
             return {
                 productsArray: [],
                 selectedProducts: [],
+                rangeSlider: {
+                    value: [0, 150],
+                    min: 20,
+                    max: 150,
+                    step: 10,
+                    tooltips: false,
+                },
                 cards: [
                     {
                         name: "Black hooded sweatshirt",
@@ -307,6 +316,9 @@
         },
         mounted() {
             this.productsArray = this.cards;
+        },
+        components: {
+            Slider
         }
     }
 </script>
@@ -364,11 +376,26 @@
         </div>
         <div class="sidebar">
             <div class="filter">
-                <h5>
+                <h5 class="pb-4">
                     Filter by Price
                 </h5>
+                <div>
+                    <div>
+                        <Slider v-model="rangeSlider.value" :min="rangeSlider.min" :max="rangeSlider.max" :step="rangeSlider.step" :tooltips="rangeSlider.tooltips" class="slider"> </Slider>
+                    </div>
+                    <div class="d-flex pt-5 justify-content-between">
+                        <button class="btn filter-button">
+                            Filter
+                        </button>
+                        <div>
+                            <p class="pt-2 filter-price">
+                                Price: ${{ rangeSlider.value[0] }} - ${{ rangeSlider.value[1] }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="on-sale">
+            <div class="on-sale pt-5">
                 <h5>
                     On-sale Products
                 </h5>
@@ -544,6 +571,34 @@
         }
     }
 
+    .filter-button{
+        background-color: #EDEDED;
+        color: $main-text-color;
+
+        &:hover{
+            background-color: $color-five;
+            color: white;
+            -webkit-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+    }
+
+    .filter-price{
+        color: $color-two;
+        font-weight: bold;
+    }
+
+    .slider{
+        --slider-bg: #E5E5E5;
+        --slider-connect-bg: #D9F2F2;
+        --slider-height: 8px;
+        --slider-handle-bg: #73CECE;
+        --slider-handle-width: 16px;
+        --slider-handle-height: 16px;
+        --slider-handle-ring-width: 0;
+        --slider-handle-shadow: 0;
+    }
+
     .my-rounded{
         width: 100px;
         height: 100px;
@@ -640,9 +695,9 @@
             font-weight: bold;
         }
 
-        /* .filter{
-            
-        } */
+        .filter{
+            width: 350px;
+        } 
 
         .recently{
             height: 500px;
