@@ -6,19 +6,17 @@
             return {
                 productsArray: [],
                 selectedProducts: [],
-                rangeSlider: {
-                    value: [0, 150],
-                    min: 20,
-                    max: 150,
-                    step: 10,
-                    tooltips: false,
-                },
+                value: [0, 150],
+                min: 20,
+                max: 150,
+                step: 10,
+                tooltips: false,
                 cards: [
                     {
                         name: "Black hooded sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/6c2a68e896114a498d3c6b82b819e797/adabf4e4e2f44afa9215493f69adf675.jpg?imwidth=300&filter=packshot',
                         oldPrice: '$200.00',
-                        currentPrice: '$129.00',
+                        currentPrice: '129.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             1,
@@ -37,7 +35,7 @@
                         name: "Black t-shirt with lamp print",
                         image: 'https://img01.ztat.net/article/spp-media-p1/bc30f9d073d3426a8a144b12296bf889/dd06e26f3f924218891d325b1ae93887.jpg?imwidth=1800',
                         oldPrice: null,
-                        currentPrice: '$45.00',
+                        currentPrice: '45.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             1,
@@ -53,7 +51,7 @@
                         name: "Blue hooded sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/822e147936b247af92c04f030ee6d6fe/2567a54dd937420b8ce294646651d389.jpg?imwidth=1800',
                         oldPrice: '$129.50',
-                        currentPrice: '$89.90',
+                        currentPrice: '89.90',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             2,
@@ -71,7 +69,7 @@
                         name: "Brown Hooded Sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/5b0e6e64422047ca982b5c3119df4e7c/508019397ce240b791b6b000c78f28b8.jpg?imwidth=1800',
                         oldPrice: '$75.00',
-                        currentPrice: '$39.50',
+                        currentPrice: '39.50',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             3,
@@ -89,7 +87,7 @@
                         name: "Gray hooded sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/9cff1e08e2524fed82d4cf9bfa9960bb/7339bb9026b04b46ae079b041c9593cd.jpg?imwidth=762',
                         oldPrice: null,
-                        currentPrice: '$149.00',
+                        currentPrice: '149.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             4,
@@ -107,7 +105,7 @@
                         name: "Navy Blue Hooded Sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/2a7343c1af794dbbbb92c7dcf6a4f37b/e2ed3a8414f0488487f2dac058d0511a.jpg?imwidth=1800',
                         oldPrice: null,
-                        currentPrice: '$79.00',
+                        currentPrice: '79.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             2,
@@ -126,7 +124,7 @@
                         name: "Ninja square poster",
                         image: 'https://ih1.redbubble.net/image.768696357.5316/fposter,small,wall_texture,product,750x1000.u2.jpg',
                         oldPrice: '$60.00',
-                        currentPrice: '$35.00',
+                        currentPrice: '35.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             5,
@@ -140,7 +138,7 @@
                         name: "Red hooded sweatshirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/b54d2da806924ff9b57419c113ca7fef/70caa473c6094186bceaeea4b4a4d084.jpg?imwidth=1800',
                         oldPrice: null,
-                        currentPrice: '$45.90',
+                        currentPrice: '45.90',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             6,
@@ -159,7 +157,7 @@
                         name: "Skull square poster",
                         image: 'https://images.desenio.com/zoom/7459_2.jpg',
                         oldPrice: null,
-                        currentPrice: '$20.00',
+                        currentPrice: '20.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             5,
@@ -174,7 +172,7 @@
                         name: "White ninja print t-shirt",
                         image: 'https://img01.ztat.net/article/spp-media-p1/3f869be934ef4e359beb6f3bcc817d23/1bf2d8defd5e4db89d557980a31a5850.jpg?imwidth=156',
                         oldPrice: null,
-                        currentPrice: '$90.00',
+                        currentPrice: '90.00',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         productTags: [
                             7,
@@ -312,6 +310,18 @@
                         this.productsArray.push(this.cards[card]);
                     }
                 }
+            },
+            filteredProducts() {
+                this.productsArray = this.cards.filter(
+                    (card) =>
+                    card.currentPrice >= this.value[0] && card.currentPrice <= this.value[1],
+                    console.log('prezzo selezionato minimo:', this.value[0]),
+                    console.log('prezzo selezionato massimo:', this.value[1]),
+                    console.log('prezzo card:', this.currentPrice)
+                );
+            },
+            filterProducts(){
+                this.filteredProducts();
             }
         },
         mounted() {
@@ -360,7 +370,7 @@
                                         {{ elem.oldPrice }}
                                     </span> 
                                     <span class="current-price ps-2">
-                                        {{ elem.currentPrice }} 
+                                        ${{ elem.currentPrice }} 
                                     </span>
                                 </span>
                             </a>
@@ -381,15 +391,15 @@
                 </h5>
                 <div>
                     <div>
-                        <Slider v-model="rangeSlider.value" :min="rangeSlider.min" :max="rangeSlider.max" :step="rangeSlider.step" :tooltips="rangeSlider.tooltips" class="slider"> </Slider>
+                        <Slider v-model="value" :min="min" :max="max" :step="step" :tooltips="tooltips" class="slider"> </Slider>
                     </div>
                     <div class="d-flex pt-5 justify-content-between">
-                        <button class="btn filter-button">
+                        <button class="btn filter-button" @click="filterProducts()">
                             Filter
                         </button>
                         <div>
                             <p class="pt-2 filter-price">
-                                Price: ${{ rangeSlider.value[0] }} - ${{ rangeSlider.value[1] }}
+                                Price: ${{ value[0] }} - ${{ value[1] }}
                             </p>
                         </div>
                     </div>
@@ -411,7 +421,7 @@
                                         {{ cards[2].oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        {{ cards[2].currentPrice }}
+                                        ${{ cards[2].currentPrice }}
                                     </span>
                                 </p>
                             </div>
@@ -429,7 +439,7 @@
                                         {{ cards[3].oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        {{ cards[3].currentPrice }}
+                                        ${{ cards[3].currentPrice }}
                                     </span>
                                 </p>
                             </div>
@@ -447,7 +457,7 @@
                                         {{ cards[0].oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        {{ cards[0].currentPrice }}
+                                        ${{ cards[0].currentPrice }}
                                     </span>
                                 </p>
                             </div>
@@ -465,7 +475,7 @@
                                         {{ cards[6].oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        {{ cards[6].currentPrice }}
+                                        ${{ cards[6].currentPrice }}
                                     </span>
                                 </p>
                             </div>
