@@ -2,6 +2,8 @@
     export default {
         data() {
             return {
+
+                // Definisco un Array di oggetti per ogni Card
                 companyCards: [
                     {
                         icon: 'bi bi-hourglass-bottom',
@@ -28,9 +30,14 @@
 
 
 <template>
-    <div id="company">
+    <!-- Qui inizia la sezione Company -->
+    <section id="company">
+
+        <!-- Qui inizia my-container -->
         <div class="my-container">
             <div class="row g-0">
+
+                <!-- Qui inizia il piccolo contenitore -->
                 <div id="small-company" class="col-12">
                     <div class="row g-0">
                         <div class="col-6">
@@ -46,6 +53,8 @@
                                     </p>
                                 </div>
                                 <div class="row g-0">
+
+                                    <!-- Qui iniziano le singole card -->
                                     <div
                                     v-for="(card, i) in companyCards"
                                     :key="i" 
@@ -70,14 +79,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Qui finiscono le singole card -->
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Qui finisce il piccolo contenitore -->
+
             </div>
         </div>
-    </div>
+        <!-- Qui inizia my-container -->
+
+    </section>
+    <!-- Qui finisce la sezione Company -->
 </template>
 
 <style lang="scss" scoped>

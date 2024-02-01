@@ -169,8 +169,13 @@
 
 
 <template>
-    <div id="actions-project-container">
+    <!-- Inizio della sezione Actions Project -->
+    <section id="actions-project-container">
+
+        <!-- Inizio di my-container -->
         <div class="my-container">
+
+            <!-- Qui inizia il titolo -->
             <div class="row g-0">
                 <div class="col-12 text-center">
                     <h3>
@@ -188,7 +193,12 @@
                     </button>
                 </div>
             </div>
+            <!-- Qui finisce il titolo -->
+
+            <!-- Inizio del carosello -->
             <div class="row g-0">
+
+                <!-- Inizio di ogni singola card del carosello -->
                 <div
                 @mouseover="showInfoFunction(i)"
                 @mouseout="hideInfoFunction(i)"
@@ -234,9 +244,16 @@
                         </div>
                     </div>
                 </div>
+                <!-- Inizio di ogni singola card del carosello -->
+                
             </div>
+            <!-- Inizio del carosello -->
+
         </div>
-    </div>
+        <!-- Fine di my-container -->
+
+    </section>
+    <!-- Fine della sezione Actions Project -->
 
 </template>
 

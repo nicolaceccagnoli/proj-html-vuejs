@@ -15,7 +15,11 @@ import { store } from '../store';
 
 
 <template>
+
+    <!-- Qui inizia l'Offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-2" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+
+        <!-- Qui inizia l'Offcanvas da mostrare per la Mappa -->
         <div 
         v-show="store.showMapOffcanvas"
         class="offcanvas-body maps">
@@ -26,6 +30,9 @@ import { store } from '../store';
                 </div>  
             </div>
         </div>
+        <!-- Qui finisce l'Offcanvas da mostrare per la Mappa -->
+
+        <!-- Qui inizia l'Offcanvas da mostrare per il Search -->
         <div
         v-show="store.showSearchOffcanvas"
         class="offcanvas-body">
@@ -56,6 +63,9 @@ import { store } from '../store';
                 </div>  
             </div>
         </div>
+        <!-- Qui finisce l'Offcanvas da mostrare per il Search -->
+        
+        <!-- Qui inizia l'Offcanvas da mostrare per lo Shop -->
         <div 
         v-show="store.showShopOffcanvas"
         class="offcanvas-body shop">
@@ -73,7 +83,11 @@ import { store } from '../store';
                 </div>
             </div>
         </div>
+        <!-- Qui inizia l'Offcanvas da mostrare per lo Shop -->
+           
     </div>
+    <!-- Qui finisce l'Offcanvas -->
+
 </template>
 
 <style lang="scss" scoped>

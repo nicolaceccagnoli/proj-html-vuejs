@@ -22,7 +22,7 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
                 // Creo una costante che corrisponderà alla posizione Y dell'utente in pagina
                 const currentScrollPosition = window.scrollY;
 
-                // Verifico se l'utente sta scrollando verso l'alto o verso il basso
+                // Verifico se l'utente sta scrollando verso l'alto o verso il basso e imposto la Flag del Bottone a True
                 this.showUpperButton = currentScrollPosition > 0 && (currentScrollPosition < this.lastScrollPosition || currentScrollPosition < 100);
 
                 // Aggiorno la posizione di scorrimento precedente
@@ -55,13 +55,16 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
 
 
 <template>
+    <!-- Inizio del contentitore Jumbotron -->
     <div id="jumbotron-container">
+
+        <!-- Inizio dello Swiper -->
         <swiper
             :style="{
             '--swiper-navigation-color': '#fff',
             '--swiper-pagination-color': '#fff',
             }"
-            :speed="600"
+            :speed="800"
             :parallax="true"
             :pagination="{
             clickable: true,
@@ -78,6 +81,7 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
             }"
             data-swiper-parallax="-50%">
             </div>
+            <!-- Inizio Prima Slide -->
             <swiper-slide>
                 <div class="row jumbotron-text-one">
                     <div class="title col-lg-12 col-md-8 col-sm-6" data-swiper-parallax="-300">
@@ -97,6 +101,9 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
                     </div>
                 </div>
             </swiper-slide>
+            <!-- Fine Prima Slide -->
+
+            <!-- Inizio Seconda Slide -->
             <swiper-slide>
                 <div class="row jumbotron-text-two">
                     <div class="title col-lg-12 col-md-8 col-sm-6" data-swiper-parallax="-300">
@@ -116,6 +123,9 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
                     </div>
                 </div>
             </swiper-slide>
+            <!-- Fine Seconda Slide -->
+
+            <!-- Inizio Terza Slide -->
             <swiper-slide>
                 <div class="row jumbotron-text-three">
                     <div class="title col-lg-12 col-md-8 col-sm-6" data-swiper-parallax="-300">
@@ -135,7 +145,12 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
                     </div>
                 </div>
             </swiper-slide>
+            <!-- Fine Terza Slide -->
+
         </swiper>
+        <!-- Fine dello Swiper -->
+
+        <!-- Bottone per riportare l'utente in alto in pagina -->
         <a 
         v-if="showUpperButton"
         href="#jumbotron-container"
@@ -143,6 +158,8 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
             <i class="bi bi-arrow-up-circle"></i>
         </a>
     </div>
+    <!-- Fine del contentitore Jumbotron -->
+
 </template>
 
 <style lang="scss" scoped>
