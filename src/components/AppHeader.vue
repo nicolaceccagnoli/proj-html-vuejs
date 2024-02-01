@@ -135,9 +135,9 @@ import { store } from '../store';
             <div class="container d-flex justify-content-between align-items-center">
                 <!--header top-->
                 <div class="container-logo">
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
+                    <router-link to="/">
+                        <img src="/public/logo.png" alt="logo">
+                    </router-link>
                 </div>
 
                 <div class="container-info d-flex align-items-center">
@@ -288,7 +288,7 @@ import { store } from '../store';
 .container-logo {
     margin-top: 50px;
     height: 100px;
-    width: 170px;
+    width: 150px;
     img {
         width: 100%;
     }
