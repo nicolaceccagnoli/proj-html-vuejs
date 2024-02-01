@@ -367,7 +367,7 @@ import { store } from '../store';
 }
 
 .bi-search, .bi-handbag {
-    color: $color-two;
+    color: #BEC1CE;
 } :hover {
         color:$color-one;
     }
@@ -428,7 +428,7 @@ button {
     a {
         text-decoration: none;
         display: block;
-        padding: 10px 10px;
+        padding: 5px 5px;
         color: #BEC1CE;
     }
 
