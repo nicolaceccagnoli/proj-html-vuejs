@@ -1,7 +1,9 @@
 <script >
+    import { store } from '../store';
     export default {
         data() {
             return {
+                store,
                 footerTopCompany: {
                     company: [
                         "Company",
@@ -85,10 +87,10 @@
                                 Built to the smallest detail with
                                 a focus on feature availability.
                             </p>
-                            <ul class="">
-                                <li><span class="pe-3"><i class="bi bi-telephone-fill"></i></span>+1 (305) 1234-5678</li>
-                                <li><span class="pe-3"><i class="bi bi-envelope-fill"></i></span>hello@example.com</li>
-                                <li><span class="pe-3"><i class="bi bi-geo-alt-fill"></i></span>Main Avenue, 987</li>
+                            <ul v-for="(info, index) in this.store.infoContainer" :key="index">
+                                <li v-if="index !== 2">
+                                    <i :class="info.icon"></i> <span class="ps-3"> {{ info.info }}</span>
+                                </li>
                             </ul>
                             <button class="btn ps-3">
                                 BUY NEXGEN
@@ -153,21 +155,11 @@
                         2023 - All rights reserved. Nexgen is maintained by Codings Group.
                     </p>
                 </div>
-                <div class="footer-bottom-right">
-                    <ul>
+                <div class="footer-bottom-right d-flex">
+                    <ul v-for="(social, index) in this.store.socialProfiles" :key="index">
                         <li>
                             <a href="#">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-linkedin"></i>
+                                <i :class="social.icon"></i>
                             </a>
                         </li>
                     </ul>
@@ -273,7 +265,7 @@ footer{
             ul{
                 list-style: none;
 
-                li{
+                li{ 
                     padding: 7px 18px;
                     a{
                         color: $footer-text-color;
