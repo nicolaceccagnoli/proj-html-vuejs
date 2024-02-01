@@ -7,6 +7,9 @@ import { store } from '../store';
     data() {
         return {
             store,
+
+            scrollPosition: 0,
+
             menuDataDemo: [
                 {
                 title:'demo',
@@ -83,7 +86,16 @@ import { store } from '../store';
             console.log('OFFCANVAS MAPPE')
             console.log('FLAG SEARCH',this.store.showSearchOffcanvas);
             console.log('FLAG MAPPA',this.store.showMapOffcanvas)
+        },
+        userScroll() {
+            this.scrollPosition = window.scrollY > 0;
         }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.userScroll);
+    },
+    beforeDestroy() {
+        window.addEventListener('scroll', this.userScroll);
     },
     components: { RouterLink }
 }
@@ -143,7 +155,8 @@ import { store } from '../store';
         </div>
 
         <!--header button-->
-        <div id="header-button" class="my-container d-flex justify-content-between">
+        <div 
+        id="header-button" class="my-container d-flex justify-content-between">
             <div class="container d-flex justify-content-between align-items-center">
                 <!--header top-->
                 <div class="container-logo">
@@ -323,7 +336,10 @@ import { store } from '../store';
     padding-top: 40px ;
     height: 50px;
     background: transparent;
-    z-index: 10;
+}
+
+.active-bg {
+    background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
 }
 
 #nav-header {
