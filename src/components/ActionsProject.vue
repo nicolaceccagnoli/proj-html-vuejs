@@ -185,6 +185,9 @@
                 <div
                 class="my-4 offset-2 col-8 d-flex justify-content-around"> 
                     <button
+                    :class="{
+                        'active' : selectedTags.includes(button.id)
+                    }"
                     @click="selectedCards(button.id)"
                     v-for="(button, i) in buttons"
                     :key="i"
@@ -281,7 +284,7 @@
         @include button
     }
 
-    button:active {
+    button.active {
         background-color: #C9DBDD;
         padding: 4px 12px;
         border-radius: 5px;

@@ -2,6 +2,7 @@
     import Slider from '@vueform/slider';
     import "@vueform/slider/themes/default.css";
     import { store } from '../store';
+    import Offcanvas from '../components/OffCanvas.vue';
     export default {
         data() {
             return {
@@ -270,7 +271,8 @@
                 ],
                 options: [
                     {
-                        option: 'Default sorting'
+                        option: 'Default sorting',
+                         
                     },
                     {
                         option: 'Sort by popularity'
@@ -282,10 +284,12 @@
                         option: 'Sort by latest'
                     },
                     {
-                        option: 'Sort by price: low to higher'
+                        option: 'Sort by price: low to higher',
+                        value: 'lowToHigh'
                     },
                     {
-                        option: 'Sort by price: higher to low'
+                        option: 'Sort by price: higher to low',
+                        value: 'highToLow'
                     },
                 ]
             };
@@ -359,12 +363,24 @@
             totalPrice(price) {
                 return Number(price).toFixed(2);
             },
+            sortedCards() {
+                if (this.selectedSort === 'lowToHigh') {
+                    this.cards.sort((a, b) => a.currentPrice - b.currentPrice);
+                } 
+                else if (this.selectedSort === 'highToLow') {
+                    this.cards.sort((a, b) => b.currentPrice - a.currentPrice);
+                }
+            },
+            filteredPrices(cards) {
+                return cards.filter(cards => typeof cards.oldPrice === 'string');
+            },
         },
         mounted() {
             this.productsArray = this.cards;
         },
         components: {
-            Slider
+            Slider,
+            Offcanvas
         }
     }
 </script>
@@ -383,8 +399,8 @@
                     </span>
                 </div>
                 <div class="form-size">
-                    <select class="my-form-select">
-                        <option :value="elem.option" selected v-for="(elem, index) in options" :key="index">
+                    <select class="my-form-select" id="sortSelect" v-model="selectedSort" @change="sortedCards">
+                        <option :value="elem.value" selected v-for="(elem, index) in options" :key="index">
                             {{ elem.option }}
                         </option>
                     </select>
@@ -493,77 +509,23 @@
                     On-sale Products
                 </h5>
                 <div>
-                    <ul class="list-group">
+                    <ul class="list-group" v-for="(card, index) in filteredPrices(cards)" :key="index">
                         <li class="list-group-item d-flex justify-content-between">
                             <div>
                                 <div class="background-style">
-                                    {{ cards[2].name }}
+                                    {{ card.name }}
                                 </div>
                                 <p>
                                     <span class="old-price">
-                                        {{ cards[2].oldPrice }}
+                                        {{ card.oldPrice }}
                                     </span> 
                                     <span class="ps-2">
-                                        ${{ cards[2].currentPrice }}
+                                        ${{ card.currentPrice }}
                                     </span>
                                 </p>
                             </div>
                             <div class="img-box">
-                                <img :src="cards[2].image" alt="">
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div>
-                                <div class="background-style">
-                                    {{ cards[3].name }}
-                                </div>
-                                <p>
-                                    <span class="old-price">
-                                        {{ cards[3].oldPrice }}
-                                    </span> 
-                                    <span class="ps-2">
-                                        ${{ cards[3].currentPrice }}
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="img-box">
-                                <img :src="cards[3].image" alt="">
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div>
-                                <div class="background-style">
-                                    {{ cards[0].name }}
-                                </div>
-                                <p>
-                                    <span class="old-price">
-                                        {{ cards[0].oldPrice }}
-                                    </span> 
-                                    <span class="ps-2">
-                                        ${{ cards[0].currentPrice }}
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="img-box">
-                                <img :src="cards[0].image" alt="">
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div>
-                                <div class="background-style">
-                                    {{ cards[6].name }}
-                                </div>
-                                <p>
-                                    <span class="old-price">
-                                        {{ cards[6].oldPrice }}
-                                    </span> 
-                                    <span class="ps-2">
-                                        ${{ cards[6].currentPrice }}
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="img-box">
-                                <img :src="cards[6].image" alt="">
+                                <img :src="card.image" :alt="card.name">
                             </div>
                         </li>
                     </ul>
@@ -601,6 +563,7 @@
             </div>
         </div>     
     </div>
+    <Offcanvas/>
 </template>
 
 <style lang="scss" scoped>

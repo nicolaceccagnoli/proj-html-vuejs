@@ -61,8 +61,8 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
         <!-- Inizio dello Swiper -->
         <swiper
             :style="{
-            '--swiper-navigation-color': '#fff',
-            '--swiper-pagination-color': '#fff',
+            '--swiper-navigation-color': '#999',
+            '--swiper-pagination-color': '#999',
             }"
             :speed="800"
             :parallax="true"
@@ -211,7 +211,6 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
   max-width: 400px;
   line-height: 1.3;
 }
-
 .jumbotron-text-one, .jumbotron-text-two, .jumbotron-text-three {
    
     h1 {
