@@ -137,10 +137,9 @@ import { store } from '../store';
                     </ul>                        
                 </nav>
             </div>
-            
-            <div :class="{'active-bg':scrollPosition > 0}"
-                id="header-button"
-                class="my-container d-flex justify-content-between">
+        </div>
+    
+            <div :class="{'active-bg':scrollPosition > 0}" id="header-button" class="my-container d-flex justify-content-between">
                 <div class="container d-flex align-items-center justify-content-between">
                     <!--header top-->
                     <div class="container-logo">
@@ -283,8 +282,7 @@ import { store } from '../store';
                 </div>
             </div> 
 
-        </div>
-
+       
         
         
                 
@@ -333,7 +331,11 @@ import { store } from '../store';
 #nav-header {
     width: 100%;
 }
-
+.bi-search, .bi-handbag {
+    color: $color-two;
+} :hover {
+        color:$color-one;
+    }
 .container-logo {
     margin-top: 50px;
     height: 100px;
@@ -342,7 +344,6 @@ import { store } from '../store';
         width: 100%;
     }
 }
-
 nav {
     ul {
         display: flex;
@@ -361,24 +362,16 @@ nav {
     }
 }
 
-
-//color
-.bi-search, .bi-handbag {
-    color: $color-two;
-} :hover {
-        color:$color-one;
-    }
-
-    .bi-arrow-down-short {
-    font-size: 20px;
-} :hover {
-        color:$color-one;
-    }
 #button-header {
     padding: px 15px;
     border-radius:20px;
     background-color: rgba(0, 0, 0 ,0.1);
 }
+.bi-arrow-down-short {
+    font-size: 20px;
+} :hover {
+        color:$color-one;
+    }
 
 button {
     padding: 5px;
