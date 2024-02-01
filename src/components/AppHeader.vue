@@ -7,6 +7,7 @@ import { store } from '../store';
     data() {
         return {
             store,
+            scrollPosition: 0,
             menuDataDemo: [
                 {
                 title:'demo',
@@ -54,6 +55,10 @@ import { store } from '../store';
         };
     },
     methods: {
+        userScroll() {
+            this.scrollPosition = window.scrollY > 0;
+        },
+
         showSearchOffcanvas() {
 
             if (this.store.showMapOffcanvas) {
@@ -84,6 +89,9 @@ import { store } from '../store';
             console.log('FLAG SEARCH',this.store.showSearchOffcanvas);
             console.log('FLAG MAPPA',this.store.showMapOffcanvas)
         }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.userScroll)
     },
     components: { RouterLink }
 }
@@ -139,8 +147,8 @@ import { store } from '../store';
             </div>
         </div>
     
-            <div :class="{'active-bg':scrollPosition > 0}" id="header-button" class="my-container d-flex justify-content-between">
-                <div class="container d-flex align-items-center justify-content-between">
+            <div :class="{'active-bg':scrollPosition > 0}" id="header-button" class="d-flex align-items-center">
+                <div class="container d-flex justify-content-between">
                     <!--header top-->
                     <div class="container-logo">
                         <router-link to="/">
@@ -148,7 +156,7 @@ import { store } from '../store';
                         </router-link>
                     </div>
 
-                    <div class="container-info d-flex align-items-center">
+                    <div class="container-info d-flex">
 
                         <!--DEMO-->
                         <div v-for="(option, i) in menuDataDemo"
@@ -280,12 +288,7 @@ import { store } from '../store';
                         </nav>
                     </div>                                                        
                 </div>
-            </div> 
-
-       
-        
-        
-                
+            </div>                
 </header>
 </template>
 
@@ -298,9 +301,7 @@ import { store } from '../store';
     }
 }
 #header-top {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
     background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
     color: $color-two;
     height: 50px;
@@ -324,20 +325,18 @@ import { store } from '../store';
     padding-top: 40px ;
     height: 80px;
     background: transparent;
-    position: sticky;
-    top: 0;
+}
+.active-bg {
+    background-image: linear-gradient(45deg, #0E1D2C 15%, #1B4863 85%);
+    
 }
 
-#nav-header {
-    width: 100%;
-}
 .bi-search, .bi-handbag {
     color: $color-two;
 } :hover {
         color:$color-one;
     }
 .container-logo {
-    margin-top: 50px;
     height: 100px;
     width: 150px;
     img {
@@ -348,7 +347,6 @@ nav {
     ul {
         display: flex;
         list-style: none;
-        justify-content: space-between;
     }
     li {
         display: flex;
@@ -414,7 +412,7 @@ button {
         left: 0;
         background-color: white;
         border: 1px solid #ccc;
-        z-index: 2;
+        z-index: 100;
     }
 
     ul li:hover > ul {
