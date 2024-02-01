@@ -6,7 +6,51 @@ import { store } from '../store';
     export default {
     data() {
         return {
-            store
+            store,
+            menuDataDemo: [
+                {
+                title:'demo',
+                subMenu: [
+                    {label:'home1'},
+                    {label:'home2'},
+                    {label:'home3'},                    
+                    ]
+                }
+            ],
+
+            menuDataPage: [
+                {
+                title:'page ',
+                subMenu: [
+                    {label:'about us'},
+                    {label:'services'},
+                    {label:'single Service'},
+                    {label:'Pricing Table'},                  
+                    ]
+                }
+            ],
+
+            menuDataPortfolio: [
+                {
+                title:'portfolio ',
+                subMenu: [
+                    {label:'full width'},
+                    {label:'with Sidebar'},
+                    {label:'single portflio'},                 
+                    ]
+                }
+            ],
+
+            menuDataBlog: [
+                {
+                title:'blog ',
+                subMenu: [
+                    {label:'full width'},
+                    {label:'with Sidebar'},
+                    {label:'single post'},                 
+                    ]
+                }
+            ]
         };
     },
     methods: {
@@ -99,17 +143,21 @@ import { store } from '../store';
                 <div class="container-info d-flex align-items-center">
 
                     <!--DEMO-->
-                    <div id="drop-down" class="d-flex">
+                    <div v-for="(option, i) in menuDataDemo"
+                    :key="i" id="drop-down" class="d-flex">
                         <nav>
                             <ul>
                                 <li>
                                     <a href="#">
-                                        Demo
+                                        {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
-                                        <li><a href="#">lorem</a></li>
-                                        <li><a href="#">lorem</a></li>                                        
+                                        <li v-for="(list, index) in option.subMenu">
+                                            <a href="#">
+                                                {{ list.label }}
+                                            </a>
+                                        </li>                                        
                                     </ul>
                                 </li>
                             </ul>
@@ -117,12 +165,14 @@ import { store } from '../store';
                     </div>
 
                     <!--PAGE-->
-                    <div id="drop-down" class="d-flex">
+                    <div v-for="(option, j) in menuDataPage"
+                    :key="j"
+                    id="drop-down" class="d-flex">
                         <nav>
                             <ul>
                                 <li>
                                     <a href="#">
-                                        Page
+                                        {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
@@ -139,17 +189,20 @@ import { store } from '../store';
                     </div>
 
                     <!--PORTFOLIO-->
-                    <div id="drop-down" class="">
+                    <div v-for="(option, k) in menuDataPortfolio"
+                    :key="k"
+                    id="drop-down" class="">
                         <nav>
                             <ul>
                                 <li>
                                     <a href="#">
-                                        Portfolio
+                                        {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
-                                        <li><a href="#">lorem</a></li>
-                                        <li><a href="#">lorem</a></li>                                        
+                                        <li v-for="(list, index) in option.subMenu">
+                                            <a href="#">{{list.label}}</a>
+                                        </li>                                       
                                     </ul>
                                 </li>
                             </ul>
@@ -157,17 +210,22 @@ import { store } from '../store';
                     </div>
 
                     <!--BLOG-->
-                    <div id="drop-down" class="d-flex">
+                    <div v-for="(option, l) in menuDataBlog"
+                    :key="l"
+                    id="drop-down" class="d-flex">
                         <nav>
                             <ul>
                                 <li>
                                     <a href="#">
-                                        Blog
+                                        {{option.title}}
                                         <i class="bi bi-arrow-down-short"></i>
                                     </a>
                                     <ul>
-                                        <li><a href="#">lorem</a></li>
-                                        <li><a href="#">lorem</a></li>                                        
+                                        <li v-for="(list, index) in option.subMenu">
+                                            <a href="#">
+                                                {{ list.label }}
+                                            </a>
+                                        </li>                                        
                                     </ul>
                                 </li>
                             </ul>
