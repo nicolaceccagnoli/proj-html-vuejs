@@ -22,7 +22,7 @@
 
 @mixin main-span-style {
     color: $color-one;
-    background: rgb(255,255,255);
+    background: rgb(255,255,255,);
     background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(214,230,230,1) 50%);
     border-radius: 5px;
 }

@@ -43,10 +43,14 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
         },
         setup() {
         return {
-            modules: [Parallax, Pagination, Navigation],
-            };
-        },
-    }
+            modules: [
+                Parallax,
+                Pagination,
+                Navigation
+            ],
+        };
+    },
+}
 </script>
 
 
@@ -174,7 +178,8 @@ import { Parallax, Pagination, Navigation } from 'swiper/modules';
 .swiper {
     width: 100%;
     height: 100%;
-    background: #FFF;
+    background: url('/public/images/jumbo-bg.gif');
+    background-size: cover;
     position: relative;
 }
 

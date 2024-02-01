@@ -148,9 +148,11 @@
                         </div>
                         <div class="row">
                             <div class="col-auto">
-                                <button>
+                                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                     VIEW MAP
                                 </button>
+                            </div>
+                            <div class="col-auto">
                             </div>
                         </div>
                     </div>

@@ -57,7 +57,7 @@ import { RouterLink } from 'vue-router';
                 <!--header top-->
                 <div class="container-logo">
                     <a href="">
-                        <img src="/public/logo.png" alt="">
+                        <img src="" alt="">
                     </a>
                 </div>
 

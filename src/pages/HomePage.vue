@@ -5,6 +5,8 @@ import TheCompany from '../components/TheCompany.vue';
 import ActionsProject from '../components/ActionsProject.vue';
 import Results from '../components/Results.vue';
 import FormSection from '../components/FormSection.vue';
+import OffCanvas from '../components/OffCanvas.vue';
+
 
     export default {
         data() {
@@ -19,13 +21,16 @@ import FormSection from '../components/FormSection.vue';
                 TheCompany,
                 ActionsProject,
                 Results,
-                FormSection
+                FormSection,
+                OffCanvas
             }
         }
 </script>
 
 
 <template>
+
+    <OffCanvas />
 
     <Jumbotron />
 
