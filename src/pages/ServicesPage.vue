@@ -86,6 +86,7 @@
                     title:'Professional',
                     price:'$ 890/mo',
                     icon: `bi bi-briefcase-fill`,
+                    popular: `most-popular`,
                     list: [{
                         option:'Standard Accounting',
                         check: 'bi bi-check'
@@ -281,7 +282,7 @@
 
                         <div class="container-up d-flex justify-content-between">
                             <div>
-                                <p id="most-popular">Più popolare</p>
+                                <p class="most-popular"> {{ card3.popular }}</p>
                             </div>
                             <div>
                                 <i class="bi bi-arrow-right-short"></i>
@@ -483,6 +484,7 @@
     background-color: white;
     padding: 20px;
     margin: 10px;
+    border-radius: 10px;
 }
 
 .container-card3 {
@@ -510,11 +512,6 @@
         color: $color-two;
     }
     
-    #most-popular {
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: $color-one;
-    }
     .padding-bottom {
         padding-bottom: 20px;
     }
@@ -542,6 +539,14 @@
     font-size: 50px;
 }
 
+.most-popular {
+    margin-left: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #00A6A6;
+    color: white;
+    border-radius: 0px 5px 5px 0px;
+    }
 
 </style>
 

@@ -369,7 +369,7 @@ import { store } from '../store';
 .bi-search, .bi-handbag {
     color: #BEC1CE;
 } :hover {
-        color:$color-one;
+        color:white;
     }
 .container-logo {
     width: 150px;
@@ -390,6 +390,7 @@ nav {
         text-decoration: none;
         color: #BEC1CE; 
     }
+    
 }
 
 #button-header {
