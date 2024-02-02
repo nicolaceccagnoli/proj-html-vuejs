@@ -57,7 +57,7 @@
                 {                
                     title:'Standard',
                     price:'$ 490/mo',
-                    icon: `bi bi-rocket-takeoff-fill`,
+                    icon:`bi bi-gem`,
                     list: [
                         {
                         option:'Standard Accounting',
