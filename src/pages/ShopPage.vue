@@ -6,18 +6,27 @@
     export default {
         data() {
             return {
+                // array creato per passare nel mounted le info dall'array cards
                 productsArray: [],
+                // array che mi seleziona solo gli elementi appartenenti a quel valore
                 selectedProducts: [],
+                // dichiarato store per accedere a data globali
                 store,
+                // array che si riempie una volta cliccato su una card
                 cart: [],
+                // valore di default della select
                 selectedSort: 'default',
+                // flag impostata a false per nascondere inizialmente l'immagine 
                 showEmptyCart: false,
+                // flag impostata a false per nascondere inizialmente lo shop cart
                 showCart: false,
+                // valori che mi definiscono le caratteristiche del mio slider
                 value: [0, 150],
                 min: 20,
                 max: 150,
                 step: 10,
                 tooltips: false,
+                // array che mi stabilisce le caratteristiche di ogni prodotto presente in pagina 
                 cards: [
                     {
                         name: "Black hooded sweatshirt",
@@ -28,6 +37,7 @@
                         date: '2023-12-31',
                         popularity: '7.4',
                         default: '1',
+                        // tag specifici del prodotto
                         productTags: [
                             1,
                             6,
@@ -35,6 +45,7 @@
                             12,
                             13
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             14,
                             15
@@ -50,11 +61,13 @@
                         date: '2024-01-01',
                         popularity: '7',
                         default: '2',
+                        // tag specifici del prodotto
                         productTags: [
                             1,
                             9,
                             10
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             14,
                             16
@@ -69,6 +82,7 @@
                         date: '2024-01-02',
                         popularity: '8.4',
                         default: '3',
+                        // tag specifici del prodotto
                         productTags: [
                             2,
                             6,
@@ -76,6 +90,7 @@
                             12,
                             13
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             14,
                             15
@@ -90,6 +105,7 @@
                         date: '2024-01-03',
                         popularity: '6.2',
                         default: '4',
+                        // tag specifici del prodotto
                         productTags: [
                             3,
                             6,
@@ -97,6 +113,7 @@
                             12,
                             13
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             14,
                             15
@@ -111,6 +128,7 @@
                         date: '2024-01-04',
                         popularity: '9',
                         default: '5',
+                        // tag specifici del prodotto
                         productTags: [
                             4,
                             6,
@@ -118,6 +136,7 @@
                             12,
                             13
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             14,
                             15
@@ -132,6 +151,7 @@
                         date: '2024-01-05',
                         popularity: '7.8',
                         default: '6',
+                        // tag specifici del prodotto
                         productTags: [
                             2,
                             6,
@@ -139,6 +159,7 @@
                             12,
                             13
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             14,
                             15
@@ -154,10 +175,12 @@
                         date: '2024-01-06',
                         popularity: '5.5',
                         default: '7',
+                        // tag specifici del prodotto
                         productTags: [
                             5,
                             7
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             17,
                         ]
@@ -171,6 +194,7 @@
                         date: '2024-01-07',
                         popularity: '8',
                         default: '8',
+                        // tag specifici del prodotto
                         productTags: [
                             6,
                             7,
@@ -178,6 +202,7 @@
                             12,
                             13
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             14,
                             15
@@ -193,10 +218,12 @@
                         date: '2024-01-08',
                         popularity: '9.4',
                         default: '9',
+                        // tag specifici del prodotto
                         productTags: [
                             5,
                             10
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             17
                         ]
@@ -211,11 +238,13 @@
                         date: '2024-01-09',
                         popularity: '7.1',
                         default: '10',
+                        // tag specifici del prodotto
                         productTags: [
                             7,
                             9,
                             11
                         ],
+                        // categorie specifiche del prodotto
                         productCategories: [
                             14,
                             16
@@ -223,6 +252,7 @@
 
                     }
                 ],
+                // array in cui sono presenti tutti i tag con relativo id
                 tags: [
                     {
                         id: 1,
@@ -278,6 +308,7 @@
                     }
 
                 ],
+                // array in cui sono presenti tutte le categorie con relativo id
                 categories: [
                     {
                         value: 14,
@@ -300,6 +331,7 @@
                         pieces: 2
                     }
                 ],
+                // array che mi definisce le opzioni della select
                 options: [
                     {
                         option: 'Default sorting',
@@ -332,28 +364,39 @@
 
                 this.selectedProducts = [];
 
+                // controllo se il prodotto selezionato è già presente o meno, lo pusho se non è presente
                 if (!this.selectedProducts.includes(id)) {
                     this.selectedProducts.push(id)
-                } else {
+                } 
+                else {
+                    // variabile che mi controlla che selectedProducts corrisponda al suo stesso indice
                     const elem = this.selectedProducts.indexOf(id);
                     this.selectedProducts.splice(elem, 1);
                 }
-
+                
+                // svuoto l'array temporaneo
                 this.productsArray = [];
 
+                // funzione per controllare i miei 2 array 
                 const isSubset = (array1, array2) =>
                 array2.every((element) => array1.includes(element));
-
+                
+                // ciclo di controllo dei prodotti in productsArray
                 for (let card in this.cards) {
 
+                    // se i tag corrispondono, il prodotto viene aggiunto al nuovo array
                     if (isSubset(this.cards[card].productTags, this.selectedProducts)) {
                         this.productsArray.push(this.cards[card]);
                     }
+
+                    // se le categorie corrispondono, il prodotto viene aggiunto al nuovo array
                     else if (isSubset(this.cards[card].productCategories, this.selectedProducts)) {
                         this.productsArray.push(this.cards[card]);
                     }
                 }
             },
+
+            // funzione per lo slider che aggiunge a productsArray solo i prodotti che hanno un currentPrice compreso tra i valori selezionati nello Slider 
             filteredProducts() {
                 if(this.showEmptyCart == true){
                     this.showEmptyCart = false
@@ -361,26 +404,37 @@
                 this.productsArray = this.cards.filter(
                     (card) =>
                     card.currentPrice >= this.value[0] && card.currentPrice <= this.value[1],
-                    console.log('prezzo selezionato minimo:', this.value[0]),
-                    console.log('prezzo selezionato massimo:', this.value[1]),
-                    console.log('prezzo card:', this.currentPrice)
                 );
             },
+            // funzione collegata ad un bottone che sul click mi applica la funzione di sopra
             filterProducts(){
                 this.filteredProducts();
             },
+
+            // funzione che aggiunge a cart i valori assegnati se clicco su un bottone
             addToCart(card) {
+
+                // condizione per far vedere o meno l'immagine
                 if(this.showEmptyCart == true){
                     this.showEmptyCart = false
                 }
+                // trasformo currentPrice in un numero
                 const currentPrice = Number(card.currentPrice);
+
+                // condizione per cui se currentPrice non è NaN allora me lo aggiunge a cart
                 if (!isNaN(currentPrice)) {
+
+                // pusho l'elemento cliccato nell'array cart (solo i valori che mi interessano)
                 this.cart.push({ name: card.name, currentPrice: currentPrice.toFixed(2), image: card.image });
                 this.store.globalCart.push({ name: card.name, currentPrice: currentPrice.toFixed(2), image: card.image });
                 }
             },
+
+            // funzione che mi rimuove al click un prodotto dall'array cart
             removeFromCart(index) {
                 this.cart.splice(index, 1)
+
+                // se la lunghezza di cart è 0 allora mi mostra l'immagine
                 if(this.cart.length == 0){
                     this.showEmptyCart = true
                 }
@@ -389,39 +443,64 @@
                 }
                 
             },
+
+            // funzione che mi restituisce il totale dei prodotti 
             getCartTotal() {
+                // verifico ogni elemento di cart grazie a reduce
+                // il primo argomento mi memorizza la somma durante il ciclo, item rappresenta i prodotti all'interno di cart - il valore iniziare da cui deve partire il total è 0
                 const total = this.cart.reduce((total, item) => total + Number(item.currentPrice), 0);
                 const globalTotal = this.store.globalCart.reduce((total, item) => total + Number(item.currentPrice), 0);
                 console.log('Cart Total:', total);
                 return total, globalTotal;
             },
+
+            // arrotondo il totale a due cifre dopo la virgola
             totalPrice(price) {
                 return Number(price).toFixed(2);
             },
+
+            // funzione utilizzata per cambiare option che ti cambia l'ordine dei prodotti all'interno di cards in base al valore di ogni card
+            // collegata a @change sulla select 
             sortedCards() {
+
+                // condizione che mi mette le card in ordine dal prezzo più basso a quello più alto
                 if (this.selectedSort === 'lowToHigh') {
                     this.cards.sort((a, b) => a.currentPrice - b.currentPrice);
-                } 
+                }
+
+                // condizione che mi mette le card in ordine dal prezzo più alto a quello più basso
                 else if (this.selectedSort === 'highToLow') {
                     this.cards.sort((a, b) => b.currentPrice - a.currentPrice);
                 }
+
+                // condizione che mi mette le card in ordine dalla data più recente  
                 else if (this.selectedSort === 'latest') {
                     this.cards.sort((a, b) => new Date(b.date) - new Date(a.date));
                 }
+
+                // condizione che mi mette le card in ordine la popolarità - valore dato nell'array cards
                 else if (this.selectedSort === 'popularity') {
                     this.cards.sort((a, b) => b.popularity - a.popularity);
                 }
+
+                // condizione che mi mette le card in ordine default - come sono messi nell'array cards
                 else if (this.selectedSort === 'default') {
                     this.cards.sort((a, b) => a.default - b.default);
                 }
             },
+
+            // funzione che mi restituisce solo valori di tipo string
             filteredPrices(cards) {
                 return cards.filter(cards => typeof cards.oldPrice === 'string');
             }
         },
+
+        // assegno l'array cards a productsArray
         mounted() {
             this.productsArray = this.cards;
         },
+
+        // aggiungo i component slider e offcanvas
         components: {
             Slider,
             Offcanvas
@@ -443,6 +522,7 @@
                     </span>
                 </div>
                 <div class="form-size">
+                    <!-- @change sulla select -->
                     <select class="my-form-select" id="sortSelect" v-model="selectedSort" @change="sortedCards" placeholder="Default sorting">
                         <option :value="elem.value" selected v-for="(elem, index) in options" :key="index">
                             {{ elem.option }}
@@ -487,6 +567,7 @@
                 </h5>
                 <div>
                     <div>
+                        <!-- slider inserito dopo averlo installato -->
                         <Slider v-model="value" :min="min" :max="max" :step="step" :tooltips="tooltips" class="slider"> </Slider>
                     </div>
                     <div class="d-flex pt-5 justify-content-between">
